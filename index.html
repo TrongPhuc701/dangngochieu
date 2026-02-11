@@ -1189,7 +1189,7 @@
     <script>
 // --- 1. CONFIGURATION ---
 // *** DÁN LINK GOOGLE SCRIPT MỚI CỦA BẠN VÀO DÒNG DƯỚI ĐÂY ***
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzZSt51qXxQ1SxTG_QXKCTHkrz4r3TubcXdM81E-zaBOHwhek0yeI9c7OFwqrRCfMKn/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxKIJkUu1KK5U_1LcMMYXoMBFZxdNMBKo0VQ7d1z3XzUYWvhJ7lTE9FNm0vMOFWrCqO/exec";
 
 // API Key đã được tách để bảo mật
 const p1 = "AIzaSyATuUtjMpD-";
@@ -1202,35 +1202,38 @@ const apiKey = p1 + p2;
         let currentMode = 'chat';
         let currentGiftSelection = null;
 
-        // --- HELPER: Send Data to Google Sheet ---
-        async function sendDataToSheet(formData) {
-            if (GOOGLE_SCRIPT_URL.includes("YOUR_SCRIPT_ID_HERE")) {
-                console.warn("Chưa cập nhật link Google Apps Script!");
-                return;
-            }
+        // --- HELPER: Send Data to Google Sheet (ĐÃ SỬA LỖI) ---
+async function sendDataToSheet(formData) {
+    // Kiểm tra nếu link script chưa được cập nhật (phòng hờ)
+    if (GOOGLE_SCRIPT_URL.includes("placeholder")) {
+        console.warn("Chưa cập nhật link Google Apps Script!");
+        return;
+    }
 
-            const data = {};
-            formData.forEach((value, key) => {
-                data[key] = value;
-            });
+    const data = {};
+    formData.forEach((value, key) => {
+        data[key] = value;
+    });
 
-            try {
-                await fetch(GOOGLE_SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors', 
-                    cache: 'no-cache',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    redirect: 'follow',
-                    body: JSON.stringify(data)
-                });
-                console.log("Data sent to sheet");
-            } catch (error) {
-                console.error("Error sending to sheet", error);
-            }
-        }
+    // SỬA LỖI QUAN TRỌNG:
+    // Chuyển dữ liệu sang dạng tham số URL (Form chuẩn) thay vì JSON
+    // Điều này giúp Google Script đọc được dữ liệu khi dùng chế độ no-cors
+    const params = new URLSearchParams(data);
 
+    try {
+        await fetch(GOOGLE_SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors', // Bắt buộc để không bị chặn bởi trình duyệt
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: params // Gửi params thay vì JSON.stringify
+        });
+        console.log("Dữ liệu đã được gửi đi (Mode: no-cors)");
+    } catch (error) {
+        console.error("Lỗi gửi dữ liệu:", error);
+    }
+}
         // --- 2. GIFT UNLOCK LOGIC ---
         function selectGift(type) {
             currentGiftSelection = type;
@@ -1643,6 +1646,7 @@ const apiKey = p1 + p2;
     </script>
 </body>
 </html>
+
 
 
 
