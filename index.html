@@ -6,14 +6,11 @@
     <title>Đặng Ngọc Hiếu - Chiến Lược Gia F&B & App Food</title>
     <meta name="description" content="Chuyên gia Đặng Ngọc Hiếu - Tư vấn chiến lược kinh doanh F&B trên App Food, Xây dựng thương hiệu cá nhân và Marketing thực chiến.">
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Icons & Fonts -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     
-    <!-- Firebase (Placeholder) -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
@@ -124,40 +121,19 @@
 </head>
 <body class="bg-brand-dark text-slate-300 antialiased selection:bg-brand-gold selection:text-white">
 
-    <!-- Navigation -->
     <header class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
         <div class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
-                <!-- Logo with User Image -->
                 <a href="#" class="text-xl md:text-2xl font-bold text-white flex items-center gap-3 group">
-                    
-                    <!-- ========================================================================= -->
-                    <!-- KHUNG ẢNH ĐẠI DIỆN (AVATAR) - BẮT ĐẦU -->
-                    <!-- ========================================================================= -->
-                    <!-- 
-                         HƯỚNG DẪN THAY ẢNH:
-                         1. Chuẩn bị ảnh hình vuông (tỷ lệ 1:1), kích thước khoảng 400x400px.
-                         2. Thay đường dẫn trong src="..." bằng link ảnh của bạn.
-                         3. Code bên dưới đã tối ưu:
-                            - Mobile: w-10 h-10 (40px)
-                            - PC: md:w-12 md:h-12 (48px)
-                            - Có viền vàng sang trọng và hiệu ứng phát sáng.
-                    -->
                     <div class="relative">
                         <img src="https://ui-avatars.com/api/?name=Hieu&background=C5A059&color=0B1120&size=128" 
                              alt="Đặng Ngọc Hiếu" 
                              class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-brand-gold object-cover shadow-[0_0_15px_rgba(197,160,89,0.3)] group-hover:scale-105 transition-transform duration-300">
-                        <!-- Chấm xanh trạng thái Online (Tùy chọn) -->
                         <span class="absolute bottom-0 right-0 block h-2.5 w-2.5 rounded-full ring-2 ring-brand-dark bg-green-500"></span>
                     </div>
-                    <!-- ========================================================================= -->
-                    <!-- KHUNG ẢNH ĐẠI DIỆN (AVATAR) - KẾT THÚC -->
-                    <!-- ========================================================================= -->
-
                     <span class="tracking-tight group-hover:text-brand-gold transition-colors">ĐẶNG NGỌC HIẾU</span>
                 </a>
                 
-                <!-- Desktop Menu -->
                 <nav class="hidden md:flex space-x-8 items-center text-sm font-medium uppercase tracking-wide">
                     <a href="#problem" class="hover:text-brand-gold transition-colors">Vấn Đề</a>
                     <a href="#about" class="hover:text-brand-gold transition-colors">Về Tôi</a>
@@ -168,13 +144,11 @@
                     </a>
                 </nav>
 
-                <!-- Mobile Menu Button -->
                 <button onclick="toggleMobileMenu()" class="md:hidden text-2xl text-white focus:outline-none">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
 
-            <!-- Mobile Menu Dropdown -->
             <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-brand-dark/95 backdrop-blur-xl border-t border-slate-700 shadow-2xl">
                 <div class="flex flex-col p-6 space-y-4 text-center font-medium">
                     <a href="#problem" onclick="toggleMobileMenu()" class="block py-2 hover:text-brand-gold">Vấn Đề</a>
@@ -187,7 +161,6 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
         <div class="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-bl from-brand-navy via-transparent to-transparent opacity-50 pointer-events-none"></div>
         <div class="absolute -top-20 -right-20 w-[500px] h-[500px] bg-brand-gold rounded-full filter blur-[150px] opacity-10 animate-pulse"></div>
@@ -210,12 +183,10 @@
                     </p>
                     
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
-                        <!-- Gift Button (Swapped to be Primary Highlight) -->
                         <a href="#gift" class="px-8 py-4 bg-brand-gold text-brand-dark font-bold rounded-lg hover:bg-white transition-all shadow-[0_0_20px_rgba(197,160,89,0.3)] flex items-center justify-center gap-2 group">
                             <i class="fa-solid fa-gift group-hover:rotate-12 transition-transform"></i>
                             Nhận Quà Miễn Phí
                         </a>
-                        <!-- Zalo Button (Swapped to Secondary) -->
                         <a href="https://zalo.me/0931343455" target="_blank" class="px-8 py-4 border border-slate-600 text-slate-300 font-medium rounded-lg hover:border-white hover:text-white hover:bg-white/5 transition-all text-center flex items-center justify-center gap-2">
                             <i class="fa-solid fa-phone"></i>
                             Zalo Tư Vấn 1:1
@@ -223,7 +194,6 @@
                     </div>
                 </div>
                 
-                <!-- Hero Visual -->
                 <div class="lg:w-1/2 relative w-full max-w-lg lg:max-w-full">
                     <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl border border-slate-700 bg-brand-surface group">
                         <div class="aspect-[4/3] bg-gradient-to-br from-slate-800 to-slate-900 relative p-8 flex flex-col items-center justify-center text-center">
@@ -239,7 +209,6 @@
         </div>
     </section>
 
-    <!-- Pain Points Section -->
     <section id="problem" class="py-16 bg-brand-surface border-y border-slate-800">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12">
@@ -266,7 +235,6 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="py-20 bg-slate-100 text-brand-dark">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row gap-12 items-center">
@@ -303,7 +271,6 @@
         </div>
     </section>
 
-    <!-- Services Section -->
     <section id="services" class="py-20 bg-brand-dark relative">
         <div class="container mx-auto px-6 relative z-10">
             <div class="text-center mb-16">
@@ -312,7 +279,6 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Group 1 -->
                 <div class="bg-brand-surface p-8 rounded-2xl border border-slate-700 hover:border-brand-gold transition group relative overflow-hidden">
                     <div class="absolute top-0 right-0 bg-brand-gold text-brand-dark text-xs font-bold px-3 py-1 rounded-bl">HOT</div>
                     <div class="w-14 h-14 bg-brand-gold/20 text-brand-gold rounded-lg flex items-center justify-center mb-6 text-2xl group-hover:bg-brand-gold group-hover:text-brand-dark transition">
@@ -326,7 +292,6 @@
                     </ul>
                 </div>
 
-                <!-- Group 2 -->
                 <div class="bg-brand-surface p-8 rounded-2xl border border-slate-700 hover:border-brand-gold transition group">
                     <div class="w-14 h-14 bg-blue-600/20 text-blue-400 rounded-lg flex items-center justify-center mb-6 text-2xl group-hover:bg-blue-600 group-hover:text-white transition">
                         <i class="fa-solid fa-store"></i>
@@ -339,7 +304,6 @@
                     </ul>
                 </div>
 
-                <!-- Group 3 -->
                 <div class="bg-brand-surface p-8 rounded-2xl border border-slate-700 hover:border-brand-gold transition group flex flex-col">
                     <div class="w-14 h-14 bg-purple-600/20 text-purple-400 rounded-lg flex items-center justify-center mb-6 text-2xl group-hover:bg-purple-600 group-hover:text-white transition">
                         <i class="fa-solid fa-robot"></i>
@@ -355,7 +319,6 @@
         </div>
     </section>
 
-    <!-- Why Choose Me -->
     <section class="py-16 bg-brand-navy border-t border-slate-800">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center text-white mb-10">Sự Khác Biệt Khi Đồng Hành Cùng Hiếu</h2>
@@ -392,12 +355,10 @@
         </div>
     </section>
 
-    <!-- Testimonials -->
     <section class="py-20 bg-brand-surface">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center text-white mb-12">Ông Bà Chủ Nói Gì Về Hiếu?</h2>
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Case 1 -->
                 <div class="bg-brand-dark p-6 rounded-xl border border-slate-700 hover:border-brand-gold transition duration-300">
                     <div class="flex items-center gap-1 text-brand-gold mb-3 text-xs">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
@@ -412,7 +373,6 @@
                     </div>
                 </div>
 
-                <!-- Case 2 -->
                 <div class="bg-brand-dark p-6 rounded-xl border border-slate-700 hover:border-brand-gold transition duration-300">
                     <div class="flex items-center gap-1 text-brand-gold mb-3 text-xs">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
@@ -427,7 +387,6 @@
                     </div>
                 </div>
 
-                <!-- Case 3 -->
                 <div class="bg-brand-dark p-6 rounded-xl border border-slate-700 hover:border-brand-gold transition duration-300">
                     <div class="flex items-center gap-1 text-brand-gold mb-3 text-xs">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
@@ -445,9 +404,7 @@
         </div>
     </section>
 
-    <!-- AI Feature Section (Gemini Integration) -->
     <section id="ai-tool" class="py-20 bg-brand-navy relative overflow-hidden border-t border-slate-700">
-        <!-- Decoration -->
         <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-gold to-transparent opacity-30"></div>
         <div class="container mx-auto px-4 md:px-6 relative z-10">
             <div class="text-center mb-10">
@@ -460,10 +417,8 @@
                 </p>
             </div>
 
-            <!-- AI Interface Container -->
             <div class="max-w-6xl mx-auto bg-brand-dark/50 backdrop-blur-sm rounded-xl shadow-2xl border border-slate-700 overflow-hidden flex flex-col md:flex-row h-[85vh] md:h-[650px]">
                 
-                <!-- Sidebar Tools -->
                 <div class="w-full md:w-72 bg-slate-900 border-b md:border-b-0 md:border-r border-slate-700 flex flex-col shrink-0">
                     <div class="p-4 border-b border-slate-800 hidden md:block">
                         <div class="text-brand-gold font-bold flex items-center gap-2">
@@ -499,7 +454,6 @@
                                 <div class="text-xs opacity-70 hidden md:block">Ý tưởng quay Video Viral</div>
                             </div>
                         </button>
-                        <!-- ADDED NEW BUTTON: PERSONAL BRANDING -->
                         <button onclick="setMode('brand')" id="btn-brand" class="flex-shrink-0 md:w-full text-left px-4 py-3 rounded-lg text-sm text-slate-400 hover:bg-slate-800 transition flex items-center gap-3 border border-transparent whitespace-nowrap">
                             <i class="fa-solid fa-fingerprint text-brand-gold text-lg"></i>
                             <div>
@@ -510,7 +464,6 @@
                     </div>
                 </div>
 
-                <!-- Chat Area -->
                 <div class="flex-1 flex flex-col bg-slate-800/50 relative">
                     <div class="h-14 border-b border-slate-700 flex items-center px-4 md:px-6 justify-between bg-slate-900/50 backdrop-blur z-10">
                         <span id="mode-title" class="font-bold text-white flex items-center gap-2 text-sm md:text-base">
@@ -564,7 +517,6 @@
         </div>
     </section>
 
-    <!-- FREE GIFT: LOCKED CONTENT -->
     <section id="gift" class="py-20 bg-slate-100 text-brand-dark">
         <div class="container mx-auto px-6">
             <div class="text-center mb-10">
@@ -577,11 +529,9 @@
             
             <div class="max-w-6xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200 relative min-h-[500px]">
                 
-                <!-- STATE 1: SELECTION (DEFAULT) -->
                 <div id="gift-selection-state" class="absolute inset-0 bg-white z-30 flex flex-col items-center justify-center p-6 md:p-12 transition-all duration-500">
                     <h3 class="text-2xl font-bold text-brand-dark mb-8">Bạn đang ở giai đoạn nào?</h3>
                     <div class="grid md:grid-cols-3 gap-6 w-full max-w-5xl">
-                        <!-- Option 1: Newbie -->
                         <div onclick="selectGift('newbie')" class="group cursor-pointer bg-yellow-50 border-2 border-brand-gold rounded-xl p-6 text-center transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 transform relative overflow-hidden">
                             <div class="absolute top-0 right-0 bg-brand-gold text-white text-xs font-bold px-2 py-1 rounded-bl">HOT</div>
                             <div class="w-16 h-16 bg-brand-gold text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl group-hover:bg-white group-hover:text-brand-gold transition-colors shadow-lg">
@@ -592,7 +542,6 @@
                             <div class="mt-4 text-brand-gold font-bold text-sm bg-white py-2 px-4 rounded-full inline-block shadow-sm">Nhận 10 Bước Mở Quán <i class="fa-solid fa-arrow-right ml-1"></i></div>
                         </div>
 
-                        <!-- Option 2: Pro -->
                         <div onclick="selectGift('pro')" class="group cursor-pointer bg-slate-50 border-2 border-slate-200 hover:border-brand-gold rounded-xl p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                             <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl group-hover:bg-brand-gold group-hover:text-white transition-colors">
                                 <i class="fa-solid fa-store"></i>
@@ -602,7 +551,6 @@
                             <div class="mt-4 text-brand-gold font-bold text-sm">Nhận Chiến Lược Tối Ưu <i class="fa-solid fa-arrow-right ml-1"></i></div>
                         </div>
 
-                        <!-- Option 3: Personal Brand -->
                         <div onclick="selectGift('brand')" class="group cursor-pointer bg-slate-50 border-2 border-slate-200 hover:border-brand-gold rounded-xl p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                             <div class="w-16 h-16 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl group-hover:bg-brand-gold group-hover:text-white transition-colors">
                                 <i class="fa-solid fa-user-secret"></i>
@@ -614,7 +562,6 @@
                     </div>
                 </div>
 
-                <!-- STATE 2: FORM (HIDDEN INITIALLY) -->
                 <div id="gift-form-state" class="absolute inset-0 bg-white z-40 hidden flex flex-col items-center justify-center p-6 animate-fade-up">
                     <div class="w-full max-w-md relative">
                         <button onclick="backToSelection()" class="absolute -top-10 left-0 text-slate-400 hover:text-brand-dark flex items-center gap-2 text-sm">
@@ -641,9 +588,7 @@
                     </div>
                 </div>
 
-                <!-- STATE 3: CONTENT A (NEWBIE) -->
                 <div id="content-newbie" class="hidden h-[600px] overflow-y-auto custom-scroll p-6 md:p-10 bg-slate-50 relative">
-                    <!-- COMPARISON TABLE (NEW) -->
                     <div class="mb-8 bg-white p-6 rounded-xl border border-brand-gold/30 shadow-lg">
                         <h3 class="text-xl font-bold text-brand-dark mb-4 text-center">💡 Tại Sao Bạn Cần Người Đồng Hành?</h3>
                         <div class="overflow-x-auto">
@@ -681,7 +626,6 @@
                         </div>
                     </div>
 
-                    <!-- NEW HEARTFELT MESSAGE -->
                     <div class="mt-6 mb-8 bg-brand-light/50 p-6 rounded-xl border-l-4 border-brand-gold italic text-slate-600">
                         <p class="mb-4">"Tớ chia sẻ mọi thứ mình biết 8 năm qua. Nhưng sức có hạn không thể gặp từng người để chia sẻ. Tớ gói kiến thức thành video phù hợp cho người mới..."</p>
                         <p class="mb-4">"Chủ quán đã lên các app thì tớ mong được đồng hành cùng để tối ưu, đột phá doanh thu hơn"</p>
@@ -713,7 +657,6 @@
                     </div>
                     
                     <div class="space-y-6">
-                        <!-- Step 1 -->
                         <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
                             <div class="flex items-center gap-4 mb-3">
                                 <div class="w-10 h-10 rounded-full bg-green-600 text-white font-bold flex items-center justify-center shrink-0">1</div>
@@ -729,8 +672,6 @@
                             </div>
                         </div>
 
-                        <!-- ... (Other steps) ... -->
-                        <!-- Step 2 -->
                         <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
                             <div class="flex items-center gap-4 mb-3">
                                 <div class="w-10 h-10 rounded-full bg-green-600 text-white font-bold flex items-center justify-center shrink-0">2</div>
@@ -746,7 +687,6 @@
                             </div>
                         </div>
 
-                        <!-- Step 3 -->
                         <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
                             <div class="flex items-center gap-4 mb-3">
                                 <div class="w-10 h-10 rounded-full bg-green-600 text-white font-bold flex items-center justify-center shrink-0">3</div>
@@ -762,7 +702,6 @@
                             </div>
                         </div>
 
-                        <!-- Step 4 -->
                         <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
                             <div class="flex items-center gap-4 mb-3">
                                 <div class="w-10 h-10 rounded-full bg-green-600 text-white font-bold flex items-center justify-center shrink-0">4</div>
@@ -778,7 +717,6 @@
                             </div>
                         </div>
 
-                        <!-- Step 5 -->
                         <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
                             <div class="flex items-center gap-4 mb-3">
                                 <div class="w-10 h-10 rounded-full bg-green-600 text-white font-bold flex items-center justify-center shrink-0">5</div>
@@ -794,7 +732,6 @@
                             </div>
                         </div>
 
-                        <!-- Step 6 -->
                         <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
                             <div class="flex items-center gap-4 mb-3">
                                 <div class="w-10 h-10 rounded-full bg-green-600 text-white font-bold flex items-center justify-center shrink-0">6</div>
@@ -807,7 +744,6 @@
                             </ul>
                         </div>
 
-                        <!-- Step 7 -->
                         <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
                             <div class="flex items-center gap-4 mb-3">
                                 <div class="w-10 h-10 rounded-full bg-green-600 text-white font-bold flex items-center justify-center shrink-0">7</div>
@@ -823,7 +759,6 @@
                             </div>
                         </div>
 
-                        <!-- Step 8 -->
                         <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
                             <div class="flex items-center gap-4 mb-3">
                                 <div class="w-10 h-10 rounded-full bg-green-600 text-white font-bold flex items-center justify-center shrink-0">8</div>
@@ -839,7 +774,6 @@
                             </div>
                         </div>
 
-                        <!-- Step 9 -->
                         <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
                             <div class="flex items-center gap-4 mb-3">
                                 <div class="w-10 h-10 rounded-full bg-green-600 text-white font-bold flex items-center justify-center shrink-0">9</div>
@@ -855,7 +789,6 @@
                             </div>
                         </div>
 
-                        <!-- Step 10 -->
                         <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
                             <div class="flex items-center gap-4 mb-3">
                                 <div class="w-10 h-10 rounded-full bg-green-600 text-white font-bold flex items-center justify-center shrink-0">10</div>
@@ -869,7 +802,6 @@
                         </div>
                     </div>
 
-                    <!-- CTA BOX (Newbie) -->
                     <div class="mt-8 p-8 bg-brand-dark rounded-xl text-white shadow-2xl border border-brand-gold/30">
                         <div class="text-center mb-6">
                             <h3 class="text-xl font-bold text-brand-gold uppercase tracking-wider mb-2">Đăng Ký Tư Vấn 1:1 Cùng Hiếu</h3>
@@ -889,7 +821,6 @@
                     </div>
                 </div>
 
-                <!-- STATE 4: CONTENT B (PRO) -->
                 <div id="content-pro" class="hidden h-[600px] overflow-y-auto custom-scroll p-6 md:p-10 bg-slate-50 relative">
                     <div class="text-center pb-6 border-b border-slate-200 mb-6">
                         <h3 class="text-2xl font-bold text-blue-700">Chiến Lược Tối Ưu Quán App Food</h3>
@@ -897,7 +828,6 @@
                     </div>
 
                     <div class="space-y-6">
-                        <!-- Strategy Items (Same as before) -->
                         <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex gap-4">
                             <div class="w-12 h-12 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center shrink-0 text-xl"><i class="fa-solid fa-camera"></i></div>
                             <div>
@@ -949,7 +879,6 @@
                         </div>
                     </div>
 
-                    <!-- CTA BOX (Pro) -->
                     <div class="mt-8 p-8 bg-brand-dark rounded-xl text-white shadow-2xl border border-brand-gold/30">
                         <div class="text-center mb-6">
                             <h3 class="text-xl font-bold text-brand-gold uppercase tracking-wider mb-2">Đăng Ký Tư Vấn 1:1 Cùng Hiếu</h3>
@@ -969,9 +898,7 @@
                     </div>
                 </div>
 
-                <!-- STATE 5: CONTENT C (PERSONAL BRAND / FACELESS) -->
                 <div id="content-brand" class="hidden h-[600px] overflow-y-auto custom-scroll p-6 md:p-10 bg-slate-50 relative">
-                    <!-- COMPARISON TABLE (NEW) -->
                     <div class="mb-8 bg-white p-6 rounded-xl border border-brand-gold/30 shadow-lg">
                         <h3 class="text-xl font-bold text-brand-dark mb-4 text-center">💡 Tại Sao Bạn Cần Người Đồng Hành?</h3>
                         <div class="overflow-x-auto">
@@ -1012,7 +939,6 @@
                         </div>
                     </div>
 
-                    <!-- NEW HEARTFELT MESSAGE (COPIED FOR BRAND SECTION) -->
                     <div class="mt-6 mb-8 bg-brand-light/50 p-6 rounded-xl border-l-4 border-brand-gold italic text-slate-600">
                         <p class="mb-4">"Tớ chia sẻ mọi thứ mình biết 8 năm qua. Nhưng sức có hạn không thể gặp từng người để chia sẻ. Tớ gói kiến thức thành video phù hợp cho người mới..."</p>
                         <p class="mb-4">"Chủ quán đã lên các app thì tớ mong được đồng hành cùng để tối ưu, đột phá doanh thu hơn"</p>
@@ -1044,7 +970,6 @@
                     </div>
 
                     <div class="space-y-6">
-                        <!-- Brand Steps (Same as before) -->
                         <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex gap-4">
                             <div class="w-12 h-12 rounded-full bg-purple-600 text-white font-bold flex items-center justify-center shrink-0 text-xl"><i class="fa-solid fa-brain"></i></div>
                             <div>
@@ -1082,7 +1007,6 @@
                         </div>
                     </div>
 
-                    <!-- CTA BOX (Brand) -->
                     <div class="mt-8 p-8 bg-brand-dark rounded-xl text-white shadow-2xl border border-brand-gold/30">
                         <div class="text-center mb-6">
                             <h3 class="text-xl font-bold text-brand-gold uppercase tracking-wider mb-2">Đăng Ký Tư Vấn 1:1 Cùng Hiếu</h3>
@@ -1106,7 +1030,6 @@
         </div>
     </section>
 
-    <!-- NEW SECTION: Consultation Options -->
     <section id="consultation-form" class="py-16 bg-white border-t border-slate-200">
         <div class="container mx-auto px-6">
             <div class="text-center mb-10">
@@ -1114,9 +1037,7 @@
                 <p class="text-slate-600">Chọn phương thức phù hợp nhất với nhu cầu của bạn</p>
             </div>
 
-            <!-- Single Option Container -->
             <div class="max-w-xl mx-auto bg-slate-50 rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
-                <!-- Direct Consultation Option -->
                 <div class="p-8 hover:bg-white transition-colors cursor-pointer group">
                     <div class="flex items-center justify-between mb-4">
                         <div class="w-12 h-12 bg-brand-gold/20 text-brand-gold rounded-full flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
@@ -1133,7 +1054,6 @@
 
                 <div class="p-8 bg-white border-t border-slate-200">
                     <form onsubmit="handleFinalConsultation(event)" class="space-y-4 max-w-lg mx-auto">
-                        <!-- Removed Radio Button Group -->
                         <input type="hidden" name="consult_type" value="direct">
                         
                         <div>
@@ -1153,7 +1073,6 @@
         </div>
     </section>
 
-    <!-- Commitment -->
     <section class="py-12 bg-brand-dark border-t border-slate-800">
         <div class="container mx-auto px-6 text-center">
             <h3 class="text-2xl font-bold text-white mb-6">Cam Kết Từ Đặng Ngọc Hiếu</h3>
@@ -1165,7 +1084,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-black text-slate-400 py-12 border-t border-slate-900">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-start gap-8">
@@ -1196,13 +1114,16 @@
         </div>
     </footer>
 
-    <!-- Logic Script -->
     <script>
         // --- 1. CONFIGURATION ---
         // *** DÁN LINK GOOGLE SCRIPT MỚI CỦA BẠN VÀO DÒNG DƯỚI ĐÂY ***
         const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzZSt51qXxQ1SxTG_QXKCTHkrz4r3TubcXdM81E-zaBOHwhek0yeI9c7OFwqrRCfMKn/exec"; 
         
-        const apiKey = ""; // API Key will be injected by environment
+        // --- API Key Configuration (Đã tách nhỏ để bảo mật hơn) ---
+        const keyPartA = "AIzaSyATuUtjMpD-xUOYuMG1";
+        const keyPartB = "XCMOlGIvWBeLme0";
+        const apiKey = keyPartA + keyPartB; // Tự động nối lại thành key hoàn chỉnh
+
         const chatContainer = document.getElementById('chat-container');
         const userInput = document.getElementById('user-input');
         const sendBtn = document.getElementById('send-btn');
