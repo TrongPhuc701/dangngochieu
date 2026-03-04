@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đặng Ngọc Hiếu - Cùng Chủ Quán Xây Tài Sản Số</title>
-    <meta name="description" content="Đặng Ngọc Hiếu - cùng chủ quán xây dựng chiến lược kinh doanh ẩm thực online - Làm thật với thương hiệu cá nhân số.">
+    <title>Bí Quyết Xây Gian Hàng Nghìn Đơn - Đặng Ngọc Hiếu</title>
+    <meta name="description" content="Hệ thống bài giảng thực chiến giúp bạn tối ưu lợi nhuận, làm chủ thuật toán hiển thị và bùng nổ doanh số GrabFood, ShopeeFood.">
     
     <script src="https://cdn.tailwindcss.com"></script>
     
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
@@ -29,7 +29,8 @@
                             navy: '#1E293B',
                             light: '#F8FAFC',
                             accent: '#3B82F6',
-                            surface: '#162032'
+                            surface: '#162032',
+                            trust: '#2563EB' /* Màu xanh uy tín Unica */
                         }
                     },
                     fontFamily: {
@@ -37,7 +38,7 @@
                         sans: ['Roboto', 'sans-serif'],
                     },
                     boxShadow: {
-                        'glow': '0 0 20px rgba(197, 160, 89, 0.15)',
+                        'glow': '0 0 20px rgba(197, 160, 89, 0.4)',
                         'card': '0 10px 30px -5px rgba(0, 0, 0, 0.3)',
                     }
                 }
@@ -46,1532 +47,550 @@
     </script>
 
     <style>
-        /* Base Styles */
         body { font-family: 'Roboto', sans-serif; }
         h1, h2, h3, h4 { font-family: 'Merriweather', serif; }
-        
-        /* Glassmorphism */
-        .glass-nav {
-            background: rgba(11, 17, 32, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        /* AI Chat Styles */
+        .glass-nav { background: rgba(11, 17, 32, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
         .ai-message strong { color: #C5A059; font-weight: 700; }
-        .ai-message ul { list-style-type: disc; margin-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 0.5rem; }
-        .ai-message li { margin-bottom: 0.25rem; }
-        .ai-message p { margin-bottom: 0.5rem; }
-
-        /* Chips for Suggestions */
-        .suggestion-chip {
-            transition: all 0.2s;
-            white-space: nowrap;
-        }
-        .suggestion-chip:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(197, 160, 89, 0.2);
-            background-color: #334155;
-            border-color: #C5A059;
-            color: #C5A059;
-        }
-
-        /* Custom Scrollbar */
         .custom-scroll::-webkit-scrollbar { width: 6px; height: 6px; }
-        .custom-scroll::-webkit-scrollbar-track { background: transparent; }
         .custom-scroll::-webkit-scrollbar-thumb { background: #475569; border-radius: 3px; }
-        .custom-scroll::-webkit-scrollbar-thumb:hover { background: #64748b; }
-
-        /* Animations */
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         .animate-fade-up { animation: fadeUp 0.6s ease-out forwards; }
         
-        @keyframes typing {
-            0%, 100% { opacity: 0.5; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.2); }
-        }
+        @keyframes typing { 0%, 100% { opacity: 0.5; transform: scale(1); } 50% { opacity: 1; transform: scale(1.2); } }
         .typing-dot { animation: typing 1.4s infinite ease-in-out both; }
-        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
-        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
 
-        /* Table Styles */
-        .price-table th, .price-table td {
-            border: 1px solid #e2e8f0;
-            padding: 1rem;
-            vertical-align: top;
+        /* Hiệu ứng Rung rinh / Tỏa sáng cho nút CTA */
+        @keyframes pulse-ring {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7); }
+            50% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(197, 160, 89, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(197, 160, 89, 0); }
         }
-        .price-table th {
-            background-color: #f8fafc;
-            color: #0f172a;
-            font-weight: 700;
-        }
-        .dark-table th {
-            background-color: #1e293b;
-            color: #C5A059;
-            border-color: #334155;
-        }
-        .dark-table td {
-            border-color: #334155;
-            color: #cbd5e1;
-        }
+        .animate-cta { animation: pulse-ring 2s infinite ease-in-out; }
+        
+        .strike-through { text-decoration: line-through; color: #94a3b8; }
     </style>
 </head>
 <body class="bg-brand-dark text-slate-300 antialiased selection:bg-brand-gold selection:text-white">
 
+    <!-- Navigation -->
     <header class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
         <div class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
                 <a href="#" class="text-xl md:text-2xl font-bold text-white flex items-center gap-3 group">
                     <span class="tracking-tight group-hover:text-brand-gold transition-colors">ĐẶNG NGỌC HIẾU</span>
                 </a>
-                
-                <nav class="hidden md:flex space-x-8 items-center text-sm font-medium uppercase tracking-wide">
-                    <a href="#problem" class="hover:text-brand-gold transition-colors">Vấn Đề</a>
-                    <a href="#about" class="hover:text-brand-gold transition-colors">Về Tôi</a>
-                    <a href="#services" class="hover:text-brand-gold transition-colors">Giải Pháp</a>
-                    <a href="#gift" class="hover:text-brand-gold transition-colors">Quà Tặng</a>
-                    <a href="#ai-tool" class="px-5 py-2 bg-brand-gold text-brand-dark rounded-full font-bold hover:bg-white transition-all shadow-lg flex items-center gap-2 transform hover:-translate-y-0.5">
-                        <i class="fa-solid fa-microchip"></i> AI GIẢI ĐÁP 1:1
-                    </a>
+                <nav class="hidden md:flex space-x-8 items-center text-sm font-medium uppercase">
+                    <a href="#hero" class="hover:text-brand-gold transition-colors">Khóa Học</a>
+                    <a href="#trai-nghiem" class="hover:text-brand-gold transition-colors">Trải Nghiệm</a>
+                    <a href="#uu-dai" class="hover:text-brand-gold transition-colors text-brand-gold">Ưu Đãi Đặc Quyền</a>
+                    <a href="#ai-tool" class="px-5 py-2 bg-brand-gold text-brand-dark rounded-full font-bold hover:bg-white transition-all shadow-lg">AI GIẢI ĐÁP 1:1</a>
                 </nav>
-
-                <button onclick="toggleMobileMenu()" class="md:hidden text-2xl text-white focus:outline-none">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
+                <button onclick="toggleMobileMenu()" class="md:hidden text-2xl text-white"><i class="fa-solid fa-bars"></i></button>
             </div>
-
-            <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-brand-dark/95 backdrop-blur-xl border-t border-slate-700 shadow-2xl">
-                <div class="flex flex-col p-6 space-y-4 text-center font-medium">
-                    <a href="#problem" onclick="toggleMobileMenu()" class="block py-2 hover:text-brand-gold">Vấn Đề</a>
-                    <a href="#about" onclick="toggleMobileMenu()" class="block py-2 hover:text-brand-gold">Về Tôi</a>
-                    <a href="#services" onclick="toggleMobileMenu()" class="block py-2 hover:text-brand-gold">Giải Pháp</a>
-                    <a href="#gift" onclick="toggleMobileMenu()" class="block py-2 hover:text-brand-gold">Quà Tặng</a>
-                    <a href="#ai-tool" onclick="toggleMobileMenu()" class="block py-3 bg-brand-gold text-brand-dark rounded-lg font-bold">AI GIẢI ĐÁP 1:1</a>
+            <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-brand-dark/95 backdrop-blur-xl border-t border-slate-700">
+                <div class="flex flex-col p-6 space-y-4 text-center">
+                    <a href="#hero" onclick="toggleMobileMenu()">Khóa Học</a>
+                    <a href="#trai-nghiem" onclick="toggleMobileMenu()">Trải Nghiệm</a>
+                    <a href="#uu-dai" onclick="toggleMobileMenu()" class="text-brand-gold font-bold">Ưu Đãi Đặc Quyền</a>
+                    <a href="#ai-tool" onclick="toggleMobileMenu()" class="py-2 bg-brand-gold text-brand-dark rounded font-bold">AI GIẢI ĐÁP 1:1</a>
                 </div>
             </div>
         </div>
     </header>
 
-    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+    <!-- 1. HERO SECTION: KHẲNG ĐỊNH GIÁ TRỊ -->
+    <section id="hero" class="relative pt-32 pb-20 lg:pt-40 overflow-hidden border-b border-slate-800">
+        <!-- Background Effects -->
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
         <div class="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-bl from-brand-navy via-transparent to-transparent opacity-50 pointer-events-none"></div>
-        <div class="absolute -top-20 -right-20 w-[500px] h-[500px] bg-brand-gold rounded-full filter blur-[150px] opacity-10 animate-pulse"></div>
+        <div class="absolute -top-20 -left-20 w-[400px] h-[400px] bg-blue-600 rounded-full filter blur-[150px] opacity-20"></div>
 
         <div class="container mx-auto px-6 relative z-10">
-            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-                <div class="lg:w-1/2 space-y-8 text-center lg:text-left animate-fade-up">
-                    <div class="inline-flex items-center gap-2 px-4 py-1.5 border border-brand-gold/30 rounded-full bg-brand-gold/5 text-brand-gold text-xs font-bold tracking-widest uppercase">
-                        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                        Đòn Bẩy Công Nghệ 4.0
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <!-- Text Content -->
+                <div class="lg:w-[60%] space-y-8 text-center lg:text-left animate-fade-up">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 border border-blue-500/30 rounded-full bg-blue-500/10 text-blue-400 text-xs font-bold tracking-widest uppercase">
+                        <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+                        Khóa Học Thực Chiến F&B
                     </div>
                     
-                    <h1 class="text-4xl lg:text-5xl font-bold leading-tight text-white">
-                        Dùng AI Làm Đòn Bẩy <br>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold to-yellow-200">X10 Công Việc Kinh Doanh</span>
+                    <h1 class="text-3xl md:text-5xl lg:text-6xl font-black leading-tight text-white uppercase font-sans">
+                        BÍ QUYẾT XÂY DỰNG GIAN HÀNG <br class="hidden md:block"/>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold to-yellow-300">"NGHÌN ĐƠN"</span> <br class="hidden md:block"/>
+                        TRÊN GRABFOOD & SHOPEEFOOD CHO NGƯỜI MỚI.
                     </h1>
                     
-                    <p class="text-lg text-slate-400 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                        Những mô hình cũ đang mất hiệu quả. Tớ giúp bạn đổi mới, tự động hóa và ra đơn đều mỗi ngày bằng chiến lược thực chiến, đơn giản và dễ hiểu.
+                    <p class="text-lg md:text-xl text-slate-300 leading-relaxed font-light">
+                        Hệ thống bài giảng thực chiến giúp bạn tối ưu lợi nhuận, làm chủ thuật toán hiển thị và bùng nổ doanh số mà không cần đốt tiền marketing.
                     </p>
                     
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
-                         <a href="#gift" class="px-8 py-4 bg-brand-gold text-brand-dark font-bold rounded-lg hover:bg-white transition-all shadow-[0_0_20px_rgba(197,160,89,0.3)] flex items-center justify-center gap-2 group order-1">
-                            <i class="fa-solid fa-gift group-hover:rotate-12 transition-transform"></i>
-                            Nhận Quà Miễn Phí
+                    <div class="flex flex-col gap-4 pt-4">
+                        <!-- CTA 1: MÀU XANH UY TÍN -->
+                        <a href="https://unica.vn/huong-dan-ban-do-an-online-tren-grab-food-shopee-food-cho-nguoi-moi?ref=708026" target="_blank" class="w-full md:w-max px-10 py-5 bg-brand-trust text-white font-bold rounded-xl hover:bg-blue-700 transition-all shadow-[0_10px_30px_rgba(37,99,235,0.4)] flex items-center justify-center gap-3 text-lg group">
+                            <i class="fa-solid fa-play-circle text-2xl group-hover:scale-110 transition-transform"></i>
+                            HỌC THỬ MIỄN PHÍ TRÊN UNICA TẠI ĐÂY
                         </a>
-                        <a href="https://zalo.me/0931343455" target="_blank" class="px-8 py-4 border border-slate-600 text-slate-300 font-medium rounded-lg hover:border-white hover:text-white hover:bg-white/5 transition-all text-center flex items-center justify-center gap-2 order-2">
-                            <i class="fa-solid fa-phone"></i>
-                            Zalo Tư Vấn 1:1
-                        </a>
+                        
+                        <div class="flex items-center justify-center lg:justify-start gap-2 text-sm text-slate-400 mt-2">
+                            <i class="fa-solid fa-shield-check text-green-500"></i>
+                            <span>Nội dung đã được kiểm định chất lượng và bảo trợ bởi nền tảng Unica.</span>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="lg:w-1/2 relative w-full max-w-lg lg:max-w-full">
-                    <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl border border-slate-700 bg-brand-surface group">
-                        <div class="aspect-[4/3] bg-slate-900 relative">
-                             <img src="avaHieu1.jpg
-" 
-                                 alt="Chiến lược thực chiến" 
-                                 class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
-                            
-                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent flex items-end p-6">
-                                <div>
-<h3 class="text-1xl font-bold text-white mb-2">Phản Quang - Thấu Hiểu - Đồng Hành</h3>
-                            <p class="text-slate-400">Thực chiến không đạo lý cao siêu.<br>Không cần giỏi công nghệ.</p>
-                                </div>
+                <!-- Hero Visual -->
+                <div class="lg:w-[40%] relative w-full max-w-lg mx-auto mt-12 lg:mt-0">
+                    <!-- Ánh sáng nền (Glow effect) làm nổi bật ảnh -->
+                    <div class="absolute -inset-4 bg-brand-gold/20 rounded-full blur-3xl -z-10 animate-pulse"></div>
+                    
+                    <!-- Khung ảnh chính vuông vức, sạch sẽ để không che mất logo các App Food ở đáy ảnh -->
+                    <div class="relative z-10 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-slate-700 bg-brand-surface aspect-square group">
+                        <img src="food 600x600.jpg" alt="Xây dựng gian hàng nghìn đơn" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    
+                    <!-- Badge Đánh giá (Nổi lên góc trên phải) -->
+                    <div class="absolute -top-4 -right-2 md:-right-6 bg-white text-brand-dark font-black px-4 py-2.5 rounded-xl shadow-xl z-20 flex items-center gap-2 transform hover:scale-105 transition-transform border border-slate-100">
+                        <div class="flex text-yellow-500 text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <span class="text-sm">4.9/5 Thực Chiến</span>
+                    </div>
+
+                    <!-- Icon trang trí góc dưới trái -->
+                    <div class="absolute -bottom-4 -left-2 md:-left-6 w-14 h-14 bg-gradient-to-br from-brand-gold to-yellow-600 rounded-2xl shadow-xl flex items-center justify-center text-2xl text-white z-20 transform -rotate-12 animate-bounce">
+                        <i class="fa-solid fa-fire"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. SECTION: TRẢI NGHIỆM TRƯỚC - ĐĂNG KÝ SAU -->
+    <section id="trai-nghiem" class="py-20 bg-slate-50 text-brand-dark">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <i class="fa-solid fa-quote-left text-5xl text-slate-300 mb-6"></i>
+                    <h2 class="text-2xl md:text-4xl font-bold mb-6 font-serif leading-relaxed text-slate-800">
+                        "Tôi muốn bạn hoàn toàn tin tưởng vào giá trị kiến thức trước khi bắt đầu. Hãy bấm xem thử các bài giảng miễn phí trên Unica để thấy sự khác biệt trong tư duy vận hành F&B thực chiến."
+                    </h2>
+                    <p class="font-bold text-brand-gold text-lg">- Đặng Ngọc Hiếu -</p>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-xl p-8 md:p-10 border border-slate-200">
+                    <h3 class="text-xl font-bold mb-6 border-b border-slate-100 pb-4 text-center">Những Gì Bạn Sẽ Học Được Khác Biệt Ra Sao?</h3>
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center shrink-0 mt-1">
+                                <i class="fa-solid fa-check"></i>
                             </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Setup gian hàng chuẩn SEO, nhìn là muốn đặt</h4>
+                                <p class="text-slate-600 text-sm mt-1">Không chỉ là tải ảnh lên. Học cách cấu trúc tên món, mô tả và hình ảnh để App tự động đẩy hiển thị quán bạn lên Top tìm kiếm.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center shrink-0 mt-1">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Chiến lược Menu "Chim mồi"</h4>
+                                <p class="text-slate-600 text-sm mt-1">Nghệ thuật định giá và gộp Combo giúp tăng giá trị trung bình trên mỗi đơn hàng (AOV), lấy lợi nhuận từ món phụ bù cho chiết khấu sàn.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center shrink-0 mt-1">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Bí kíp xử lý khủng hoảng đánh giá 1 sao</h4>
+                                <p class="text-slate-600 text-sm mt-1">Quy trình CSKH chuẩn xác biến lời phàn nàn thành cơ hội. Biến khách vãng lai trên App thành khách trung thành đặt trực tiếp qua Zalo.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SECTION: ĐẶC QUYỀN TRỰC TIẾP (TRUNG TÂM CHUYỂN ĐỔI) -->
+    <section id="uu-dai" class="py-24 bg-brand-dark relative overflow-hidden">
+        <!-- Decor -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-[500px] bg-brand-gold rounded-full filter blur-[200px] opacity-10"></div>
+        
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <h2 class="text-3xl md:text-5xl font-black text-white mb-6 uppercase tracking-tight">
+                ƯU ĐÃI DÀNH CHO HỌC VIÊN <br class="hidden md:block"/>
+                <span class="text-brand-gold">KẾT NỐI TRỰC TIẾP HIẾU HIẾU</span>
+            </h2>
+            <p class="text-lg text-slate-300 max-w-3xl mx-auto mb-12">
+                Để hỗ trợ tốt nhất cho các chủ quán mới khởi nghiệp, khi đăng ký khóa học thông qua Zalo/Messenger của HIẾU, bạn sẽ nhận được <strong class="text-white bg-red-600 px-2 py-1 rounded">ĐẶC QUYỀN 2 TRONG 1</strong>:
+            </p>
+
+            <div class="max-w-4xl mx-auto bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl shadow-2xl border border-brand-gold/40 p-1 md:p-3">
+                <div class="bg-brand-surface rounded-2xl p-8 md:p-12 relative overflow-hidden">
+                    <!-- Ribbon -->
+                    <div class="absolute top-6 -right-12 bg-red-600 text-white font-bold py-1 px-12 transform rotate-45 text-sm shadow-lg">HOT DEAL</div>
+                    
+                    <div class="flex flex-col md:flex-row items-center gap-10">
+                        <!-- Cột Trái: Giá -->
+                        <div class="w-full md:w-1/2 border-b md:border-b-0 md:border-r border-slate-700 pb-8 md:pb-0 md:pr-8">
+                            <div class="text-slate-400 font-medium mb-2 uppercase tracking-wider text-sm">Học phí ưu đãi trực tiếp</div>
+                            <div class="flex items-end justify-center md:justify-start gap-4 mb-2">
+                                <span class="text-5xl md:text-6xl font-black text-brand-gold">299K</span>
+                                <span class="strike-through text-2xl font-bold mb-1">499K</span>
+                            </div>
+                            <p class="text-sm text-slate-400 mt-4 text-center md:text-left">
+                                *Chỉ áp dụng khi đăng ký trực tiếp qua số Zalo chính thức bên dưới. Tiết kiệm ngay 200.000đ so với giá niêm yết trên sàn.
+                            </p>
+                        </div>
+                        
+                        <!-- Cột Phải: Quà tặng -->
+                        <div class="w-full md:w-1/2 text-left space-y-4">
+                            <div class="inline-block bg-green-500/20 text-green-400 px-3 py-1 rounded text-xs font-bold border border-green-500/30 uppercase">
+                                <i class="fa-solid fa-gift mr-1"></i> Quà tặng kèm độc quyền
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Khóa học "Quay dựng & Edit Video trên điện thoại" chuyên nghiệp</h3>
+                            <p class="text-slate-400 text-sm">
+                                <span class="text-white line-through opacity-50 mr-2">(Trị giá 499.000đ)</span> <br>
+                                Giúp bạn đồng thời có hành trình nội dung xây dựng mạng xã hội nổi bật hơn đối thủ. Tự tay làm video ngàn view không cần máy móc đắt tiền.
+                            </p>
                         </div>
                     </div>
+
+                    <!-- CTA 2: NỔI BẬT RUNG RINH -->
+                    <div class="mt-10 text-center">
+                        <a href="https://zalo.me/0931343455" target="_blank" class="animate-cta inline-block w-full md:w-auto px-8 md:px-12 py-5 bg-gradient-to-r from-red-600 to-red-500 text-white font-black rounded-xl hover:from-red-500 hover:to-red-400 transition-all text-lg md:text-xl uppercase tracking-wide">
+                            <i class="fa-solid fa-paper-plane mr-2"></i> NHẬN ƯU ĐÃI 299K & QUÀ TẶNG QUA ZALO : 0931.343455
+                        </a>
+                        <p class="text-xs text-slate-500 mt-4">Cam kết hoàn tiền 100% nếu nội dung không như mô tả.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="problem" class="py-16 bg-brand-surface border-y border-slate-800">
+    <!-- 4. SECTION: TẠI SAO NÊN NHẮN TIN TRỰC TIẾP? -->
+    <section id="tai-sao" class="py-20 bg-brand-navy border-t border-slate-800">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-2xl md:text-3xl font-bold mb-4 text-white">Bạn Có Đang Gặp Phải?</h2>
-                <div class="w-16 h-1 bg-red-500 mx-auto rounded"></div>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="p-6 bg-brand-dark rounded-xl border border-slate-700 hover:border-red-500/50 transition duration-300">
-                    <div class="text-red-500 text-3xl mb-4"><i class="fa-solid fa-chart-line-down"></i></div>
-                    <h3 class="text-xl font-bold text-white mb-2">Doanh Thu Giảm Dần</h3>
-                    <p class="text-slate-400 text-sm">Bán hàng kiểu cũ, đăng bài đợi khách cầu may. Chạy quảng cáo tốn kém nhưng không hiệu quả.</p>
+            <h2 class="text-3xl font-bold text-center text-white mb-16">Tại Sao Bạn Nên Chọn Liên Hệ Trực Tiếp?</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Card 1 -->
+                <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-brand-gold transition-colors text-center group">
+                    <div class="w-20 h-20 mx-auto bg-blue-500/20 text-blue-400 rounded-full flex items-center justify-center text-3xl mb-6 group-hover:bg-blue-500 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Hỗ Trợ 1-1 Sát Sao</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Tôi sẽ trực tiếp giải đáp mọi thắc mắc trong quá trình bạn vận hành quán thực tế. Đây là giá trị Vô Giá mà khi mua khóa học tự động trên sàn bạn không bao giờ có được.
+                    </p>
                 </div>
-                <div class="p-6 bg-brand-dark rounded-xl border border-slate-700 hover:border-red-500/50 transition duration-300">
-                    <div class="text-red-500 text-3xl mb-4"><i class="fa-solid fa-money-bill-wave"></i></div>
-                    <h3 class="text-xl font-bold text-white mb-2">Chiết Khấu App Cao</h3>
-                    <p class="text-slate-400 text-sm">Bán trên Grab/ShopeeFood nhưng không giữ được khách. Lợi nhuận bị bào mòn bởi chiết khấu.</p>
+
+                <!-- Card 2 -->
+                <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-brand-gold transition-colors text-center group">
+                    <div class="w-20 h-20 mx-auto bg-green-500/20 text-green-400 rounded-full flex items-center justify-center text-3xl mb-6 group-hover:bg-green-500 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-sync"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Cập Nhật Liên Tục</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Thuật toán hiển thị của ShopeeFood và GrabFood thay đổi liên tục. Bạn sẽ được tham gia nhóm kín để nhận ngay các tài liệu update chiến thuật mới nhất hoàn toàn miễn phí.
+                    </p>
                 </div>
-                <div class="p-6 bg-brand-dark rounded-xl border border-slate-700 hover:border-red-500/50 transition duration-300">
-                    <div class="text-red-500 text-3xl mb-4"><i class="fa-solid fa-user-robot"></i></div>
-                    <h3 class="text-xl font-bold text-white mb-2">Sợ Công Nghệ</h3>
-                    <p class="text-slate-400 text-sm">Muốn làm TikTok, AI nhưng sợ lộ mặt, không biết bắt đầu từ đâu. Thấy người khác dùng Tool mà mình vẫn thủ công.</p>
+
+                <!-- Card 3 -->
+                <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-brand-gold transition-colors text-center group">
+                    <div class="w-20 h-20 mx-auto bg-purple-500/20 text-purple-400 rounded-full flex items-center justify-center text-3xl mb-6 group-hover:bg-purple-500 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Kích Hoạt Nhanh Chóng</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Không cần thao tác lằng nhằng. Chỉ cần nhắn tin xác nhận, bạn sẽ nhận ngay mã kích hoạt khóa học chính thức và có thể bắt đầu học ngay chỉ sau 30 giây.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="about" class="py-20 bg-slate-100 text-brand-dark">
+    <!-- Các Khóa Học Khác Section -->
+    <section id="other-courses" class="py-20 bg-brand-navy border-t border-slate-800">
         <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row gap-12 items-center">
-                <div class="md:w-1/2 relative">
-                    <div class="aspect-square bg-white rounded-lg relative overflow-hidden shadow-2xl border-4 border-brand-gold">
-                         <div class="absolute inset-0 flex items-center justify-center flex-col text-slate-500 p-8 text-center bg-slate-50">
-                             <i class="fa-solid fa-quote-left text-4xl text-brand-gold mb-4"></i>
-                             <p class="italic text-lg text-slate-700 font-serif">"Tớ ghét học lý thuyết và thích cái gì ứng dụng được ngay."</p>
-                             <div class="mt-6 font-bold text-brand-dark">- Đặng Ngọc Hiếu -</div>
-                         </div>
-                    </div>
-                </div>
-                <div class="md:w-1/2">
-                    <h4 class="text-brand-gold font-bold uppercase tracking-widest mb-4 text-sm">Về Tôi</h4>
-                    
-                    <div class="space-y-4 text-slate-700 text-justify leading-relaxed">
-                        <p>
-                            Xin chào các ông bà chủ không cam chịu số hưởng làm công ăn lương. Như bao ông bà chủ khác, Hiếu cũng từng làm thuê, làm chủ rồi lại làm chủ. Tự mình mò mẫm, tối ưu, học học học học làm làm làm cho đến khi tự động hóa được thì thôi.
-                        </p>
-                        <p>
-                            Tớ ghét học lý thuyết và thích cái gì ứng dụng được. Tớ tìm đến kinh doanh online cũng vì bất đắc dĩ, hết đường để lùi...
-                        </p>
-                        <p>
-                            <strong>Điểm khác biệt:</strong> Tớ coi AI như 1 đòn bẩy, 1 công cụ để đi trên hành trình của mình như bao đòn bẩy vốn khác như tiền, mối quan hệ, đòn bẩy thời gian... Nhưng tớ rõ biết nên dùng nó như thế nào để tối đa hóa tiếp cận khách hàng cần nghe mà chi phí bỏ ra thấp nhất có thể.
-                        </p>
-                    </div>
-                    
-                    <div class="mt-6 p-4 bg-brand-gold/10 rounded-lg border-l-4 border-brand-gold">
-                        <p class="font-bold text-brand-dark">Slogan:</p>
-                        <p class="italic text-slate-700">"Dùng công nghệ không để biết nhiều, dùng để sống chủ động, để trải nghiệm lớn hơn mỗi ngày."</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="services" class="py-20 bg-brand-dark relative">
-        <div class="container mx-auto px-6 relative z-10">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Tớ Giúp Gì Cho Bạn?</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Các Khóa Học Chuyên Sâu Khác</h2>
                 <div class="w-20 h-1 bg-brand-gold mx-auto rounded"></div>
+                <p class="text-slate-400 mt-4 max-w-2xl mx-auto">Nâng cấp kỹ năng toàn diện với hệ sinh thái bài giảng thực chiến từ Đặng Ngọc Hiếu trên nền tảng Unica.</p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-brand-surface p-8 rounded-2xl border border-slate-700 hover:border-brand-gold transition group relative overflow-hidden">
-                    <div class="absolute top-0 right-0 bg-brand-gold text-brand-dark text-xs font-bold px-3 py-1 rounded-bl">HOT</div>
-                    <div class="w-14 h-14 bg-brand-gold/20 text-brand-gold rounded-lg flex items-center justify-center mb-6 text-2xl group-hover:bg-brand-gold group-hover:text-brand-dark transition">
-                        <i class="fa-solid fa-seedling"></i>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+                <!-- Course 1 -->
+                <div class="bg-brand-surface rounded-2xl overflow-hidden border border-slate-700 hover:border-brand-gold transition-all duration-300 group flex flex-col h-full shadow-lg relative">
+                    <div class="relative overflow-hidden aspect-[16/9] bg-slate-800">
+                        <!-- Ảnh minh họa chủ đề Video AI -->
+                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&h=340&q=80" alt="Video AI Tự Động" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-2 left-2 bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider shadow-md">Xuất bản</div>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-4">Người Mới Bán Đồ Ăn Online</h3>
-                    <ul class="space-y-3 text-slate-400 text-sm">
-                        <li><i class="fa-solid fa-check text-brand-gold mr-2"></i> Quy trình mở quán từ A-Z.</li>
-                        <li><i class="fa-solid fa-check text-brand-gold mr-2"></i> Định vị thương hiệu cá nhân.</li>
-                        <li><i class="fa-solid fa-check text-brand-gold mr-2"></i> Đóng gói kiến thức thành tiền.</li>
-                    </ul>
-                </div>
-
-                <div class="bg-brand-surface p-8 rounded-2xl border border-slate-700 hover:border-brand-gold transition group">
-                    <div class="w-14 h-14 bg-blue-600/20 text-blue-400 rounded-lg flex items-center justify-center mb-6 text-2xl group-hover:bg-blue-600 group-hover:text-white transition">
-                        <i class="fa-solid fa-store"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-4">Chủ Quán / Chủ Shop</h3>
-                    <ul class="space-y-3 text-slate-400 text-sm">
-                        <li><i class="fa-solid fa-check text-brand-gold mr-2"></i> Tối ưu vận hành, giảm chi phí.</li>
-                        <li><i class="fa-solid fa-check text-brand-gold mr-2"></i> Marketing đơn giản tăng doanh thu.</li>
-                        <li><i class="fa-solid fa-check text-brand-gold mr-2"></i> Xây kênh TikTok/FB không cần lộ mặt.</li>
-                    </ul>
-                </div>
-
-                <div class="bg-brand-surface p-8 rounded-2xl border border-slate-700 hover:border-brand-gold transition group flex flex-col">
-                    <div class="w-14 h-14 bg-purple-600/20 text-purple-400 rounded-lg flex items-center justify-center mb-6 text-2xl group-hover:bg-purple-600 group-hover:text-white transition">
-                        <i class="fa-solid fa-robot"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-4">X10 Hiệu Suất với Nhân Hiệu AI</h3>
-                    <ul class="space-y-3 text-slate-400 text-sm mb-6 flex-grow">
-                        <li><i class="fa-solid fa-check text-brand-gold mr-2"></i> Thành thạo ChatGPT, Canva, CapCut.</li>
-                        <li><i class="fa-solid fa-check text-brand-gold mr-2"></i> Làm video bán hàng tự động.</li>
-                        <li><i class="fa-solid fa-check text-brand-gold mr-2"></i> Học trên điện thoại, không cần PC.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-16 bg-brand-navy border-t border-slate-800">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-white mb-10">Sự Khác Biệt Khi Đồng Hành Cùng Hiếu</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="flex gap-4">
-                    <div class="w-10 h-10 rounded-full bg-green-500/20 text-green-500 flex items-center justify-center shrink-0"><i class="fa-solid fa-clock"></i></div>
-                    <div>
-                        <h4 class="text-white font-bold text-lg">Chiến Lược AI Tự Động 24/7</h4>
-                        <p class="text-slate-400 text-sm">Tạo phễu thu hút khách hàng ngay cả khi bạn đang ngủ.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="w-10 h-10 rounded-full bg-blue-500/20 text-blue-500 flex items-center justify-center shrink-0"><i class="fa-solid fa-pen-nib"></i></div>
-                    <div>
-                        <h4 class="text-white font-bold text-lg">Nội Dung Cá Nhân Hóa</h4>
-                        <p class="text-slate-400 text-sm">Không dùng mẫu cóp nhặt. Tớ giúp bạn viết cho chính khách hàng của bạn.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="w-10 h-10 rounded-full bg-yellow-500/20 text-yellow-500 flex items-center justify-center shrink-0"><i class="fa-solid fa-handshake"></i></div>
-                    <div>
-                        <h4 class="text-white font-bold text-lg">Hỗ Trợ 1:1 Sát Sao</h4>
-                        <p class="text-slate-400 text-sm">Bạn không bao giờ phải làm một mình. Cộng đồng nói ít làm nhiều.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="w-10 h-10 rounded-full bg-red-500/20 text-red-500 flex items-center justify-center shrink-0"><i class="fa-solid fa-bullseye"></i></div>
-                    <div>
-                        <h4 class="text-white font-bold text-lg">Làm Thực Chiến - Ra Kết Quả</h4>
-                        <p class="text-slate-400 text-sm">Làm video, viết content, edit ngay trong quá trình triển khai. Có chỉ số đo lường rõ ràng.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 bg-brand-surface">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-white mb-12">Ông Bà Chủ Nói Gì Về Hiếu?</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-brand-dark p-6 rounded-xl border border-slate-700 hover:border-brand-gold transition duration-300">
-                    <div class="flex items-center gap-1 text-brand-gold mb-3 text-xs">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-slate-300 italic mb-4 text-sm leading-relaxed">"Ban đầu chị định bỏ cuộc vì mù công nghệ, không biết đăng ký App sao cho đúng luật. May nhờ lộ trình <strong>10 Bước Mở Quán</strong> của Hiếu, chị tự tay setup được gian hàng chuẩn chỉnh. Đơn nổ ngay tuần đầu mà không cần đốt tiền chạy Ads."</p>
-                    <div class="flex items-center gap-3 border-t border-slate-700 pt-4">
-                        <div class="w-10 h-10 rounded-full bg-slate-600 flex items-center justify-center text-white font-bold text-xs">L</div>
-                        <div>
-                            <p class="text-white font-bold text-sm">Chị Lan</p>
-                            <p class="text-xs text-slate-500">Cơm Văn Phòng (Hà Nội)</p>
+                    <div class="p-5 flex flex-col flex-1">
+                        <h3 class="font-bold text-white text-[15px] leading-snug mb-3 hover:text-brand-gold transition-colors line-clamp-3">
+                            <a href="https://unica.vn/?ref=708026" target="_blank">Học Làm Video Bán Hàng TỰ ĐỘNG bằng AI trên TikTok, Facebook</a>
+                        </h3>
+                        <div class="mt-auto">
+                            <div class="flex items-center gap-2 mb-4">
+                                <span class="text-lg font-black text-brand-gold">399,000 đ</span>
+                                <span class="text-xs text-slate-500 line-through">990,000 đ</span>
+                            </div>
+                            <a href="https://unica.vn/?ref=708026" target="_blank" class="block w-full text-center py-2.5 bg-slate-800 text-slate-300 font-bold rounded-lg hover:bg-brand-gold hover:text-brand-dark transition-colors border border-slate-600 hover:border-brand-gold text-sm">
+                                Xem Chi Tiết
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-brand-dark p-6 rounded-xl border border-slate-700 hover:border-brand-gold transition duration-300">
-                    <div class="flex items-center gap-1 text-brand-gold mb-3 text-xs">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <!-- Course 2 -->
+                <div class="bg-brand-surface rounded-2xl overflow-hidden border border-slate-700 hover:border-brand-gold transition-all duration-300 group flex flex-col h-full shadow-lg relative">
+                    <div class="relative overflow-hidden aspect-[16/9] bg-slate-800">
+                        <!-- Ảnh minh họa chủ đề Quay phim bằng điện thoại -->
+                        <img src="https://images.unsplash.com/photo-1523206489230-c012c64b2b48?auto=format&fit=crop&w=600&h=340&q=80" alt="Quay Dựng Video Điện Thoại" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-2 left-2 bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider shadow-md">Xuất bản</div>
                     </div>
-                    <p class="text-slate-300 italic mb-4 text-sm leading-relaxed">"Quán bán được nhưng cuối tháng trừ chi phí sàn chẳng còn bao nhiêu. Hiếu giúp anh 'vẽ' lại Menu, tạo <strong>Combo Upsell</strong> thông minh. Kết quả: Giá trị đơn tăng 30%, khách quay lại ầm ầm nhờ chiến lược Zalo OA chăm sóc tự động."</p>
-                    <div class="flex items-center gap-3 border-t border-slate-700 pt-4">
-                        <div class="w-10 h-10 rounded-full bg-slate-600 flex items-center justify-center text-white font-bold text-xs">T</div>
-                        <div>
-                            <p class="text-white font-bold text-sm">Anh Tuấn</p>
-                            <p class="text-xs text-slate-500">Chủ quán Bún Bò (TP.HCM)</p>
+                    <div class="p-5 flex flex-col flex-1">
+                        <h3 class="font-bold text-white text-[15px] leading-snug mb-3 hover:text-brand-gold transition-colors line-clamp-3">
+                            <a href="https://unica.vn/?ref=708026" target="_blank">Học Quay Dựng Video, Làm Kịch Bản Từ ChatGPT Trên Điện Thoại</a>
+                        </h3>
+                        <div class="mt-auto">
+                            <div class="flex items-center gap-2 mb-4">
+                                <span class="text-lg font-black text-brand-gold">199,000 đ</span>
+                                <span class="text-xs text-slate-500 line-through">790,000 đ</span>
+                            </div>
+                            <a href="https://unica.vn/?ref=708026" target="_blank" class="block w-full text-center py-2.5 bg-slate-800 text-slate-300 font-bold rounded-lg hover:bg-brand-gold hover:text-brand-dark transition-colors border border-slate-600 hover:border-brand-gold text-sm">
+                                Xem Chi Tiết
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-brand-dark p-6 rounded-xl border border-slate-700 hover:border-brand-gold transition duration-300">
-                    <div class="flex items-center gap-1 text-brand-gold mb-3 text-xs">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <!-- Course 3 -->
+                <div class="bg-brand-surface rounded-2xl overflow-hidden border border-slate-700 hover:border-brand-gold transition-all duration-300 group flex flex-col h-full shadow-lg relative">
+                    <div class="relative overflow-hidden aspect-[16/9] bg-slate-800">
+                        <!-- Ảnh minh họa chủ đề ChatGPT / AI -->
+                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=600&h=340&q=80" alt="ChatGPT Thực Chiến" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-2 left-2 bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider shadow-md">Xuất bản</div>
                     </div>
-                    <p class="text-slate-300 italic mb-4 text-sm leading-relaxed">"Mình ngại lên hình và bí ý tưởng content kinh khủng. Nhờ Hiếu chỉ cách dùng <strong>AI viết kịch bản & Edit tự động</strong>, mình xây được kênh TikTok về đồ ăn vặt lên 50k follow chỉ sau 2 tháng mà không cần lộ mặt. Doanh số Affiliate tăng gấp 3."</p>
-                    <div class="flex items-center gap-3 border-t border-slate-700 pt-4">
-                        <div class="w-10 h-10 rounded-full bg-slate-600 flex items-center justify-center text-white font-bold text-xs">M</div>
-                        <div>
-                            <p class="text-white font-bold text-sm">Bạn My</p>
-                            <p class="text-xs text-slate-500">Kinh doanh Online (Đà Nẵng)</p>
+                    <div class="p-5 flex flex-col flex-1">
+                        <h3 class="font-bold text-white text-[15px] leading-snug mb-3 hover:text-brand-gold transition-colors line-clamp-3">
+                            <a href="https://unica.vn/?ref=708026" target="_blank">ChatGPT Thực Chiến Cho Người Mới - Ứng Dụng Vào Bán Hàng</a>
+                        </h3>
+                        <div class="mt-auto">
+                            <div class="flex items-center gap-2 mb-4">
+                                <span class="text-lg font-black text-brand-gold">49,000 đ</span>
+                                <span class="text-xs text-slate-500 line-through">299,000 đ</span>
+                            </div>
+                            <a href="https://unica.vn/?ref=708026" target="_blank" class="block w-full text-center py-2.5 bg-slate-800 text-slate-300 font-bold rounded-lg hover:bg-brand-gold hover:text-brand-dark transition-colors border border-slate-600 hover:border-brand-gold text-sm">
+                                Xem Chi Tiết
+                            </a>
                         </div>
                     </div>
                 </div>
+
+                <!-- Course 4 -->
+                <div class="bg-brand-surface rounded-2xl overflow-hidden border border-slate-700 hover:border-brand-gold transition-all duration-300 group flex flex-col h-full shadow-lg relative">
+                    <div class="relative overflow-hidden aspect-[16/9] bg-slate-800">
+                        <!-- Ảnh minh họa chủ đề Facebook Ads / Social Media -->
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&h=340&q=80" alt="Facebook Ads PRO" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-2 left-2 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider shadow-md">Khóa học mới</div>
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <h3 class="font-bold text-white text-[15px] leading-snug mb-3 hover:text-brand-gold transition-colors line-clamp-3">
+                            <a href="https://unica.vn/?ref=708026" target="_blank">Chủ Quán Tự Chạy Quảng Cáo Facebook Ads PRO Hiệu Quả Cao</a>
+                        </h3>
+                        <div class="mt-auto">
+                            <div class="flex items-center gap-2 mb-4">
+                                <span class="text-lg font-black text-brand-gold">449,000 đ</span>
+                                <span class="text-xs text-slate-500 line-through">499,000 đ</span>
+                            </div>
+                            <a href="https://unica.vn/?ref=708026" target="_blank" class="block w-full text-center py-2.5 bg-slate-800 text-slate-300 font-bold rounded-lg hover:bg-brand-gold hover:text-brand-dark transition-colors border border-slate-600 hover:border-brand-gold text-sm">
+                                Xem Chi Tiết
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="https://unica.vn/search?key=%C4%91%E1%BA%B7ng+ng%E1%BB%8Dc+hi%E1%BA%BFu&ref=708026" target="_blank" class="inline-flex items-center gap-2 px-8 py-4 border-2 border-brand-gold text-brand-gold rounded-full hover:bg-brand-gold hover:text-brand-dark transition-colors font-bold text-sm uppercase tracking-wide">
+                    Xem Toàn Bộ Khóa Học Trên Unica <i class="fa-solid fa-arrow-right"></i>
+                </a>
             </div>
         </div>
     </section>
 
-    <section id="ai-tool" class="py-20 bg-brand-navy relative overflow-hidden border-t border-slate-700">
+    <!-- Consultation Section (Kết nối Google Sheets) -->
+    <section id="consultation-form" class="py-20 bg-slate-100 border-t border-slate-200">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-brand-dark mb-4">Đăng Ký Tư Vấn / Giữ Ưu Đãi</h2>
+            <p class="text-slate-600 mb-8">Nếu bạn chưa tiện nhắn Zalo, hãy để lại SĐT, Hiếu sẽ liên hệ tư vấn lộ trình phù hợp với quán của bạn.</p>
+            
+            <div class="max-w-md mx-auto bg-white p-8 rounded-2xl border border-slate-200 shadow-xl relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-gold to-yellow-400"></div>
+                <form onsubmit="handleFinalConsultation(event)" class="space-y-4">
+                    <div>
+                        <input type="text" name="Họ tên" required class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-gold outline-none text-slate-700" placeholder="Họ và tên của bạn">
+                    </div>
+                    <div>
+                        <input type="tel" name="Số điện thoại" required pattern="[0-9]{10}" class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-gold outline-none text-slate-700" placeholder="Số điện thoại Zalo (10 số)">
+                    </div>
+                    <input type="hidden" name="Loại đăng ký" value="Form Tư Vấn (Sale Page)">
+                    <button type="submit" class="w-full py-4 bg-brand-dark text-white font-bold rounded-lg hover:bg-slate-800 transition shadow-lg uppercase tracking-wide mt-2">
+                        ĐĂNG KÝ NGAY
+                    </button>
+                    <p class="text-xs text-slate-400 mt-4"><i class="fa-solid fa-lock"></i> Thông tin của bạn được bảo mật tuyệt đối.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Feature Section (Chuyển xuống cuối trang để hỗ trợ chốt sale) -->
+    <section id="ai-tool" class="py-20 bg-brand-dark relative overflow-hidden border-t border-slate-700">
         <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-gold to-transparent opacity-30"></div>
         <div class="container mx-auto px-4 md:px-6 relative z-10">
             <div class="text-center mb-10">
                 <span class="inline-block py-1 px-3 rounded-full bg-slate-800 border border-slate-700 text-brand-gold text-xs font-bold uppercase tracking-wider mb-3">
-                    <i class="fa-solid fa-bolt text-yellow-400 mr-1"></i> Powered by Gemini 2.5 Flash
+                    <i class="fa-solid fa-bolt text-yellow-400 mr-1"></i> Trải Nghiệm Công Nghệ F&B
                 </span>
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">AI GIẢI ĐÁP 1:1</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">HỎI ĐÁP VỚI AI CỦA HIẾU</h2>
                 <p class="text-slate-400 max-w-2xl mx-auto text-sm md:text-base">
-                    Thử nghiệm ngay các công cụ mà học viên của tôi đang dùng để tối ưu kinh doanh hàng ngày.
+                    Chưa sẵn sàng đăng ký? Hãy thử nhập câu hỏi kinh doanh của bạn vào đây để xem cách tư duy hệ thống của chúng tôi vận hành.
                 </p>
             </div>
 
-            <div class="max-w-6xl mx-auto bg-brand-dark/50 backdrop-blur-sm rounded-xl shadow-2xl border border-slate-700 overflow-hidden flex flex-col md:flex-row h-[85vh] md:h-[650px]">
-                
-                <div class="w-full md:w-72 bg-slate-900 border-b md:border-b-0 md:border-r border-slate-700 flex flex-col shrink-0">
-                    <div class="p-4 border-b border-slate-800 hidden md:block">
-                        <div class="text-brand-gold font-bold flex items-center gap-2">
-                            <i class="fa-solid fa-layer-group"></i> AI Toolbox
-                        </div>
-                    </div>
-                    <div class="flex md:flex-col overflow-x-auto md:overflow-visible p-2 md:p-4 gap-2 no-scrollbar">
-                        <button onclick="setMode('chat')" id="btn-chat" class="flex-shrink-0 md:w-full text-left px-4 py-3 rounded-lg text-sm transition flex items-center gap-3 border border-transparent whitespace-nowrap active-tool bg-slate-800 text-white border-brand-gold/30 shadow-lg">
-                            <i class="fa-regular fa-comments text-lg"></i> 
-                            <div>
-                                <div class="font-bold">Tư Vấn Chiến Lược</div>
-                                <div class="text-xs opacity-70 hidden md:block">Kiến thức chuyên sâu</div>
-                            </div>
-                        </button>
-                        <button onclick="setMode('menu')" id="btn-menu" class="flex-shrink-0 md:w-full text-left px-4 py-3 rounded-lg text-sm text-slate-400 hover:bg-slate-800 transition flex items-center gap-3 border border-transparent whitespace-nowrap">
-                            <i class="fa-solid fa-utensils text-green-400 text-lg"></i>
-                            <div>
-                                <div class="font-bold">Tên Món Chuẩn SEO</div>
-                                <div class="text-xs opacity-70 hidden md:block">Tối ưu App Food</div>
-                            </div>
-                        </button>
-                        <button onclick="setMode('content')" id="btn-content" class="flex-shrink-0 md:w-full text-left px-4 py-3 rounded-lg text-sm text-slate-400 hover:bg-slate-800 transition flex items-center gap-3 border border-transparent whitespace-nowrap">
-                            <i class="fa-solid fa-pen-nib text-purple-400 text-lg"></i>
-                            <div>
-                                <div class="font-bold">Viết Caption QC</div>
-                                <div class="text-xs opacity-70 hidden md:block">FB / TikTok Ads</div>
-                            </div>
-                        </button>
-                        <button onclick="setMode('video')" id="btn-video" class="flex-shrink-0 md:w-full text-left px-4 py-3 rounded-lg text-sm text-slate-400 hover:bg-slate-800 transition flex items-center gap-3 border border-transparent whitespace-nowrap">
-                            <i class="fa-solid fa-video text-red-400 text-lg"></i>
-                            <div>
-                                <div class="font-bold">Cách làm video 1 sản phẩm mới</div>
-                                <div class="text-xs opacity-70 hidden md:block">Ý tưởng quay Video Viral</div>
-                            </div>
-                        </button>
-                        <button onclick="setMode('brand')" id="btn-brand" class="flex-shrink-0 md:w-full text-left px-4 py-3 rounded-lg text-sm text-slate-400 hover:bg-slate-800 transition flex items-center gap-3 border border-transparent whitespace-nowrap">
-                            <i class="fa-solid fa-fingerprint text-brand-gold text-lg"></i>
-                            <div>
-                                <div class="font-bold">Xây Dựng Nhân Hiệu</div>
-                                <div class="text-xs opacity-70 hidden md:block">Từ con số 0 (Faceless)</div>
-                            </div>
-                        </button>
+            <div class="max-w-4xl mx-auto bg-brand-surface rounded-xl shadow-2xl border border-slate-700 flex flex-col h-[500px]">
+                <div class="h-14 border-b border-slate-700 flex items-center px-6 justify-between bg-slate-900/50">
+                    <span id="mode-title" class="font-bold text-brand-gold"><i class="fa-regular fa-comments"></i> AI Tư Vấn Chiến Lược</span>
+                    <button onclick="clearChat()" class="text-xs text-slate-500 hover:text-white">Xóa lịch sử</button>
+                </div>
+                <div class="flex-1 p-6 overflow-y-auto space-y-6 custom-scroll" id="chat-container">
+                    <div class="flex gap-4">
+                        <div class="w-10 h-10 rounded-full bg-brand-gold flex items-center justify-center shrink-0"><i class="fa-solid fa-robot text-brand-dark"></i></div>
+                        <div class="bg-slate-700 p-4 rounded-2xl rounded-tl-none text-slate-200 text-sm">Chào bạn, bạn đang thắc mắc điều gì về cách tối ưu đơn hàng trên App Food? Hãy hỏi tôi nhé!</div>
                     </div>
                 </div>
-
-                <div class="flex-1 flex flex-col bg-slate-800/50 relative">
-                    <div class="h-14 border-b border-slate-700 flex items-center px-4 md:px-6 justify-between bg-slate-900/50 backdrop-blur z-10">
-                        <span id="mode-title" class="font-bold text-white flex items-center gap-2 text-sm md:text-base">
-                            <i class="fa-regular fa-comments text-brand-gold"></i> Tư Vấn Chiến Lược
-                        </span>
-                        <button onclick="clearChat()" class="text-xs text-slate-400 hover:text-white flex items-center gap-1 bg-slate-800 px-3 py-1.5 rounded hover:bg-red-900/30 hover:text-red-400 transition">
-                            <i class="fa-solid fa-trash"></i> <span class="hidden sm:inline">Xóa lịch sử</span>
-                        </button>
-                    </div>
-
-                    <div class="flex-1 p-4 md:p-6 overflow-y-auto space-y-6 custom-scroll" id="chat-container">
-                        <div class="flex gap-4">
-                            <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-brand-gold flex items-center justify-center flex-shrink-0 shadow-lg border border-white/10 mt-1">
-                                <i class="fa-solid fa-robot text-brand-dark text-sm"></i>
-                            </div>
-                            <div class="bg-slate-700 p-4 rounded-2xl rounded-tl-none text-slate-200 shadow-card max-w-[90%] md:max-w-[80%] border border-slate-600 ai-message text-sm md:text-base">
-                                <p>Chào bạn, tôi là trợ lý ảo AI của anh <strong>Đặng Ngọc Hiếu</strong>.</p>
-                                <p class="mt-2 text-slate-300">Tôi có thể hỗ trợ bạn về:</p>
-                                <ul class="text-slate-300 text-sm mt-2 space-y-1">
-                                    <li><i class="fa-solid fa-check text-brand-gold mr-2"></i> Tư duy bán hàng đỉnh cao</li>
-                                    <li><i class="fa-solid fa-check text-brand-gold mr-2"></i> Xây kênh mãi xanh: Youtube, Tikok, Facebook</li>
-                                    <li><i class="fa-solid fa-check text-brand-gold mr-2"></i> Đồ ăn online x10 hiệu suất</li>
-                                    <li><i class="fa-solid fa-check text-brand-gold mr-2"></i> Facebook ads</li>
-                                </ul>
-                                <p class="mt-2 text-slate-300">Bạn hãy chọn chủ đề bên dưới hoặc nhập câu hỏi để tôi tư vấn nhé!</p>
-                                
-                                <div class="mt-4 flex flex-wrap gap-2" id="suggestion-chips">
-                                    <button onclick="fillQuestion('Tư duy bán hàng đỉnh cao là gì?')" class="suggestion-chip px-3 py-1.5 bg-slate-600 hover:bg-slate-500 text-white text-xs rounded-full border border-slate-500">Tư duy bán hàng</button>
-                                    <button onclick="fillQuestion('Cách xây kênh mãi xanh?')" class="suggestion-chip px-3 py-1.5 bg-slate-600 hover:bg-slate-500 text-white text-xs rounded-full border border-slate-500">Xây kênh mãi xanh</button>
-                                    <button onclick="fillQuestion('Làm sao để x10 hiệu suất đồ ăn online?')" class="suggestion-chip px-3 py-1.5 bg-slate-600 hover:bg-slate-500 text-white text-xs rounded-full border border-slate-500">Đồ ăn online x10</button>
-                                    <button onclick="fillQuestion('Chiến lược Facebook Ads hiệu quả?')" class="suggestion-chip px-3 py-1.5 bg-slate-600 hover:bg-slate-500 text-white text-xs rounded-full border border-slate-500">Facebook Ads</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="p-3 md:p-4 bg-slate-900 border-t border-slate-700 z-20">
-                        <form id="ai-chat-form" class="flex gap-2 relative max-w-4xl mx-auto">
-                            <div class="relative flex-1">
-                                <input type="text" id="user-input" 
-                                    class="w-full bg-slate-800 border border-slate-600 rounded-xl pl-4 pr-4 py-3 md:py-4 text-white text-sm md:text-base focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold transition shadow-inner placeholder-slate-500" 
-                                    placeholder="Nhập câu hỏi của bạn..." autocomplete="off">
-                            </div>
-                            <button type="submit" id="send-btn" class="bg-brand-gold text-brand-dark w-12 md:w-14 rounded-xl font-bold hover:bg-white hover:scale-105 transition-all flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed shadow-lg">
-                                <i class="fa-solid fa-paper-plane text-lg"></i>
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="gift" class="py-20 bg-slate-100 text-brand-dark">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-10">
-                <span class="bg-yellow-100 border border-brand-gold/30 text-brand-gold text-xs font-bold px-4 py-2 rounded-full uppercase mb-4 inline-block animate-bounce shadow-lg">
-                    <i class="fa-solid fa-gift mr-2"></i> Quà Tặng Miễn Phí
-                </span>
-                <h2 class="text-3xl font-bold text-brand-dark">Chọn Lộ Trình Phù Hợp Với Bạn</h2>
-                <p class="text-slate-600 mt-2">Nhận tài liệu chiến lược thực chiến được thiết kế riêng cho từng giai đoạn.</p>
-            </div>
-            
-            <div class="max-w-6xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200 relative min-h-[500px]">
-                
-                <div id="gift-selection-state" class="absolute inset-0 bg-white z-30 flex flex-col items-center justify-center p-6 md:p-12 transition-all duration-500">
-                    <h3 class="text-2xl font-bold text-brand-dark mb-8">Bạn đang ở giai đoạn nào?</h3>
-                    <div class="grid md:grid-cols-3 gap-6 w-full max-w-5xl">
-                        <div onclick="selectGift('newbie')" class="group cursor-pointer bg-yellow-50 border-2 border-brand-gold rounded-xl p-6 text-center transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 transform relative overflow-hidden">
-                            <div class="absolute top-0 right-0 bg-brand-gold text-white text-xs font-bold px-2 py-1 rounded-bl">HOT</div>
-                            <div class="w-16 h-16 bg-brand-gold text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl group-hover:bg-white group-hover:text-brand-gold transition-colors shadow-lg">
-                                <i class="fa-solid fa-seedling"></i>
-                            </div>
-                            <h4 class="font-bold text-lg text-brand-dark mb-2">Người Mới Bắt Đầu</h4>
-                            <p class="text-sm text-slate-600 font-medium">Chưa bán bao giờ, đang ấp ủ ý định kinh doanh Online.</p>
-                            <div class="mt-4 text-brand-gold font-bold text-sm bg-white py-2 px-4 rounded-full inline-block shadow-sm">Nhận 10 Bước Mở Quán <i class="fa-solid fa-arrow-right ml-1"></i></div>
-                        </div>
-
-                        <div onclick="selectGift('pro')" class="group cursor-pointer bg-slate-50 border-2 border-slate-200 hover:border-brand-gold rounded-xl p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                            <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl group-hover:bg-brand-gold group-hover:text-white transition-colors">
-                                <i class="fa-solid fa-store"></i>
-                            </div>
-                            <h4 class="font-bold text-lg text-brand-dark mb-2">Đã Kinh Doanh App Food</h4>
-                            <p class="text-sm text-slate-500">Đang bán trên Grab/ShopeeFood. Cần tối ưu để tăng doanh thu.</p>
-                            <div class="mt-4 text-brand-gold font-bold text-sm">Nhận Chiến Lược Tối Ưu <i class="fa-solid fa-arrow-right ml-1"></i></div>
-                        </div>
-
-                        <div onclick="selectGift('brand')" class="group cursor-pointer bg-slate-50 border-2 border-slate-200 hover:border-brand-gold rounded-xl p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                            <div class="w-16 h-16 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl group-hover:bg-brand-gold group-hover:text-white transition-colors">
-                                <i class="fa-solid fa-user-secret"></i>
-                            </div>
-                            <h4 class="font-bold text-lg text-brand-dark mb-2">Xây Thương Hiệu Cá Nhân</h4>
-                            <p class="text-sm text-slate-500">Lộ trình xây kênh YouTube, TikTok, Facebook <strong>KHÔNG CẦN LỘ MẶT</strong>.</p>
-                            <div class="mt-4 text-brand-gold font-bold text-sm">Nhận Lộ Trình Faceless <i class="fa-solid fa-arrow-right ml-1"></i></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="gift-form-state" class="absolute inset-0 bg-white z-40 hidden flex flex-col items-center justify-center p-6 animate-fade-up">
-                    <div class="w-full max-w-md relative">
-                        <button onclick="backToSelection()" class="absolute -top-10 left-0 text-slate-400 hover:text-brand-dark flex items-center gap-2 text-sm">
-                            <i class="fa-solid fa-arrow-left"></i> Quay lại
-                        </button>
-                        <div class="text-center mb-6">
-                            <h3 class="text-xl font-bold text-brand-dark" id="form-title">Đăng Ký Nhận Tài Liệu</h3>
-                            <p class="text-sm text-slate-500">Để lại thông tin để xem tài liệu chi tiết ngay.</p>
-                        </div>
-                        <form onsubmit="handleGiftUnlock(event)" class="space-y-4">
-                            <div>
-                                <label class="block text-sm font-medium text-slate-700 mb-1">Họ và tên</label>
-                                <input type="text" name="Họ tên" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-gold focus:border-brand-gold outline-none" placeholder="VD: Nguyễn Văn A">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-slate-700 mb-1">Số điện thoại (Zalo)</label>
-                                <input type="tel" name="Số điện thoại" required pattern="[0-9]{10}" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-gold focus:border-brand-gold outline-none" placeholder="VD: 0912345678">
-                            </div>
-                            <input type="hidden" name="Loại đăng ký" value="Nhận quà">
-                            <button type="submit" class="w-full py-3 bg-brand-dark text-white font-bold rounded-lg hover:bg-slate-800 transition shadow-lg mt-4">
-                                Xem Tài Liệu Ngay
-                            </button>
-                        </form>
-                    </div>
-                </div>
-
-                <div id="content-newbie" class="hidden h-[600px] overflow-y-auto custom-scroll p-6 md:p-10 bg-slate-50 relative">
-                    <div class="mb-8 bg-white p-6 rounded-xl border border-brand-gold/30 shadow-lg">
-                        <h3 class="text-xl font-bold text-brand-dark mb-4 text-center">💡 Tại Sao Bạn Cần Người Đồng Hành?</h3>
-                        <div class="overflow-x-auto">
-                            <table class="w-full text-sm text-left border-collapse price-table">
-                                <thead>
-                                    <tr>
-                                        <th class="w-1/3 bg-slate-100">Tiêu chí</th>
-                                        <th class="w-1/3 bg-slate-200">Tự Xem Qua Video (Tự Học)</th>
-                                        <th class="w-1/3 bg-brand-gold text-brand-dark">Gói Vận Hành Cùng Chủ Quán</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="font-bold">Chi phí</td>
-                                        <td>Thấp (Từ 199k - 499k)</td>
-                                        <td>Đầu tư xứng đáng</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-bold">Cách học</td>
-                                        <td>Xem video quay sẵn</td>
-                                        <td><strong>Cầm tay chỉ việc 1:1</strong></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-bold">Khi gặp lỗi</td>
-                                        <td>Tự mày mò sửa</td>
-                                        <td><strong>Được Hiếu sửa trực tiếp</strong></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-bold">Kết quả</td>
-                                        <td>Phụ thuộc tính tự giác</td>
-                                        <td><strong>Cam kết ra đơn & Hiệu quả</strong></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <div class="mt-6 mb-8 bg-brand-light/50 p-6 rounded-xl border-l-4 border-brand-gold italic text-slate-600">
-                        <p class="mb-4">"Tớ chia sẻ mọi thứ mình biết 8 năm qua. Nhưng sức có hạn không thể gặp từng người để chia sẻ. Tớ gói kiến thức thành video phù hợp cho người mới..."</p>
-                        <p class="mb-4">"Chủ quán đã lên các app thì tớ mong được đồng hành cùng để tối ưu, đột phá doanh thu hơn"</p>
-                        
-                        <h4 class="font-bold text-brand-dark not-italic mb-3">Điểm khác biệt của Hiếu</h4>
-                        <ul class="space-y-2 not-italic">
-                            <li class="flex gap-2">
-                                <i class="fa-solid fa-robot text-brand-gold mt-1"></i>
-                                <span><strong>AI là tự động 24/7:</strong> Hỗ trợ bạn mọi lúc.</span>
-                            </li>
-                            <li class="flex gap-2">
-                                <i class="fa-solid fa-fingerprint text-brand-gold mt-1"></i>
-                                <span><strong>Thông điệp cá nhân hóa:</strong> Không ai giống ai.</span>
-                            </li>
-                            <li class="flex gap-2">
-                                <i class="fa-solid fa-handshake text-brand-gold mt-1"></i>
-                                <span><strong>Đồng Hành:</strong> Vừa làm vừa chia sẻ cách làm, không giấu nghề.</span>
-                            </li>
-                            <li class="flex gap-2">
-                                <i class="fa-solid fa-chart-line text-brand-gold mt-1"></i>
-                                <span><strong>Kết quả thực tế:</strong> Tài sản số là khoản đầu tư dài hạn bền vững.</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="text-center pb-6 border-b border-slate-200 mb-6">
-                        <h3 class="text-2xl font-bold text-green-700">Lộ Trình 10 Bước Mở Quán Online</h3>
-                        <p class="text-slate-500">Quy trình chuẩn để tránh mất tiền oan cho người mới.</p>
-                    </div>
-                    
-                    <div class="space-y-6">
-                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                            <div class="flex items-center gap-4 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-green-600 text-white font-bold flex items-center justify-center shrink-0">1</div>
-                                <h4 class="font-bold text-lg text-brand-dark">Xác định món bán & Mô hình kinh doanh 🧠</h4>
-                            </div>
-                            <ul class="list-disc pl-5 text-slate-600 space-y-1 text-sm ml-12">
-                                <li>Nghiên cứu món ăn đang hot, ít đối thủ, dễ làm, lời cao (VD: cơm gà, bún bò, mì trộn, healthy...).</li>
-                                <li>Chọn mô hình: Tự nấu tại nhà hay thuê bếp/đầu bếp/đặt món rồi đóng gói lại.</li>
-                                <li>Kiểm tra nhu cầu khách khu vực mình định giao (xem ShopeeFood/Grab để khảo sát).</li>
-                            </ul>
-                            <div class="mt-3 ml-14 p-3 bg-yellow-50 text-yellow-800 text-sm rounded border border-yellow-200">
-                                📌 <strong>Gợi ý:</strong> Món có thể bán theo combo – dễ upsell và tối ưu lời hơn món lẻ.
-                            </div>
-                        </div>
-
-                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                            <div class="flex items-center gap-4 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-green-600 text-white font-bold flex items-center justify-center shrink-0">2</div>
-                                <h4 class="font-bold text-lg text-brand-dark">Đăng ký giấy tờ pháp lý cơ bản 📄</h4>
-                            </div>
-                            <ul class="list-disc pl-5 text-slate-600 space-y-1 text-sm ml-12">
-                                <li>Chứng minh nhân dân/Căn cước.</li>
-                                <li>Giấy chứng nhận vệ sinh an toàn thực phẩm (dễ xin với kinh doanh tại nhà).</li>
-                                <li>Tài khoản ngân hàng cá nhân (để nhận tiền từ sàn).</li>
-                            </ul>
-                            <div class="mt-3 ml-14 p-3 bg-yellow-50 text-yellow-800 text-sm rounded border border-yellow-200">
-                                📌 <strong>Lưu ý:</strong> Không có giấy VSATTP vẫn có thể đăng ký thử, nhưng có rủi ro bị khoá sau 1 thời gian.
-                            </div>
-                        </div>
-
-                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                            <div class="flex items-center gap-4 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-green-600 text-white font-bold flex items-center justify-center shrink-0">3</div>
-                                <h4 class="font-bold text-lg text-brand-dark">Chuẩn bị bếp/kho/mặt bằng 🏡</h4>
-                            </div>
-                            <ul class="list-disc pl-5 text-slate-600 space-y-1 text-sm ml-12">
-                                <li>Bếp sạch sẽ, tường sáng, có khu nấu – khu đóng gói riêng.</li>
-                                <li>Đầy đủ dụng cụ nấu, hộp đựng, túi đóng gói, đũa/muỗng.</li>
-                                <li>Tủ mát (nếu trữ đồ), thùng giữ nhiệt giao hàng.</li>
-                            </ul>
-                            <div class="mt-3 ml-14 p-3 bg-yellow-50 text-yellow-800 text-sm rounded border border-yellow-200">
-                                📌 <strong>Lưu ý:</strong> Bếp nhỏ tại nhà vẫn được, miễn là gọn gàng và sạch để chụp ảnh kiểm duyệt.
-                            </div>
-                        </div>
-
-                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                            <div class="flex items-center gap-4 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-green-600 text-white font-bold flex items-center justify-center shrink-0">4</div>
-                                <h4 class="font-bold text-lg text-brand-dark">Chuẩn bị hình ảnh – menu – giá bán 📷</h4>
-                            </div>
-                            <ul class="list-disc pl-5 text-slate-600 space-y-1 text-sm ml-12">
-                                <li>Chụp ảnh món ăn (tự chụp bằng điện thoại + ánh sáng tốt hoặc dùng Canva dựng).</li>
-                                <li>Viết mô tả món: điểm nổi bật, nguyên liệu, ai nên ăn.</li>
-                                <li>Set giá: nghiên cứu giá đối thủ, cộng chi phí nguyên liệu, lời tối thiểu 30–40%.</li>
-                            </ul>
-                            <div class="mt-3 ml-14 p-3 bg-yellow-50 text-yellow-800 text-sm rounded border border-yellow-200">
-                                📌 <strong>Mẹo:</strong> Ảnh đẹp = tăng 70% tỉ lệ khách bấm xem món.
-                            </div>
-                        </div>
-
-                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                            <div class="flex items-center gap-4 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-green-600 text-white font-bold flex items-center justify-center shrink-0">5</div>
-                                <h4 class="font-bold text-lg text-brand-dark">Đăng ký tài khoản nhà bán ShopeeFood/GrabFood 💻</h4>
-                            </div>
-                            <ul class="list-disc pl-5 text-slate-600 space-y-1 text-sm ml-12">
-                                <li>ShopeeFood: merchant.shopeefood.vn</li>
-                                <li>GrabFood: Đăng ký qua app Grab Merchant.</li>
-                                <li>Chuẩn bị đầy đủ giấy tờ, thông tin quán, menu, ảnh.</li>
-                            </ul>
-                            <div class="mt-3 ml-14 p-3 bg-yellow-50 text-yellow-800 text-sm rounded border border-yellow-200">
-                                📌 <strong>Mẹo:</strong> Nên có ít nhất 2 app để tối ưu đơn trong khung giờ cao điểm.
-                            </div>
-                        </div>
-
-                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                            <div class="flex items-center gap-4 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-green-600 text-white font-bold flex items-center justify-center shrink-0">6</div>
-                                <h4 class="font-bold text-lg text-brand-dark">Set up gian hàng chuẩn chỉnh 🛒</h4>
-                            </div>
-                            <ul class="list-disc pl-5 text-slate-600 space-y-1 text-sm ml-12">
-                                <li>Đặt tên quán dễ nhớ, dễ tìm, có keyword (VD: Cơm Gà Chị Ba – Nguyễn Oanh).</li>
-                                <li>Mô tả quán: ngắn gọn, tạo cảm giác sạch sẽ, ngon, đặc sản gia truyền...</li>
-                                <li>Menu rõ ràng, phân loại món (Combo – Món lẻ – Nước – Món thêm).</li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                            <div class="flex items-center gap-4 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-green-600 text-white font-bold flex items-center justify-center shrink-0">7</div>
-                                <h4 class="font-bold text-lg text-brand-dark">Thiết lập khuyến mãi mở màn 🎁</h4>
-                            </div>
-                            <ul class="list-disc pl-5 text-slate-600 space-y-1 text-sm ml-12">
-                                <li>Miễn phí ship dưới 3km.</li>
-                                <li>Combo giảm 15–20%.</li>
-                                <li>Tặng kèm đồ uống/món thêm nhỏ.</li>
-                            </ul>
-                            <div class="mt-3 ml-14 p-3 bg-yellow-50 text-yellow-800 text-sm rounded border border-yellow-200">
-                                📌 <strong>Mẹo:</strong> Không cần giảm lỗ, chỉ cần tạo cảm giác “hời” là khách dễ mua lần đầu.
-                            </div>
-                        </div>
-
-                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                            <div class="flex items-center gap-4 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-green-600 text-white font-bold flex items-center justify-center shrink-0">8</div>
-                                <h4 class="font-bold text-lg text-brand-dark">Quy trình đóng gói – giao hàng 🚚</h4>
-                            </div>
-                            <ul class="list-disc pl-5 text-slate-600 space-y-1 text-sm ml-12">
-                                <li>In sticker logo, tem dán túi, số điện thoại.</li>
-                                <li>Chuẩn bị hộp giấy, muỗng nĩa gỗ, khăn giấy.</li>
-                                <li>Giao đúng giờ, ghi chú rõ: “Món cần giữ nóng – không để nghiêng”.</li>
-                            </ul>
-                            <div class="mt-3 ml-14 p-3 bg-yellow-50 text-yellow-800 text-sm rounded border border-yellow-200">
-                                📌 <strong>Quan trọng:</strong> Giao hàng là lần đầu “gặp mặt”. Chỉn chu từ túi đến hộp là ăn điểm.
-                            </div>
-                        </div>
-
-                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                            <div class="flex items-center gap-4 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-green-600 text-white font-bold flex items-center justify-center shrink-0">9</div>
-                                <h4 class="font-bold text-lg text-brand-dark">Marketing miễn phí trên MXH 📣</h4>
-                            </div>
-                            <ul class="list-disc pl-5 text-slate-600 space-y-1 text-sm ml-12">
-                                <li>Tạo fanpage Facebook, TikTok, Zalo OA.</li>
-                                <li>Chạy minigame: Ai đặt hôm nay sẽ tặng 1 món/mã giảm giá lần 2.</li>
-                                <li>Nhờ người thân review thật và đăng lại.</li>
-                            </ul>
-                            <div class="mt-3 ml-14 p-3 bg-yellow-50 text-yellow-800 text-sm rounded border border-yellow-200">
-                                📌 <strong>Mẹo:</strong> Dùng AI (như công cụ phía trên) để viết caption hút khách cực mạnh!
-                            </div>
-                        </div>
-
-                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                            <div class="flex items-center gap-4 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-green-600 text-white font-bold flex items-center justify-center shrink-0">10</div>
-                                <h4 class="font-bold text-lg text-brand-dark">Theo dõi đơn – cải thiện mỗi ngày 🧾</h4>
-                            </div>
-                            <ul class="list-disc pl-5 text-slate-600 space-y-1 text-sm ml-12">
-                                <li>Xem feedback – điều chỉnh món nào bị chê.</li>
-                                <li>Theo dõi món bán chạy để ưu tiên đẩy mạnh.</li>
-                                <li>Bắt đầu lưu lại data khách để upsell (dùng Zalo, điện thoại).</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="mt-8 p-8 bg-brand-dark rounded-xl text-white shadow-2xl border border-brand-gold/30">
-                        <div class="text-center mb-6">
-                            <h3 class="text-xl font-bold text-brand-gold uppercase tracking-wider mb-2">Đăng Ký Tư Vấn 1:1 Cùng Hiếu</h3>
-                            <p class="text-slate-300 text-sm italic mb-4">"Mỗi quán có chi phí, cách vận hành khác nhau. Để tối ưu chi phí vận hành, tăng doanh thu cần phù hợp với mô hình từng quán."</p>
-                            <p class="text-xs text-slate-400">Điền tên, SĐT để nhận tư vấn 1:1 trong 30 phút cụ thể món ăn, quy mô, thị trường của bạn.</p>
-                        </div>
-                        <form onsubmit="handleConsultation(event)" class="space-y-4">
-                            <div class="grid md:grid-cols-2 gap-4">
-                                <input type="text" name="Họ tên" placeholder="Họ tên của bạn" required class="w-full px-4 py-3 bg-brand-surface border border-slate-600 rounded-lg text-white focus:border-brand-gold focus:outline-none placeholder-slate-500">
-                                <input type="tel" name="Số điện thoại" placeholder="Số điện thoại (Zalo)" required class="w-full px-4 py-3 bg-brand-surface border border-slate-600 rounded-lg text-white focus:border-brand-gold focus:outline-none placeholder-slate-500">
-                            </div>
-                            <input type="hidden" name="Loại đăng ký" value="Tư vấn Newbie">
-                            <button class="w-full py-4 bg-gradient-to-r from-brand-gold to-yellow-600 text-brand-dark font-bold rounded-lg hover:shadow-glow transition-all transform hover:-translate-y-1">
-                                <i class="fa-solid fa-calendar-check mr-2"></i> Đăng Ký Tư Vấn 30 Phút
-                            </button>
-                        </form>
-                    </div>
-                </div>
-
-                <div id="content-pro" class="hidden h-[600px] overflow-y-auto custom-scroll p-6 md:p-10 bg-slate-50 relative">
-                    <div class="text-center pb-6 border-b border-slate-200 mb-6">
-                        <h3 class="text-2xl font-bold text-blue-700">Chiến Lược Tối Ưu Quán App Food</h3>
-                        <p class="text-slate-500">Thoát khỏi sự phụ thuộc vào App - Xây dựng đế chế riêng.</p>
-                    </div>
-
-                    <div class="space-y-6">
-                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex gap-4">
-                            <div class="w-12 h-12 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center shrink-0 text-xl"><i class="fa-solid fa-camera"></i></div>
-                            <div>
-                                <h4 class="font-bold text-lg text-brand-dark">Hình Ảnh & Visual Marketing</h4>
-                                <p class="text-sm text-slate-600 mt-1">Khách ăn bằng mắt trước. Đầu tư bộ ảnh "nhìn là thèm", ánh sáng tốt, concept sạch sẽ để tăng CTR (tỷ lệ nhấp).</p>
-                            </div>
-                        </div>
-                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex gap-4">
-                            <div class="w-12 h-12 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center shrink-0 text-xl"><i class="fa-solid fa-list-check"></i></div>
-                            <div>
-                                <h4 class="font-bold text-lg text-brand-dark">Cấu Trúc Menu Upsell</h4>
-                                <p class="text-sm text-slate-600 mt-1">Không bán món lẻ. Tạo Combo (Món chính + Nước + Món phụ) để tăng giá trị trung bình đơn (AOV). Dùng hiệu ứng "Mồi nhử" về giá.</p>
-                            </div>
-                        </div>
-                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex gap-4">
-                            <div class="w-12 h-12 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center shrink-0 text-xl"><i class="fa-solid fa-map-location-dot"></i></div>
-                            <div>
-                                <h4 class="font-bold text-lg text-brand-dark">Chiến Lược Google Maps</h4>
-                                <p class="text-sm text-slate-600 mt-1">SEO địa điểm quán lên Top Google. Khách tìm "Cơm gà gần đây" là thấy quán bạn đầu tiên. Xin đánh giá 5 sao từ khách quen.</p>
-                            </div>
-                        </div>
-                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex gap-4">
-                            <div class="w-12 h-12 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center shrink-0 text-xl"><i class="fa-solid fa-envelope-open-text"></i></div>
-                            <div>
-                                <h4 class="font-bold text-lg text-brand-dark">Offline Conversion (Thư Cảm Ơn)</h4>
-                                <p class="text-sm text-slate-600 mt-1">Kèm thư cảm ơn trong mỗi đơn hàng App. Tặng mã giảm giá riêng nếu họ đến ăn trực tiếp hoặc đặt qua Zalo (Tránh chiết khấu 25% của App).</p>
-                            </div>
-                        </div>
-                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex gap-4">
-                            <div class="w-12 h-12 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center shrink-0 text-xl"><i class="fa-brands fa-tiktok"></i></div>
-                            <div>
-                                <h4 class="font-bold text-lg text-brand-dark">Xây Kênh Social "Thực Chiến"</h4>
-                                <p class="text-sm text-slate-600 mt-1">Làm Facebook Reels, TikTok, YouTube Shorts. Quay đơn giản bằng điện thoại, quay cảnh bếp núc, đóng gói. Mục đích: Duy trì hiển thị, nhắc nhớ thương hiệu.</p>
-                            </div>
-                        </div>
-                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex gap-4">
-                            <div class="w-12 h-12 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center shrink-0 text-xl"><i class="fa-solid fa-bullhorn"></i></div>
-                            <div>
-                                <h4 class="font-bold text-lg text-brand-dark">Facebook Ads Chuyển Đổi</h4>
-                                <p class="text-sm text-slate-600 mt-1">Khi đã có content tốt, chạy quảng cáo bán kính 3-5km để kéo khách trực tiếp. Chủ động nguồn khách, không phụ thuộc App.</p>
-                            </div>
-                        </div>
-                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex gap-4">
-                            <div class="w-12 h-12 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center shrink-0 text-xl"><i class="fa-solid fa-comments"></i></div>
-                            <div>
-                                <h4 class="font-bold text-lg text-brand-dark">Hệ Thống CRM & Cộng Đồng</h4>
-                                <p class="text-sm text-slate-600 mt-1">Dùng Messenger AI (Chatbot) và Zalo OA để chăm sóc khách cũ. Nhắn tin tặng quà sinh nhật, món mới. Biến khách lạ thành khách trung thành.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mt-8 p-8 bg-brand-dark rounded-xl text-white shadow-2xl border border-brand-gold/30">
-                        <div class="text-center mb-6">
-                            <h3 class="text-xl font-bold text-brand-gold uppercase tracking-wider mb-2">Đăng Ký Tư Vấn 1:1 Cùng Hiếu</h3>
-                            <p class="text-slate-300 text-sm italic mb-4">"Mỗi quán có chi phí, cách vận hành khác nhau. Để tối ưu chi phí vận hành, tăng doanh thu cần phù hợp với mô hình từng quán."</p>
-                            <p class="text-xs text-slate-400">Điền tên, SĐT để nhận tư vấn 1:1 trong 30 phút cụ thể món ăn, quy mô, thị trường của bạn.</p>
-                        </div>
-                        <form onsubmit="handleConsultation(event)" class="space-y-4">
-                            <div class="grid md:grid-cols-2 gap-4">
-                                <input type="text" name="Họ tên" placeholder="Họ tên của bạn" required class="w-full px-4 py-3 bg-brand-surface border border-slate-600 rounded-lg text-white focus:border-brand-gold focus:outline-none placeholder-slate-500">
-                                <input type="tel" name="Số điện thoại" placeholder="Số điện thoại (Zalo)" required class="w-full px-4 py-3 bg-brand-surface border border-slate-600 rounded-lg text-white focus:border-brand-gold focus:outline-none placeholder-slate-500">
-                            </div>
-                            <input type="hidden" name="Loại đăng ký" value="Tư vấn Pro">
-                            <button class="w-full py-4 bg-gradient-to-r from-brand-gold to-yellow-600 text-brand-dark font-bold rounded-lg hover:shadow-glow transition-all transform hover:-translate-y-1">
-                                <i class="fa-solid fa-calendar-check mr-2"></i> Đăng Ký Tư Vấn 30 Phút
-                            </button>
-                        </form>
-                    </div>
-                </div>
-
-                <div id="content-brand" class="hidden h-[600px] overflow-y-auto custom-scroll p-6 md:p-10 bg-slate-50 relative">
-                    <div class="mb-8 bg-white p-6 rounded-xl border border-brand-gold/30 shadow-lg">
-                        <h3 class="text-xl font-bold text-brand-dark mb-4 text-center">💡 Tại Sao Bạn Cần Người Đồng Hành?</h3>
-                        <div class="overflow-x-auto">
-                            <table class="w-full text-sm text-left border-collapse price-table">
-                                <thead>
-                                    <tr>
-                                        <th class="w-1/3 bg-slate-100">Tiêu chí</th>
-                                        <th class="w-1/3 bg-slate-200">Tự Xem Qua Video (Tự Học)</th>
-                                        <th class="w-1/3 bg-brand-gold text-brand-dark">Gói Vận Hành Cùng Chủ Quán</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="font-bold">Chi phí</td>
-                                        <td>Thấp (199k - 399k)</td>
-                                        <td>Đầu tư xứng đáng</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-bold">Lộ trình</td>
-                                        <td>Học theo video có sẵn</td>
-                                        <td><strong>Thiết kế riêng theo cá nhân</strong></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-bold">Hỗ trợ</td>
-                                        <td>Không / Ít tương tác</td>
-                                        <td><strong>Sửa kịch bản & video 1:1</strong></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-bold">Kết quả</td>
-                                        <td>Dễ bỏ cuộc giữa chừng</td>
-                                        <td><strong>Có kênh & video thực tế</strong></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="mt-4 text-center">
-                            <p class="text-sm text-slate-500 italic mb-2">Bạn có thể bắt đầu với các khóa học lẻ để làm quen, nhưng để xây kênh bài bản và kiếm tiền, bạn cần một lộ trình mentor.</p>
-                        </div>
-                    </div>
-
-                    <div class="mt-6 mb-8 bg-brand-light/50 p-6 rounded-xl border-l-4 border-brand-gold italic text-slate-600">
-                        <p class="mb-4">"Tớ chia sẻ mọi thứ mình biết 8 năm qua. Nhưng sức có hạn không thể gặp từng người để chia sẻ. Tớ gói kiến thức thành video phù hợp cho người mới..."</p>
-                        <p class="mb-4">"Chủ quán đã lên các app thì tớ mong được đồng hành cùng để tối ưu, đột phá doanh thu hơn"</p>
-                        
-                        <h4 class="font-bold text-brand-dark not-italic mb-3">Điểm khác biệt của Hiếu</h4>
-                        <ul class="space-y-2 not-italic">
-                            <li class="flex gap-2">
-                                <i class="fa-solid fa-robot text-brand-gold mt-1"></i>
-                                <span><strong>AI là tự động 24/7:</strong> Hỗ trợ bạn mọi lúc.</span>
-                            </li>
-                            <li class="flex gap-2">
-                                <i class="fa-solid fa-fingerprint text-brand-gold mt-1"></i>
-                                <span><strong>Thông điệp cá nhân hóa:</strong> Không ai giống ai.</span>
-                            </li>
-                            <li class="flex gap-2">
-                                <i class="fa-solid fa-handshake text-brand-gold mt-1"></i>
-                                <span><strong>Đồng Hành:</strong> Vừa làm vừa chia sẻ cách làm, không giấu nghề.</span>
-                            </li>
-                            <li class="flex gap-2">
-                                <i class="fa-solid fa-chart-line text-brand-gold mt-1"></i>
-                                <span><strong>Kết quả thực tế:</strong> Tài sản số là khoản đầu tư dài hạn bền vững.</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="text-center pb-6 border-b border-slate-200 mb-6">
-                        <h3 class="text-2xl font-bold text-purple-700">Chiến Lược Xây Kênh & Thương Hiệu "Faceless"</h3>
-                        <p class="text-slate-500">Lộ trình xây dựng thu nhập online mà không cần lộ mặt.</p>
-                    </div>
-
-                    <div class="space-y-6">
-                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex gap-4">
-                            <div class="w-12 h-12 rounded-full bg-purple-600 text-white font-bold flex items-center justify-center shrink-0 text-xl"><i class="fa-solid fa-brain"></i></div>
-                            <div>
-                                <h4 class="font-bold text-lg text-brand-dark">Tư Duy "Faceless" & Chọn Ngách (Niche)</h4>
-                                <p class="text-sm text-slate-600 mt-1">Bán giá trị nội dung, không bán nhan sắc. Chọn các ngách bền vững: Review sách/phim, Kể chuyện (Storytelling), Tin tức, Kiến thức chuyên môn (F&B, Marketing), ASMR nấu ăn.</p>
-                            </div>
-                        </div>
-                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex gap-4">
-                            <div class="w-12 h-12 rounded-full bg-purple-600 text-white font-bold flex items-center justify-center shrink-0 text-xl"><i class="fa-solid fa-robot"></i></div>
-                            <div>
-                                <h4 class="font-bold text-lg text-brand-dark">Bộ Công Cụ Đòn Bẩy (AI Tools)</h4>
-                                <p class="text-sm text-slate-600 mt-1">Không cần giọng hay, không cần viết giỏi. Dùng <strong>ChatGPT</strong> soạn kịch bản. Dùng <strong>Vbee/ElevenLabs</strong> chuyển văn bản thành giọng đọc (Voice AI). Dùng <strong>CapCut</strong> edit tự động.</p>
-                            </div>
-                        </div>
-                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex gap-4">
-                            <div class="w-12 h-12 rounded-full bg-purple-600 text-white font-bold flex items-center justify-center shrink-0 text-xl"><i class="fa-solid fa-video"></i></div>
-                            <div>
-                                <h4 class="font-bold text-lg text-brand-dark">Nguồn Tài Nguyên Hình Ảnh & Video</h4>
-                                <p class="text-sm text-slate-600 mt-1">Sử dụng kho Stock Video miễn phí chất lượng cao (Pexels, Pixabay) hoặc video tự quay góc tay/sản phẩm (không quay mặt). Kết hợp Animation đơn giản.</p>
-                            </div>
-                        </div>
-                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex gap-4">
-                            <div class="w-12 h-12 rounded-full bg-purple-600 text-white font-bold flex items-center justify-center shrink-0 text-xl"><i class="fa-solid fa-network-wired"></i></div>
-                            <div>
-                                <h4 class="font-bold text-lg text-brand-dark">Chiến Thuật Đa Kênh (Multi-Channel)</h4>
-                                <p class="text-sm text-slate-600 mt-1">Sản xuất 1 video gốc chất lượng cao -> Reup (Đăng tải lại) lên TikTok, YouTube Shorts, Facebook Reels để tối đa hóa lượt tiếp cận.</p>
-                            </div>
-                        </div>
-                        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex gap-4">
-                            <div class="w-12 h-12 rounded-full bg-purple-600 text-white font-bold flex items-center justify-center shrink-0 text-xl"><i class="fa-solid fa-sack-dollar"></i></div>
-                            <div>
-                                <h4 class="font-bold text-lg text-brand-dark">Kiếm Tiền & Chuyển Đổi</h4>
-                                <p class="text-sm text-slate-600 mt-1">Affiliate Marketing (Gắn link sản phẩm), Booking quảng cáo, hoặc tự bán sản phẩm số (Ebook, Khóa học) của chính mình.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mt-8 p-8 bg-brand-dark rounded-xl text-white shadow-2xl border border-brand-gold/30">
-                        <div class="text-center mb-6">
-                            <h3 class="text-xl font-bold text-brand-gold uppercase tracking-wider mb-2">Đăng Ký Tư Vấn 1:1 Cùng Hiếu</h3>
-                            <p class="text-slate-300 text-sm italic mb-4">"Xây kênh không lộ mặt cần chiến lược nội dung sắc bén để giữ chân người xem. Hãy để tôi giúp bạn định hướng đúng ngay từ đầu."</p>
-                            <p class="text-xs text-slate-400">Điền tên, SĐT để nhận tư vấn 1:1 trong 30 phút về ngách nội dung phù hợp với bạn.</p>
-                        </div>
-                        <form onsubmit="handleConsultation(event)" class="space-y-4">
-                            <div class="grid md:grid-cols-2 gap-4">
-                                <input type="text" name="Họ tên" placeholder="Họ tên của bạn" required class="w-full px-4 py-3 bg-brand-surface border border-slate-600 rounded-lg text-white focus:border-brand-gold focus:outline-none placeholder-slate-500">
-                                <input type="tel" name="Số điện thoại" placeholder="Số điện thoại (Zalo)" required class="w-full px-4 py-3 bg-brand-surface border border-slate-600 rounded-lg text-white focus:border-brand-gold focus:outline-none placeholder-slate-500">
-                            </div>
-                            <input type="hidden" name="Loại đăng ký" value="Tư vấn Brand">
-                            <button class="w-full py-4 bg-gradient-to-r from-brand-gold to-yellow-600 text-brand-dark font-bold rounded-lg hover:shadow-glow transition-all transform hover:-translate-y-1">
-                                <i class="fa-solid fa-calendar-check mr-2"></i> Đăng Ký Tư Vấn 30 Phút
-                            </button>
-                        </form>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="consultation-form" class="py-16 bg-white border-t border-slate-200">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-10">
-                <h2 class="text-3xl font-bold text-brand-dark mb-4">Đăng Ký Tư Vấn 1:1 Cùng Hiếu</h2>
-                <p class="text-slate-600">Chọn phương thức phù hợp nhất với nhu cầu của bạn</p>
-            </div>
-
-            <div class="max-w-xl mx-auto bg-slate-50 rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
-                <div class="p-8 hover:bg-white transition-colors cursor-pointer group">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-12 h-12 bg-brand-gold/20 text-brand-gold rounded-full flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-handshake"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-dark mb-2">Đăng Ký Tư Vấn Tìm Hiểu Thêm</h3>
-                    <p class="text-sm text-slate-500 mb-4">Gặp gỡ trực tiếp 1:1 để giải quyết vấn đề cụ thể của quán/kênh của bạn.</p>
-                    <ul class="text-xs text-slate-600 space-y-2">
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i>Phân tích case study thực tế.</li>
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i>Lộ trình cá nhân hóa riêng biệt.</li>
-                    </ul>
-                </div>
-
-                <div class="p-8 bg-white border-t border-slate-200">
-                    <form onsubmit="handleFinalConsultation(event)" class="space-y-4 max-w-lg mx-auto">
-                        <input type="hidden" name="consult_type" value="direct">
-                        
-                        <div>
-                            <label class="block text-sm font-bold text-brand-dark mb-1">Họ và tên</label>
-                            <input type="text" name="Họ tên" required class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-gold focus:border-brand-gold outline-none" placeholder="VD: Nguyễn Văn A">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-bold text-brand-dark mb-1">Số điện thoại (Zalo)</label>
-                            <input type="tel" name="Số điện thoại" required pattern="[0-9]{10}" class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-gold focus:border-brand-gold outline-none" placeholder="VD: 0912345678">
-                        </div>
-                        <button class="w-full py-4 bg-brand-gold text-brand-dark font-bold rounded-lg hover:bg-brand-goldHover transition shadow-lg mt-4 text-lg uppercase tracking-wide">
-                            Xác Nhận Đăng Ký
-                        </button>
+                <div class="p-4 bg-slate-900 border-t border-slate-700">
+                    <form id="ai-chat-form" class="flex gap-2">
+                        <input type="text" id="user-input" class="flex-1 bg-slate-800 border border-slate-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold" placeholder="Ví dụ: Làm sao để đặt tên món chuẩn SEO?">
+                        <button type="submit" id="send-btn" class="bg-brand-gold text-brand-dark w-12 rounded-xl hover:bg-white transition-all"><i class="fa-solid fa-paper-plane"></i></button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-12 bg-brand-dark border-t border-slate-800">
-        <div class="container mx-auto px-6 text-center">
-            <h3 class="text-2xl font-bold text-white mb-6">Cam Kết Từ Đặng Ngọc Hiếu</h3>
-            <div class="flex flex-wrap justify-center gap-6">
-                <span class="px-4 py-2 bg-green-900/30 text-green-400 rounded border border-green-800"><i class="fa-solid fa-shield-alt mr-2"></i>Không hiệu quả - Hoàn tiền 100%</span>
-                <span class="px-4 py-2 bg-blue-900/30 text-blue-400 rounded border border-blue-800"><i class="fa-solid fa-lock mr-2"></i>Bảo mật thông tin kinh doanh</span>
-                <span class="px-4 py-2 bg-purple-900/30 text-purple-400 rounded border border-purple-800"><i class="fa-solid fa-users mr-2"></i>Cộng đồng hỗ trợ trọn đời</span>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-black text-slate-400 py-12 border-t border-slate-900">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-start gap-8">
-                <div class="md:w-1/3">
-                    <h4 class="text-white font-bold text-lg mb-4 font-serif tracking-wider">ĐẶNG NGỌC HIẾU</h4>
-                    <p class="text-sm opacity-70 mb-4">Đồng hành cùng chủ quán/ chủ shop xây dựng tài sản số bền vững.</p>
-                    <div class="text-sm text-slate-500 italic mb-3">"Dùng công nghệ không để biết nhiều, dùng để sống chủ động, để trải nghiệm lớn hơn mỗi ngày."</div>
-                </div>
-                
-                <div class="md:w-1/3">
-                    <h4 class="text-white font-bold mb-4">Liên Hệ</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><i class="fa-solid fa-phone text-brand-gold mr-2"></i> Hotline/Zalo: 0931.34.34.55</li>
-                        <li><i class="fa-solid fa-envelope text-brand-gold mr-2"></i> Email: dangngochieu3455@gmail.com</li>
-                        <li><i class="fa-solid fa-globe text-brand-gold mr-2"></i> <a href="#" class="hover:text-white transition">Cộng đồng Zalo: Chủ Quán Tự Làm Marketing Online</a></li>
-                    </ul>
-                </div>
-
-                <div class="md:w-1/3 flex gap-4 mt-2">
-                    <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-brand-gold hover:text-brand-dark transition transform hover:-translate-y-1"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-brand-gold hover:text-brand-dark transition transform hover:-translate-y-1"><i class="fa-brands fa-tiktok"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-brand-gold hover:text-brand-dark transition transform hover:-translate-y-1"><i class="fa-brands fa-youtube"></i></a>
-                </div>
-            </div>
-            <div class="border-t border-slate-900 mt-10 pt-6 text-xs text-center text-slate-600">
-                &copy; 2024 Dang Ngoc Hieu. All rights reserved.
-            </div>
-        </div>
+    <footer class="bg-black text-slate-500 py-10 text-center text-sm border-t border-slate-900">
+        <p>&copy; 2024 Dang Ngoc Hieu. All rights reserved.</p>
     </footer>
 
     <script>
-// --- 1. CONFIGURATION ---
-// *** LINK GOOGLE SCRIPT MỚI CỦA BẠN (ĐÃ THÊM /EXEC) ***
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzoefWPAB_2R6G6EBBP6GBf_krCNRWSlvrnP2_hmVYiOETAzKtuZlcC_VDNsB0CRK8c/exec";
+        // --- 1. CẤU HÌNH GOOGLE SHEETS & API ---
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzoefWPAB_2R6G6EBBP6GBf_krCNRWSlvrnP2_hmVYiOETAzKtuZlcC_VDNsB0CRK8c/exec";
+        const apiKey = "AIzaSyATuUtjMpD-xUOYuMG1XCMOlGIvWBeLme0";
 
-// API Key đã được tách để bảo mật
-const p1 = "AIzaSyATuUtjMpD-";
-const p2 = "xUOYuMG1XCMOlGIvWBeLme0";
-const apiKey = p1 + p2;
-        const chatContainer = document.getElementById('chat-container');
-        const userInput = document.getElementById('user-input');
-        const sendBtn = document.getElementById('send-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        let currentMode = 'chat';
-        let currentGiftSelection = null;
-
-        // --- HELPER: Send Data to Google Sheet (ĐÃ SỬA LỖI) ---
-async function sendDataToSheet(formData) {
-    // Kiểm tra nếu link script chưa được cập nhật (phòng hờ)
-    if (GOOGLE_SCRIPT_URL.includes("placeholder")) {
-        console.warn("Chưa cập nhật link Google Apps Script!");
-        return;
-    }
-
-    const data = {};
-    formData.forEach((value, key) => {
-        data[key] = value;
-    });
-
-    // SỬA LỖI QUAN TRỌNG:
-    // Chuyển dữ liệu sang dạng tham số URL (Form chuẩn) thay vì JSON
-    // Điều này giúp Google Script đọc được dữ liệu khi dùng chế độ no-cors
-    const params = new URLSearchParams(data);
-
-    try {
-        await fetch(GOOGLE_SCRIPT_URL, {
-            method: 'POST',
-            mode: 'no-cors', // Bắt buộc để không bị chặn bởi trình duyệt
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body: params // Gửi params thay vì JSON.stringify
-        });
-        console.log("Dữ liệu đã được gửi đi (Mode: no-cors)");
-    } catch (error) {
-        console.error("Lỗi gửi dữ liệu:", error);
-    }
-}
-        // --- 2. GIFT UNLOCK LOGIC ---
-        function selectGift(type) {
-            currentGiftSelection = type;
-            document.getElementById('gift-selection-state').classList.add('hidden');
-            document.getElementById('gift-form-state').classList.remove('hidden');
-            document.getElementById('gift-form-state').classList.add('flex');
+        // --- 2. HÀM GỬI DATA VỀ GOOGLE SHEETS (GIỮ NGUYÊN) ---
+        async function sendDataToSheet(formData) {
+            // Tự động lấy giờ Việt Nam
+            formData.append('Thời gian', new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' }));
             
-            // Update Form Title based on selection
-            let title = "";
-            if (type === 'newbie') title = "Nhận 10 Bước Mở Quán";
-            else if (type === 'pro') title = "Nhận Chiến Lược Tối Ưu Quán";
-            else if (type === 'brand') title = "Nhận Lộ Trình Faceless";
-            document.getElementById('form-title').innerText = title;
-        }
-
-        function backToSelection() {
-            document.getElementById('gift-form-state').classList.add('hidden');
-            document.getElementById('gift-form-state').classList.remove('flex');
-            document.getElementById('gift-selection-state').classList.remove('hidden');
-            currentGiftSelection = null;
-        }
-
-        async function handleGiftUnlock(e) {
-            e.preventDefault();
-            
-            // Send data to Google Sheet
-            const formData = new FormData(e.target);
-            formData.append('Loại đăng ký', `Nhận quà: ${currentGiftSelection}`);
-            await sendDataToSheet(formData);
-
-            // UI Transition
-            const formState = document.getElementById('gift-form-state');
-            
-            formState.innerHTML = `
-                <div class="text-center animate-bounce">
-                    <i class="fa-solid fa-check-circle text-5xl text-green-500 mb-4"></i>
-                    <h3 class="text-xl font-bold text-brand-dark">Đăng Ký Thành Công!</h3>
-                    <p class="text-slate-500 mb-4">Tham gia nhóm kín để nhận hỗ trợ trực tiếp từ Hiếu & Cộng đồng.</p>
-                    <a href="https://zalo.me/g/csocss597" target="_blank" class="inline-block px-6 py-3 bg-blue-600 text-white font-bold rounded-full hover:bg-blue-700 transition shadow-lg animate-pulse">
-                        <i class="fa-solid fa-users mr-2"></i> Vào Nhóm Zalo Ngay
-                    </a>
-                </div>
-            `;
-
-            setTimeout(() => {
-                const contentId = currentGiftSelection === 'newbie' ? 'content-newbie' : 
-                                  currentGiftSelection === 'pro' ? 'content-pro' : 'content-brand';
-                
-                document.getElementById(contentId).classList.remove('hidden');
-                
-                setTimeout(() => {
-                    formState.classList.add('hidden');
-                    formState.classList.remove('flex');
-                }, 3000); 
-                
-            }, 500); 
-        }
-
-        // --- 2.1 CONSULTATION FORM LOGIC (Gift section) ---
-        async function handleConsultation(e) {
-            e.preventDefault();
-            const formData = new FormData(e.target);
-            await sendDataToSheet(formData);
-            
-            // Redirect to Zalo for consultation
-            window.open('https://zalo.me/0931343455', '_blank');
-        }
-
-        // --- 2.2 FINAL CONSULTATION FORM LOGIC (New Section) ---
-        async function handleFinalConsultation(e) {
-            e.preventDefault();
-            const formData = new FormData(e.target);
-            await sendDataToSheet(formData);
-
-            // Redirect to Zalo for consultation
-            window.open('https://zalo.me/0931343455', '_blank');
-        }
-
-        // --- 2.3 TRAINING MODAL LOGIC ---
-        function openTrainingModal() {
-            // REMOVED as per request to remove training modal
-        }
-
-        function closeTrainingModal() {
-             // REMOVED as per request to remove training modal
-        }
-
-        // --- 3. SYSTEM PROMPTS (ENHANCED) ---
-        const prompts = {
-            chat: `Bạn là trợ lý ảo AI của Chiến lược gia Đặng Ngọc Hiếu.
-                   NHIỆM VỤ: Tư vấn chiến lược kinh doanh F&B, Marketing và Xây dựng thương hiệu dựa trên các tài liệu cốt lõi sau:
-
-                   1. TƯ DUY BÁN HÀNG (MASLOW + ĐẠO HỌC):
-                   - Hiểu rằng khách hàng mua vì "Tham" (mong cầu):
-                     + Sinh lý (Ăn ngon, rẻ): Bán combo, hình ảnh hấp dẫn.
-                     + An toàn (Sức khỏe, tiền bạc): Cam kết hoàn tiền, chứng nhận VSATTP.
-                     + Xã hội (Kết nối): Bán bằng cộng đồng, review thật.
-                     + Tôn trọng (Danh tiếng): Sản phẩm limited, VIP.
-                     + Tự hoàn thiện: Bán khóa học, sách.
-                     + Siêu cá nhân (Di sản): Bán sứ mệnh, đóng góp xã hội.
-                   - Chiến lược: Đánh vào tầng nhu cầu phù hợp để chốt sale.
-
-                   2. XÂY KÊNH YOUTUBE MÃI XANH (EVERGREEN):
-                   - Tư duy: Không chạy theo trend ngắn hạn. Tập trung vào nội dung có giá trị lâu dài (Giải quyết vấn đề, Hướng dẫn, Kiến thức).
-                   - Cơ chế đề xuất: Tối ưu CTR (Tỷ lệ nhấp) và AVD (Thời gian xem trung bình).
-                   - Hệ thống thụ động: Video cũ vẫn ra tiền nhờ SEO và Playlist. Gắn Affiliate/Sản phẩm số để kiếm tiền ngay cả khi ngủ.
-
-                   3. NGHIÊN CỨU ĐỐI THỦ FOOD APP:
-                   - Phân tích kỹ các quán Top như "Bún Bò Kim Hương" (Giá 52k), "Đông Ba" (60-85k).
-                   - Chiến lược giá: Giá bán = Giá vốn + Chi phí sàn + Lợi nhuận. Đừng bán lỗ để lấy đơn ảo.
-                   - Menu Engineering: Dùng Combo (Món chính + Nước) để tăng giá trị đơn hàng (AOV). Dùng món mồi (giá rẻ) để kéo traffic.
-
-                   4. QUẢNG CÁO FACEBOOK (ADS PRO):
-                   - Tư duy: "Direct Response Marketing" (Tiếp thị phản hồi trực tiếp) - đo lường ra đơn ngay, không chỉ hiển thị.
-                   - Ma trận kinh tế: Tính toán kỹ CAC (Chi phí có khách mới) và LTV (Giá trị trọn đời khách hàng).
-                   - Quy trình: Test (Thử nghiệm) -> Optimize (Tối ưu) -> Scale (Vít ngân sách). Không đốt tiền vào ads nếu chưa có phễu bán hàng tốt.
-
-                   YÊU CẦU TRẢ LỜI:
-                   - Dùng giọng văn chuyên gia, thực tế, thẳng thắn (Street Smart).
-                   - Luôn đưa ra lời khuyên dựa trên số liệu hoặc tư duy logic ở trên.
-                   - Cuối câu trả lời luôn gợi mở về việc "đăng ký tư vấn 1:1" nếu vấn đề phức tạp.`,
-            
-            menu: `Bạn là chuyên gia đặt tên món ăn trên App Food (Grab/Shopee).
-                   Nhiệm vụ: Biến tên món thường thành tên "sát thủ" ra đơn.
-                   Format:
-                   🔥 **Tên chuẩn SEO:** [Tên món + Tính từ mạnh + Key search] (VD: Cơm Gà Xối Mỡ Da Giòn Rụm)
-                   🤤 **Mô tả:** 2 câu mô tả kích thích tuyến nước bọt.
-                   💰 **Upsell:** Gợi ý 3 món bán kèm để tăng giá trị đơn.`,
-            
-            content: `Bạn là "thằng ghệ" GPT chuyên viết content bán hàng.
-                      Nhiệm vụ: Viết caption Facebook/TikTok ngắn, giật tít, đánh trúng nỗi đau khách hàng.
-                      Yêu cầu: Không văn vở. Dùng icon sinh động. Kêu gọi hành động (CTA) dứt khoát.`,
-            
-            video: `Bạn là chuyên gia Content Video ngắn (TikTok/Reels). 
-                    Nhiệm vụ: Người dùng nhập Tên Sản Phẩm. Bạn hãy tạo ra danh sách 21 tiêu đề video dựa trên các cấu trúc sau, thay thế (TÊN SẢN PHẨM) bằng tên khách đưa và điền vào các chỗ trống hợp lý:
-                    1. Tại sao chúng ta phải sử dụng [Tên SP]?
-                    2. 3 mẹo sử dụng [Tên SP] lúc nào cũng thấy [Cảm xúc]...
-                    3. Làm thế nào để sử dụng [Tên SP] đơn giản tại nhà không cần phải...
-                    4. Mình không còn sử dụng [Tên SP] theo cách thông thường nữa.
-                    5. 5 lý do phổ biến khi sử dụng [Tên SP].
-                    6. Lời khuyên cho bạn lười sử dụng [Tên SP].
-                    7. Bí mật sử dụng [Tên SP] không phải ai cũng biết.
-                    8. Một số vấn đề khi sử dụng [Tên SP] mà bạn hay gặp phải.
-                    9. Nên làm gì khi mua [Tên SP] k đạt chất lượng.
-                    10. Cách sử dụng [Tên SP] tự nhiên có tốn kém không?
-                    11. Hướng dẫn bạn đặt mua [Tên SP] các sàn thương mại, kênh online.
-                    12. Hướng dẫn làm sản phẩm [Tên SP] ngay tại nhà.
-                    13. Cách săn mã khuyến mãi khi mua [Tên SP].
-                    14. Các loại [Tên SP] tự nhiên đang có trên thị trường.
-                    15. Mẹo... đơn giản để... luôn khoẻ đẹp.
-                    16. Những điều chưa biết về combo cao cấp....
-                    17. Cách để có trên tay sớm [Tên SP].
-                    18. 3 Cách săn mã khuyến mãi từ shop sử dụng [Tên SP].
-                    19. Cách nhận 50 phần cho khách hàng thường xuyên dùng sản phẩm.
-                    20. Trên tay mình là hộp... (giới thiệu [Tên SP] của mình).
-                    21. Lợi ích của Bạn khi mua sản phẩm bên mình.
-                    
-                    Hãy trình bày dưới dạng danh sách đánh số rõ ràng.`,
-
-            brand: `Bạn là Chuyên gia Xây Dựng Thương Hiệu Cá Nhân Thực Chiến.
-                    Nhiệm vụ: Dựa trên thông tin người dùng cung cấp (Sản phẩm, Đối tượng, Điểm mạnh), hãy tư vấn lộ trình 5 bước và gợi ý kể chuyện.
-                    
-                    Hãy áp dụng kiến thức sau để tư vấn:
-                    ✅ BƯỚC 1: RÕ BẠN LÀ AI – GIÚP AI (Viết mẫu câu định vị cho họ. Ví dụ: Tôi là A - chuyên giúp B làm C).
-                    ✅ BƯỚC 2: LÀM CHO MỌI NGƯỜI NHỚ TỚI BẠN HÀNG NGÀY (Gợi ý 3 chủ đề bài viết đầu tiên để "khai trương" chính mình).
-                    ✅ BƯỚC 3: TẬN DỤNG KÊNH MẠNH NHẤT (Khuyên họ chọn kênh dựa trên điểm mạnh họ cung cấp: Viết -> FB, Nói -> TikTok).
-                    ✅ BƯỚC 4: TẠO ẤN TƯỢNG ĐẦU TIÊN (Gợi ý cách viết Bio/Tiểu sử ngắn gọn).
-                    ✅ BƯỚC 5: CHIA SẺ SỰ THẬT (Nhắc nhở về tư duy: Đừng sống ảo).
-
-                    Sau đó, viết ra **7 Tiêu Đề Video Short/Bài Viết** dựa trên hành trình kể chuyện AIDA:
-                    1/ Bối cảnh (Lý do khởi nghiệp)
-                    2/ Nỗi đau
-                    3/ Khao khát
-                    4/ Rào cản
-                    5/ Cơ duyên
-                    6/ Kết quả
-                    7/ Bài học
-                    
-                    Lưu ý: Viết giọng văn tâm tình, chân thật, khuyến khích người dùng bắt đầu ngay.`
-        };
-
-        // --- 4. UI FUNCTIONS ---
-        function toggleMobileMenu() {
-            mobileMenu.classList.toggle('hidden');
-        }
-
-        function setMode(mode) {
-            currentMode = mode;
-            
-            const buttons = ['chat', 'menu', 'content', 'video', 'brand'];
-            buttons.forEach(m => {
-                const btn = document.getElementById(`btn-${m}`);
-                if (m === mode) {
-                    btn.classList.add('bg-slate-800', 'text-white', 'border-brand-gold/30', 'shadow-lg');
-                    btn.classList.remove('text-slate-400', 'border-transparent');
-                } else {
-                    btn.classList.remove('bg-slate-800', 'text-white', 'border-brand-gold/30', 'shadow-lg');
-                    btn.classList.add('text-slate-400', 'border-transparent');
-                }
-            });
-
-            // Handle Suggestion Chips Visibility
-            const chipContainer = document.getElementById('suggestion-chips');
-            if (mode === 'chat') {
-                chipContainer.classList.remove('hidden');
-            } else {
-                chipContainer.classList.add('hidden');
+            const params = new URLSearchParams();
+            for (const pair of formData.entries()) {
+                params.append(pair[0], pair[1]);
             }
 
-            const titles = {
-                chat: "Tư Vấn Chiến Lược",
-                menu: "Tối Ưu Menu Chuẩn SEO",
-                content: "Sáng Tạo Content F&B",
-                video: "Lộ Trình 21 Video Viral",
-                brand: "Xây Dựng Thương Hiệu Từ Số 0"
-            };
-            const placeholders = {
-                chat: "Hỏi về chiến lược, vận hành quán, marketing...",
-                menu: "Nhập tên món ăn (VD: Cơm tấm, Trà sữa...)",
-                content: "Nhập chủ đề bài viết (VD: Khai trương, Món mới...)",
-                video: "Nhập tên sản phẩm (VD: Cà phê muối, Kem chống nắng...)",
-                brand: "Nhập: Sản phẩm bán + Đối tượng khách hàng + Điểm mạnh..."
-            };
-
-            const titleEl = document.getElementById('mode-title');
-            titleEl.innerHTML = `<i class="${getIcon(mode)} text-brand-gold mr-2"></i> ${titles[mode]}`;
-            userInput.placeholder = placeholders[mode];
-            userInput.focus();
+            try {
+                await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    cache: 'no-cache',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: params.toString()
+                });
+                console.log("Đã kích hoạt gửi dữ liệu.");
+            } catch (error) {
+                console.error("Lỗi gửi dữ liệu:", error);
+            }
         }
 
-        function getIcon(mode) {
-            const icons = {
-                chat: "fa-regular fa-comments",
-                menu: "fa-solid fa-utensils",
-                content: "fa-solid fa-pen-nib",
-                video: "fa-solid fa-video",
-                brand: "fa-solid fa-fingerprint"
-            };
-            return icons[mode];
-        }
-
-        function fillQuestion(text) {
-            userInput.value = text;
-            userInput.focus();
-        }
-
-        function clearChat() {
-            const chipHtml = `
-                <div class="mt-4 flex flex-wrap gap-2" id="suggestion-chips">
-                    <button onclick="fillQuestion('Tư duy bán hàng đỉnh cao là gì?')" class="suggestion-chip px-3 py-1.5 bg-slate-600 hover:bg-slate-500 text-white text-xs rounded-full border border-slate-500">Tư duy bán hàng</button>
-                    <button onclick="fillQuestion('Cách xây kênh mãi xanh?')" class="suggestion-chip px-3 py-1.5 bg-slate-600 hover:bg-slate-500 text-white text-xs rounded-full border border-slate-500">Xây kênh mãi xanh</button>
-                    <button onclick="fillQuestion('Làm sao để x10 hiệu suất đồ ăn online?')" class="suggestion-chip px-3 py-1.5 bg-slate-600 hover:bg-slate-500 text-white text-xs rounded-full border border-slate-500">Đồ ăn online x10</button>
-                    <button onclick="fillQuestion('Chiến lược Facebook Ads hiệu quả?')" class="suggestion-chip px-3 py-1.5 bg-slate-600 hover:bg-slate-500 text-white text-xs rounded-full border border-slate-500">Facebook Ads</button>
-                </div>
-            `;
-
-            chatContainer.innerHTML = '';
+        // Xử lý Form ở cuối trang
+        async function handleFinalConsultation(e) {
+            e.preventDefault();
+            const form = e.target;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
             
-            // Re-append welcome message with chips
-            const div = document.createElement('div');
-            div.className = "flex gap-4 animate-fade-up";
-            div.innerHTML = `
-                <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-brand-gold flex items-center justify-center flex-shrink-0 shadow-lg border border-white/10 mt-1">
-                    <i class="fa-solid fa-robot text-brand-dark text-sm"></i>
-                </div>
-                <div class="bg-slate-700 p-4 rounded-2xl rounded-tl-none text-slate-200 shadow-card max-w-[90%] md:max-w-[80%] border border-slate-600 ai-message text-sm md:text-base">
-                    <p>Chào bạn, tôi là trợ lý ảo AI của anh <strong>Đặng Ngọc Hiếu</strong>.</p>
-                    <p class="mt-2 text-slate-300">Tôi có thể hỗ trợ bạn về:</p>
-                    <ul class="text-slate-300 text-sm mt-2 space-y-1">
-                        <li><i class="fa-solid fa-check text-brand-gold mr-2"></i> Tư duy bán hàng đỉnh cao</li>
-                        <li><i class="fa-solid fa-check text-brand-gold mr-2"></i> Xây kênh mãi xanh: Youtube, Tikok, Facebook</li>
-                        <li><i class="fa-solid fa-check text-brand-gold mr-2"></i> Đồ ăn online x10 hiệu suất</li>
-                        <li><i class="fa-solid fa-check text-brand-gold mr-2"></i> Facebook ads</li>
-                    </ul>
-                    <p class="mt-2 text-slate-300">Bạn hãy chọn chủ đề bên dưới hoặc nhập câu hỏi để tôi tư vấn nhé!</p>
-                    ${chipHtml}
-                </div>
-            `;
-            chatContainer.appendChild(div);
+            // UI Feedback
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> ĐANG GỬI...';
+            submitBtn.disabled = true;
+
+            const formData = new FormData(form);
+            await sendDataToSheet(formData);
+            
+            // Hiển thị thông báo thành công & Chuyển sang Zalo
+            alert("Đăng ký thành công! Chuyển hướng tới Zalo của Hiếu để nhận hỗ trợ ngay.");
+            window.location.href = 'https://zalo.me/0931343455';
+            
+            // Reset form
+            form.reset();
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
         }
+
+        // --- 3. AI CHAT LOGIC ---
+        const chatContainer = document.getElementById('chat-container');
+        const userInput = document.getElementById('user-input');
 
         function appendMessage(sender, text) {
             const div = document.createElement('div');
-            div.className = "flex gap-4 animate-fade-up";
-            
-            if (sender === 'ai') {
-                let formattedText = text
-                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                    .replace(/\n/g, '<br>');
-
-                div.innerHTML = `
-                    <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-brand-gold flex items-center justify-center flex-shrink-0 shadow-lg border border-white/10 mt-1">
-                        <i class="fa-solid fa-robot text-brand-dark text-sm"></i>
-                    </div>
-                    <div class="bg-slate-700 p-4 rounded-2xl rounded-tl-none text-slate-200 shadow-card max-w-[90%] md:max-w-[80%] border border-slate-600 ai-message text-sm md:text-base leading-relaxed">
-                        ${formattedText}
-                    </div>
-                `;
-            } else {
-                div.className = "flex gap-4 flex-row-reverse animate-fade-up";
-                div.innerHTML = `
-                    <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-slate-600 flex items-center justify-center flex-shrink-0 shadow-lg mt-1">
-                        <i class="fa-solid fa-user text-white text-sm"></i>
-                    </div>
-                    <div class="bg-brand-accent p-4 rounded-2xl rounded-tr-none text-white shadow-card max-w-[85%] text-sm md:text-base">
-                        ${text.replace(/\n/g, '<br>')}
-                    </div>
-                `;
-            }
-            
-            chatContainer.appendChild(div);
-            scrollToBottom();
-        }
-
-        function appendLoading() {
-            const id = 'loading-' + Date.now();
-            const div = document.createElement('div');
-            div.id = id;
-            div.className = "flex gap-4 animate-fade-up";
+            div.className = sender === 'ai' ? "flex gap-4 animate-fade-up" : "flex gap-4 flex-row-reverse animate-fade-up";
             div.innerHTML = `
-                <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-brand-gold flex items-center justify-center flex-shrink-0 mt-1">
-                    <i class="fa-solid fa-robot text-brand-dark text-sm"></i>
+                <div class="w-10 h-10 rounded-full ${sender === 'ai' ? 'bg-brand-gold' : 'bg-slate-600'} flex items-center justify-center shrink-0">
+                    <i class="fa-solid ${sender === 'ai' ? 'fa-robot text-brand-dark' : 'fa-user text-white'}"></i>
                 </div>
-                <div class="bg-slate-700/50 p-4 rounded-2xl rounded-tl-none text-slate-400 border border-slate-600/50 flex items-center gap-1">
-                    <span class="w-2 h-2 bg-slate-400 rounded-full typing-dot"></span>
-                    <span class="w-2 h-2 bg-slate-400 rounded-full typing-dot"></span>
-                    <span class="w-2 h-2 bg-slate-400 rounded-full typing-dot"></span>
-                </div>
+                <div class="${sender === 'ai' ? 'bg-slate-700' : 'bg-brand-accent'} p-4 rounded-2xl text-sm max-w-[80%]">${text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>')}</div>
             `;
             chatContainer.appendChild(div);
-            scrollToBottom();
-            return id;
-        }
-
-        function removeLoading(id) {
-            const el = document.getElementById(id);
-            if (el) el.remove();
-        }
-
-        function scrollToBottom() {
             chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        function clearChat() {
+            chatContainer.innerHTML = '<div class="text-center text-slate-500 text-sm italic my-4">Lịch sử trò chuyện đã được làm mới.</div>';
         }
 
         async function handleChat(e) {
             e.preventDefault();
             const text = userInput.value.trim();
-            if (!text) return;
-
-            userInput.value = '';
-            userInput.disabled = true;
-            sendBtn.disabled = true;
-            
-            // Hide chips after first message to keep UI clean
-            const chips = document.getElementById('suggestion-chips');
-            if(chips) chips.classList.add('hidden');
-
+            if(!text) return;
             appendMessage('user', text);
-            const loadingId = appendLoading();
+            userInput.value = '';
+            
+            // Disabled input while waiting
+            userInput.disabled = true;
 
             try {
-                const systemPrompt = prompts[currentMode];
-                const fullPrompt = `${systemPrompt}\n\nUser Question: ${text}`;
-                const responseText = await callGeminiAPI(fullPrompt);
-                
-                removeLoading(loadingId);
-                appendMessage('ai', responseText);
-
-            } catch (error) {
-                console.error(error);
-                removeLoading(loadingId);
-                appendMessage('ai', `⚠️ Lỗi kết nối AI: ${error.message}.`);
+                const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ contents: [{ parts: [{ text: "Bạn là trợ lý AI của Đặng Ngọc Hiếu, chuyên gia vận hành F&B trên Food App. Hãy trả lời ngắn gọn, thực chiến và chuyên nghiệp về câu hỏi sau: " + text }] }] })
+                });
+                const data = await res.json();
+                appendMessage('ai', data.candidates[0].content.parts[0].text);
+            } catch (err) {
+                appendMessage('ai', "Hệ thống đang bận, bạn vui lòng nhắn trực tiếp qua Zalo: 0931.3434.55 nhé!");
             } finally {
                 userInput.disabled = false;
-                sendBtn.disabled = false;
                 userInput.focus();
             }
         }
 
-        async function callGeminiAPI(promptText) {
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
-            const payload = { contents: [{ parts: [{ text: promptText }] }] };
-
-            let retries = 0;
-            const maxRetries = 3;
-
-            while (retries <= maxRetries) {
-                try {
-                    const response = await fetch(url, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-
-                    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-                    const data = await response.json();
-                    return data.candidates?.[0]?.content?.parts?.[0]?.text || "Xin lỗi, tôi không thể xử lý lúc này.";
-                } catch (err) {
-                    retries++;
-                    if (retries > maxRetries) throw err;
-                    await new Promise(r => setTimeout(r, 1000 * Math.pow(2, retries - 1)));
-                }
-            }
-        }
-
-        // Attach event listener explicitly
         document.getElementById('ai-chat-form').addEventListener('submit', handleChat);
-
-        // Initialize
-        setMode('chat');
+        function toggleMobileMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
     </script>
 </body>
 </html>
-
