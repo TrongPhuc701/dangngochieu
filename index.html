@@ -150,7 +150,7 @@
         !function (f, b, e, v, n, t, s) {
             if (f.fbq) return; n = f.fbq = function () {
                 n.callMethod ?
-                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
             };
             if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
             n.queue = []; t = b.createElement(e); t.async = !0;
@@ -747,14 +747,17 @@
                 fbq('track', 'Lead');
             }
 
-            // Hiển thị thông báo thành công & Chuyển sang Zalo
-            alert("Đăng ký thành công! Chuyển hướng tới Zalo của Hiếu để nhận hỗ trợ ngay.");
-            window.location.href = 'https://zalo.me/0931343455';
+            // Đợi 500ms để đảm bảo Facebook Pixel kịp gửi mạng trước khi trình duyệt bị chặn bởi lệnh alert() và chuyển trang
+            setTimeout(() => {
+                // Hiển thị thông báo thành công & Chuyển sang Zalo
+                alert("Đăng ký thành công! Chuyển hướng tới Zalo của Hiếu để nhận hỗ trợ ngay.");
+                window.location.href = 'https://zalo.me/0931343455';
 
-            // Reset form
-            form.reset();
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
+                // Reset form
+                form.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 500);
         }
 
         // --- 3. AI CHAT LOGIC ---
