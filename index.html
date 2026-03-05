@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="vi" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bí Quyết Xây Gian Hàng Nghìn Đơn - Đặng Ngọc Hiếu</title>
-    <meta name="description" content="Hệ thống bài giảng thực chiến giúp bạn tối ưu lợi nhuận, làm chủ thuật toán hiển thị và bùng nổ doanh số GrabFood, ShopeeFood.">
-    
+    <meta name="description"
+        content="Hệ thống bài giảng thực chiến giúp bạn tối ưu lợi nhuận, làm chủ thuật toán hiển thị và bùng nổ doanh số GrabFood, ShopeeFood.">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Roboto:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet">
+
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         const firebaseConfig = { apiKey: "placeholder", projectId: "placeholder" };
     </script>
-    
+
     <script>
         tailwind.config = {
             theme: {
@@ -47,30 +51,121 @@
     </script>
 
     <style>
-        body { font-family: 'Roboto', sans-serif; }
-        h1, h2, h3, h4 { font-family: 'Merriweather', serif; }
-        .glass-nav { background: rgba(11, 17, 32, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
-        .ai-message strong { color: #C5A059; font-weight: 700; }
-        .custom-scroll::-webkit-scrollbar { width: 6px; height: 6px; }
-        .custom-scroll::-webkit-scrollbar-thumb { background: #475569; border-radius: 3px; }
-        
-        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .animate-fade-up { animation: fadeUp 0.6s ease-out forwards; }
-        
-        @keyframes typing { 0%, 100% { opacity: 0.5; transform: scale(1); } 50% { opacity: 1; transform: scale(1.2); } }
-        .typing-dot { animation: typing 1.4s infinite ease-in-out both; }
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Merriweather', serif;
+        }
+
+        .glass-nav {
+            background: rgba(11, 17, 32, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .ai-message strong {
+            color: #C5A059;
+            font-weight: 700;
+        }
+
+        .custom-scroll::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #475569;
+            border-radius: 3px;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-up {
+            animation: fadeUp 0.6s ease-out forwards;
+        }
+
+        @keyframes typing {
+
+            0%,
+            100% {
+                opacity: 0.5;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
+        .typing-dot {
+            animation: typing 1.4s infinite ease-in-out both;
+        }
 
         /* Hiệu ứng Rung rinh / Tỏa sáng cho nút CTA */
         @keyframes pulse-ring {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7); }
-            50% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(197, 160, 89, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(197, 160, 89, 0); }
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7);
+            }
+
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(197, 160, 89, 0);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(197, 160, 89, 0);
+            }
         }
-        .animate-cta { animation: pulse-ring 2s infinite ease-in-out; }
-        
-        .strike-through { text-decoration: line-through; color: #94a3b8; }
+
+        .animate-cta {
+            animation: pulse-ring 2s infinite ease-in-out;
+        }
+
+        .strike-through {
+            text-decoration: line-through;
+            color: #94a3b8;
+        }
     </style>
+
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1412020163499358');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=1412020163499358&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
 </head>
+
 <body class="bg-brand-dark text-slate-300 antialiased selection:bg-brand-gold selection:text-white">
 
     <!-- Navigation -->
@@ -83,17 +178,24 @@
                 <nav class="hidden md:flex space-x-8 items-center text-sm font-medium uppercase">
                     <a href="#hero" class="hover:text-brand-gold transition-colors">Khóa Học</a>
                     <a href="#trai-nghiem" class="hover:text-brand-gold transition-colors">Trải Nghiệm</a>
-                    <a href="#uu-dai" class="hover:text-brand-gold transition-colors text-brand-gold">Ưu Đãi Đặc Quyền</a>
-                    <a href="#ai-tool" class="px-5 py-2 bg-brand-gold text-brand-dark rounded-full font-bold hover:bg-white transition-all shadow-lg">AI GIẢI ĐÁP 1:1</a>
+                    <a href="#uu-dai" class="hover:text-brand-gold transition-colors text-brand-gold">Ưu Đãi Đặc
+                        Quyền</a>
+                    <a href="#ai-tool"
+                        class="px-5 py-2 bg-brand-gold text-brand-dark rounded-full font-bold hover:bg-white transition-all shadow-lg">AI
+                        GIẢI ĐÁP 1:1</a>
                 </nav>
-                <button onclick="toggleMobileMenu()" class="md:hidden text-2xl text-white"><i class="fa-solid fa-bars"></i></button>
+                <button onclick="toggleMobileMenu()" class="md:hidden text-2xl text-white"><i
+                        class="fa-solid fa-bars"></i></button>
             </div>
-            <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-brand-dark/95 backdrop-blur-xl border-t border-slate-700">
+            <div id="mobile-menu"
+                class="hidden md:hidden absolute top-full left-0 w-full bg-brand-dark/95 backdrop-blur-xl border-t border-slate-700">
                 <div class="flex flex-col p-6 space-y-4 text-center">
                     <a href="#hero" onclick="toggleMobileMenu()">Khóa Học</a>
                     <a href="#trai-nghiem" onclick="toggleMobileMenu()">Trải Nghiệm</a>
-                    <a href="#uu-dai" onclick="toggleMobileMenu()" class="text-brand-gold font-bold">Ưu Đãi Đặc Quyền</a>
-                    <a href="#ai-tool" onclick="toggleMobileMenu()" class="py-2 bg-brand-gold text-brand-dark rounded font-bold">AI GIẢI ĐÁP 1:1</a>
+                    <a href="#uu-dai" onclick="toggleMobileMenu()" class="text-brand-gold font-bold">Ưu Đãi Đặc
+                        Quyền</a>
+                    <a href="#ai-tool" onclick="toggleMobileMenu()"
+                        class="py-2 bg-brand-gold text-brand-dark rounded font-bold">AI GIẢI ĐÁP 1:1</a>
                 </div>
             </div>
         </div>
@@ -102,63 +204,82 @@
     <!-- 1. HERO SECTION: KHẲNG ĐỊNH GIÁ TRỊ -->
     <section id="hero" class="relative pt-32 pb-20 lg:pt-40 overflow-hidden border-b border-slate-800">
         <!-- Background Effects -->
-        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
-        <div class="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-bl from-brand-navy via-transparent to-transparent opacity-50 pointer-events-none"></div>
-        <div class="absolute -top-20 -left-20 w-[400px] h-[400px] bg-blue-600 rounded-full filter blur-[150px] opacity-20"></div>
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5">
+        </div>
+        <div
+            class="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-bl from-brand-navy via-transparent to-transparent opacity-50 pointer-events-none">
+        </div>
+        <div
+            class="absolute -top-20 -left-20 w-[400px] h-[400px] bg-blue-600 rounded-full filter blur-[150px] opacity-20">
+        </div>
 
         <div class="container mx-auto px-6 relative z-10">
             <div class="flex flex-col lg:flex-row items-center gap-12">
                 <!-- Text Content -->
                 <div class="lg:w-[60%] space-y-8 text-center lg:text-left animate-fade-up">
-                    <div class="inline-flex items-center gap-2 px-4 py-1.5 border border-blue-500/30 rounded-full bg-blue-500/10 text-blue-400 text-xs font-bold tracking-widest uppercase">
+                    <div
+                        class="inline-flex items-center gap-2 px-4 py-1.5 border border-blue-500/30 rounded-full bg-blue-500/10 text-blue-400 text-xs font-bold tracking-widest uppercase">
                         <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
                         Khóa Học Thực Chiến F&B
                     </div>
-                    
-                    <h1 class="text-3xl md:text-5xl lg:text-6xl font-black leading-tight text-white uppercase font-sans">
-                        BÍ QUYẾT XÂY DỰNG GIAN HÀNG <br class="hidden md:block"/>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold to-yellow-300">"NGHÌN ĐƠN"</span> <br class="hidden md:block"/>
+
+                    <h1
+                        class="text-3xl md:text-5xl lg:text-6xl font-black leading-tight text-white uppercase font-sans">
+                        BÍ QUYẾT XÂY DỰNG GIAN HÀNG <br class="hidden md:block" />
+                        <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold to-yellow-300">"NGHÌN
+                            ĐƠN"</span> <br class="hidden md:block" />
                         TRÊN GRABFOOD & SHOPEEFOOD CHO NGƯỜI MỚI.
                     </h1>
-                    
+
                     <p class="text-lg md:text-xl text-slate-300 leading-relaxed font-light">
-                        Hệ thống bài giảng thực chiến giúp bạn tối ưu lợi nhuận, làm chủ thuật toán hiển thị và bùng nổ doanh số mà không cần đốt tiền marketing.
+                        Hệ thống bài giảng thực chiến giúp bạn tối ưu lợi nhuận, làm chủ thuật toán hiển thị và bùng nổ
+                        doanh số mà không cần đốt tiền marketing.
                     </p>
-                    
+
                     <div class="flex flex-col gap-4 pt-4">
                         <!-- CTA 1: MÀU XANH UY TÍN -->
-                        <a href="https://unica.vn/huong-dan-ban-do-an-online-tren-grab-food-shopee-food-cho-nguoi-moi?ref=708026" target="_blank" class="w-full md:w-max px-10 py-5 bg-brand-trust text-white font-bold rounded-xl hover:bg-blue-700 transition-all shadow-[0_10px_30px_rgba(37,99,235,0.4)] flex items-center justify-center gap-3 text-lg group">
+                        <a href="https://unica.vn/huong-dan-ban-do-an-online-tren-grab-food-shopee-food-cho-nguoi-moi?ref=708026"
+                            target="_blank"
+                            class="w-full md:w-max px-10 py-5 bg-brand-trust text-white font-bold rounded-xl hover:bg-blue-700 transition-all shadow-[0_10px_30px_rgba(37,99,235,0.4)] flex items-center justify-center gap-3 text-lg group">
                             <i class="fa-solid fa-play-circle text-2xl group-hover:scale-110 transition-transform"></i>
                             HỌC THỬ MIỄN PHÍ TRÊN UNICA TẠI ĐÂY
                         </a>
-                        
-                        <div class="flex items-center justify-center lg:justify-start gap-2 text-sm text-slate-400 mt-2">
+
+                        <div
+                            class="flex items-center justify-center lg:justify-start gap-2 text-sm text-slate-400 mt-2">
                             <i class="fa-solid fa-shield-check text-green-500"></i>
                             <span>Nội dung đã được kiểm định chất lượng và bảo trợ bởi nền tảng Unica.</span>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Hero Visual -->
                 <div class="lg:w-[40%] relative w-full max-w-lg mx-auto mt-12 lg:mt-0">
                     <!-- Ánh sáng nền (Glow effect) làm nổi bật ảnh -->
                     <div class="absolute -inset-4 bg-brand-gold/20 rounded-full blur-3xl -z-10 animate-pulse"></div>
-                    
+
                     <!-- Khung ảnh chính vuông vức, sạch sẽ để không che mất logo các App Food ở đáy ảnh -->
-                    <div class="relative z-10 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-slate-700 bg-brand-surface aspect-square group">
-                        <img src="food600x600.jpg" alt="Xây dựng gian hàng nghìn đơn" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div
+                        class="relative z-10 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-slate-700 bg-brand-surface aspect-square group">
+                        <img src="food600x600.jpg" alt="Xây dựng gian hàng nghìn đơn"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     </div>
-                    
+
                     <!-- Badge Đánh giá (Nổi lên góc trên phải) -->
-                    <div class="absolute -top-4 -right-2 md:-right-6 bg-white text-brand-dark font-black px-4 py-2.5 rounded-xl shadow-xl z-20 flex items-center gap-2 transform hover:scale-105 transition-transform border border-slate-100">
+                    <div
+                        class="absolute -top-4 -right-2 md:-right-6 bg-white text-brand-dark font-black px-4 py-2.5 rounded-xl shadow-xl z-20 flex items-center gap-2 transform hover:scale-105 transition-transform border border-slate-100">
                         <div class="flex text-yellow-500 text-xs">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i>
                         </div>
                         <span class="text-sm">4.9/5 Thực Chiến</span>
                     </div>
 
                     <!-- Icon trang trí góc dưới trái -->
-                    <div class="absolute -bottom-4 -left-2 md:-left-6 w-14 h-14 bg-gradient-to-br from-brand-gold to-yellow-600 rounded-2xl shadow-xl flex items-center justify-center text-2xl text-white z-20 transform -rotate-12 animate-bounce">
+                    <div
+                        class="absolute -bottom-4 -left-2 md:-left-6 w-14 h-14 bg-gradient-to-br from-brand-gold to-yellow-600 rounded-2xl shadow-xl flex items-center justify-center text-2xl text-white z-20 transform -rotate-12 animate-bounce">
                         <i class="fa-solid fa-fire"></i>
                     </div>
                 </div>
@@ -173,39 +294,49 @@
                 <div class="text-center mb-12">
                     <i class="fa-solid fa-quote-left text-5xl text-slate-300 mb-6"></i>
                     <h2 class="text-2xl md:text-4xl font-bold mb-6 font-serif leading-relaxed text-slate-800">
-                        "Tôi muốn bạn hoàn toàn tin tưởng vào giá trị kiến thức trước khi bắt đầu. Hãy bấm xem thử các bài giảng miễn phí trên Unica để thấy sự khác biệt trong tư duy vận hành F&B thực chiến."
+                        "Tôi muốn bạn hoàn toàn tin tưởng vào giá trị kiến thức trước khi bắt đầu. Hãy bấm xem thử các
+                        bài giảng miễn phí trên Unica để thấy sự khác biệt trong tư duy vận hành F&B thực chiến."
                     </h2>
                     <p class="font-bold text-brand-gold text-lg">- Đặng Ngọc Hiếu -</p>
                 </div>
 
                 <div class="bg-white rounded-2xl shadow-xl p-8 md:p-10 border border-slate-200">
-                    <h3 class="text-xl font-bold mb-6 border-b border-slate-100 pb-4 text-center">Những Gì Bạn Sẽ Học Được Khác Biệt Ra Sao?</h3>
+                    <h3 class="text-xl font-bold mb-6 border-b border-slate-100 pb-4 text-center">Những Gì Bạn Sẽ Học
+                        Được Khác Biệt Ra Sao?</h3>
                     <ul class="space-y-6">
                         <li class="flex items-start gap-4">
-                            <div class="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center shrink-0 mt-1">
+                            <div
+                                class="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center shrink-0 mt-1">
                                 <i class="fa-solid fa-check"></i>
                             </div>
                             <div>
                                 <h4 class="font-bold text-lg">Setup gian hàng chuẩn SEO, nhìn là muốn đặt</h4>
-                                <p class="text-slate-600 text-sm mt-1">Không chỉ là tải ảnh lên. Học cách cấu trúc tên món, mô tả và hình ảnh để App tự động đẩy hiển thị quán bạn lên Top tìm kiếm.</p>
+                                <p class="text-slate-600 text-sm mt-1">Không chỉ là tải ảnh lên. Học cách cấu trúc tên
+                                    món, mô tả và hình ảnh để App tự động đẩy hiển thị quán bạn lên Top tìm kiếm.</p>
                             </div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center shrink-0 mt-1">
+                            <div
+                                class="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center shrink-0 mt-1">
                                 <i class="fa-solid fa-check"></i>
                             </div>
                             <div>
                                 <h4 class="font-bold text-lg">Chiến lược Menu "Chim mồi"</h4>
-                                <p class="text-slate-600 text-sm mt-1">Nghệ thuật định giá và gộp Combo giúp tăng giá trị trung bình trên mỗi đơn hàng (AOV), lấy lợi nhuận từ món phụ bù cho chiết khấu sàn.</p>
+                                <p class="text-slate-600 text-sm mt-1">Nghệ thuật định giá và gộp Combo giúp tăng giá
+                                    trị trung bình trên mỗi đơn hàng (AOV), lấy lợi nhuận từ món phụ bù cho chiết khấu
+                                    sàn.</p>
                             </div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center shrink-0 mt-1">
+                            <div
+                                class="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center shrink-0 mt-1">
                                 <i class="fa-solid fa-check"></i>
                             </div>
                             <div>
                                 <h4 class="font-bold text-lg">Bí kíp xử lý khủng hoảng đánh giá 1 sao</h4>
-                                <p class="text-slate-600 text-sm mt-1">Quy trình CSKH chuẩn xác biến lời phàn nàn thành cơ hội. Biến khách vãng lai trên App thành khách trung thành đặt trực tiếp qua Zalo.</p>
+                                <p class="text-slate-600 text-sm mt-1">Quy trình CSKH chuẩn xác biến lời phàn nàn thành
+                                    cơ hội. Biến khách vãng lai trên App thành khách trung thành đặt trực tiếp qua Zalo.
+                                </p>
                             </div>
                         </li>
                     </ul>
@@ -217,52 +348,67 @@
     <!-- 3. SECTION: ĐẶC QUYỀN TRỰC TIẾP (TRUNG TÂM CHUYỂN ĐỔI) -->
     <section id="uu-dai" class="py-24 bg-brand-dark relative overflow-hidden">
         <!-- Decor -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-[500px] bg-brand-gold rounded-full filter blur-[200px] opacity-10"></div>
-        
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-[500px] bg-brand-gold rounded-full filter blur-[200px] opacity-10">
+        </div>
+
         <div class="container mx-auto px-6 relative z-10 text-center">
             <h2 class="text-3xl md:text-5xl font-black text-white mb-6 uppercase tracking-tight">
-                ƯU ĐÃI DÀNH CHO HỌC VIÊN <br class="hidden md:block"/>
+                ƯU ĐÃI DÀNH CHO HỌC VIÊN <br class="hidden md:block" />
                 <span class="text-brand-gold">KẾT NỐI TRỰC TIẾP HIẾU HIẾU</span>
             </h2>
             <p class="text-lg text-slate-300 max-w-3xl mx-auto mb-12">
-                Để hỗ trợ tốt nhất cho các chủ quán mới khởi nghiệp, khi đăng ký khóa học thông qua Zalo/Messenger của HIẾU, bạn sẽ nhận được <strong class="text-white bg-red-600 px-2 py-1 rounded">ĐẶC QUYỀN 2 TRONG 1</strong>:
+                Để hỗ trợ tốt nhất cho các chủ quán mới khởi nghiệp, khi đăng ký khóa học thông qua Zalo/Messenger của
+                HIẾU, bạn sẽ nhận được <strong class="text-white bg-red-600 px-2 py-1 rounded">ĐẶC QUYỀN 2 TRONG
+                    1</strong>:
             </p>
 
-            <div class="max-w-4xl mx-auto bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl shadow-2xl border border-brand-gold/40 p-1 md:p-3">
+            <div
+                class="max-w-4xl mx-auto bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl shadow-2xl border border-brand-gold/40 p-1 md:p-3">
                 <div class="bg-brand-surface rounded-2xl p-8 md:p-12 relative overflow-hidden">
                     <!-- Ribbon -->
-                    <div class="absolute top-6 -right-12 bg-red-600 text-white font-bold py-1 px-12 transform rotate-45 text-sm shadow-lg">HOT DEAL</div>
-                    
+                    <div
+                        class="absolute top-6 -right-12 bg-red-600 text-white font-bold py-1 px-12 transform rotate-45 text-sm shadow-lg">
+                        HOT DEAL</div>
+
                     <div class="flex flex-col md:flex-row items-center gap-10">
                         <!-- Cột Trái: Giá -->
-                        <div class="w-full md:w-1/2 border-b md:border-b-0 md:border-r border-slate-700 pb-8 md:pb-0 md:pr-8">
-                            <div class="text-slate-400 font-medium mb-2 uppercase tracking-wider text-sm">Học phí ưu đãi trực tiếp</div>
+                        <div
+                            class="w-full md:w-1/2 border-b md:border-b-0 md:border-r border-slate-700 pb-8 md:pb-0 md:pr-8">
+                            <div class="text-slate-400 font-medium mb-2 uppercase tracking-wider text-sm">Học phí ưu đãi
+                                trực tiếp</div>
                             <div class="flex items-end justify-center md:justify-start gap-4 mb-2">
                                 <span class="text-5xl md:text-6xl font-black text-brand-gold">299K</span>
                                 <span class="strike-through text-2xl font-bold mb-1">499K</span>
                             </div>
                             <p class="text-sm text-slate-400 mt-4 text-center md:text-left">
-                                *Chỉ áp dụng khi đăng ký trực tiếp qua số Zalo chính thức bên dưới. Tiết kiệm ngay 200.000đ so với giá niêm yết trên sàn.
+                                *Chỉ áp dụng khi đăng ký trực tiếp qua số Zalo chính thức bên dưới. Tiết kiệm ngay
+                                200.000đ so với giá niêm yết trên sàn.
                             </p>
                         </div>
-                        
+
                         <!-- Cột Phải: Quà tặng -->
                         <div class="w-full md:w-1/2 text-left space-y-4">
-                            <div class="inline-block bg-green-500/20 text-green-400 px-3 py-1 rounded text-xs font-bold border border-green-500/30 uppercase">
+                            <div
+                                class="inline-block bg-green-500/20 text-green-400 px-3 py-1 rounded text-xs font-bold border border-green-500/30 uppercase">
                                 <i class="fa-solid fa-gift mr-1"></i> Quà tặng kèm độc quyền
                             </div>
-                            <h3 class="text-xl font-bold text-white">Khóa học "Quay dựng & Edit Video trên điện thoại" chuyên nghiệp</h3>
+                            <h3 class="text-xl font-bold text-white">Khóa học "Quay dựng & Edit Video trên điện thoại"
+                                chuyên nghiệp</h3>
                             <p class="text-slate-400 text-sm">
                                 <span class="text-white line-through opacity-50 mr-2">(Trị giá 499.000đ)</span> <br>
-                                Giúp bạn đồng thời có hành trình nội dung xây dựng mạng xã hội nổi bật hơn đối thủ. Tự tay làm video ngàn view không cần máy móc đắt tiền.
+                                Giúp bạn đồng thời có hành trình nội dung xây dựng mạng xã hội nổi bật hơn đối thủ. Tự
+                                tay làm video ngàn view không cần máy móc đắt tiền.
                             </p>
                         </div>
                     </div>
 
                     <!-- CTA 2: NỔI BẬT RUNG RINH -->
                     <div class="mt-10 text-center">
-                        <a href="https://zalo.me/0931343455" target="_blank" class="animate-cta inline-block w-full md:w-auto px-8 md:px-12 py-5 bg-gradient-to-r from-red-600 to-red-500 text-white font-black rounded-xl hover:from-red-500 hover:to-red-400 transition-all text-lg md:text-xl uppercase tracking-wide">
-                            <i class="fa-solid fa-paper-plane mr-2"></i> NHẬN ƯU ĐÃI 299K & QUÀ TẶNG QUA ZALO : 0931.343455
+                        <a href="https://zalo.me/0931343455" target="_blank"
+                            class="animate-cta inline-block w-full md:w-auto px-8 md:px-12 py-5 bg-gradient-to-r from-red-600 to-red-500 text-white font-black rounded-xl hover:from-red-500 hover:to-red-400 transition-all text-lg md:text-xl uppercase tracking-wide">
+                            <i class="fa-solid fa-paper-plane mr-2"></i> NHẬN ƯU ĐÃI 299K & QUÀ TẶNG QUA ZALO :
+                            0931.343455
                         </a>
                         <p class="text-xs text-slate-500 mt-4">Cam kết hoàn tiền 100% nếu nội dung không như mô tả.</p>
                     </div>
@@ -275,38 +421,47 @@
     <section id="tai-sao" class="py-20 bg-brand-navy border-t border-slate-800">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center text-white mb-16">Tại Sao Bạn Nên Chọn Liên Hệ Trực Tiếp?</h2>
-            
+
             <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
                 <!-- Card 1 -->
-                <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-brand-gold transition-colors text-center group">
-                    <div class="w-20 h-20 mx-auto bg-blue-500/20 text-blue-400 rounded-full flex items-center justify-center text-3xl mb-6 group-hover:bg-blue-500 group-hover:text-white transition-all">
+                <div
+                    class="bg-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-brand-gold transition-colors text-center group">
+                    <div
+                        class="w-20 h-20 mx-auto bg-blue-500/20 text-blue-400 rounded-full flex items-center justify-center text-3xl mb-6 group-hover:bg-blue-500 group-hover:text-white transition-all">
                         <i class="fa-solid fa-headset"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-4">Hỗ Trợ 1-1 Sát Sao</h3>
                     <p class="text-slate-400 text-sm leading-relaxed">
-                        Tôi sẽ trực tiếp giải đáp mọi thắc mắc trong quá trình bạn vận hành quán thực tế. Đây là giá trị Vô Giá mà khi mua khóa học tự động trên sàn bạn không bao giờ có được.
+                        Tôi sẽ trực tiếp giải đáp mọi thắc mắc trong quá trình bạn vận hành quán thực tế. Đây là giá trị
+                        Vô Giá mà khi mua khóa học tự động trên sàn bạn không bao giờ có được.
                     </p>
                 </div>
 
                 <!-- Card 2 -->
-                <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-brand-gold transition-colors text-center group">
-                    <div class="w-20 h-20 mx-auto bg-green-500/20 text-green-400 rounded-full flex items-center justify-center text-3xl mb-6 group-hover:bg-green-500 group-hover:text-white transition-all">
+                <div
+                    class="bg-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-brand-gold transition-colors text-center group">
+                    <div
+                        class="w-20 h-20 mx-auto bg-green-500/20 text-green-400 rounded-full flex items-center justify-center text-3xl mb-6 group-hover:bg-green-500 group-hover:text-white transition-all">
                         <i class="fa-solid fa-sync"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-4">Cập Nhật Liên Tục</h3>
                     <p class="text-slate-400 text-sm leading-relaxed">
-                        Thuật toán hiển thị của ShopeeFood và GrabFood thay đổi liên tục. Bạn sẽ được tham gia nhóm kín để nhận ngay các tài liệu update chiến thuật mới nhất hoàn toàn miễn phí.
+                        Thuật toán hiển thị của ShopeeFood và GrabFood thay đổi liên tục. Bạn sẽ được tham gia nhóm kín
+                        để nhận ngay các tài liệu update chiến thuật mới nhất hoàn toàn miễn phí.
                     </p>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-brand-gold transition-colors text-center group">
-                    <div class="w-20 h-20 mx-auto bg-purple-500/20 text-purple-400 rounded-full flex items-center justify-center text-3xl mb-6 group-hover:bg-purple-500 group-hover:text-white transition-all">
+                <div
+                    class="bg-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-brand-gold transition-colors text-center group">
+                    <div
+                        class="w-20 h-20 mx-auto bg-purple-500/20 text-purple-400 rounded-full flex items-center justify-center text-3xl mb-6 group-hover:bg-purple-500 group-hover:text-white transition-all">
                         <i class="fa-solid fa-bolt"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-4">Kích Hoạt Nhanh Chóng</h3>
                     <p class="text-slate-400 text-sm leading-relaxed">
-                        Không cần thao tác lằng nhằng. Chỉ cần nhắn tin xác nhận, bạn sẽ nhận ngay mã kích hoạt khóa học chính thức và có thể bắt đầu học ngay chỉ sau 30 giây.
+                        Không cần thao tác lằng nhằng. Chỉ cần nhắn tin xác nhận, bạn sẽ nhận ngay mã kích hoạt khóa học
+                        chính thức và có thể bắt đầu học ngay chỉ sau 30 giây.
                     </p>
                 </div>
             </div>
@@ -319,27 +474,36 @@
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Các Khóa Học Chuyên Sâu Khác</h2>
                 <div class="w-20 h-1 bg-brand-gold mx-auto rounded"></div>
-                <p class="text-slate-400 mt-4 max-w-2xl mx-auto">Nâng cấp kỹ năng toàn diện với hệ sinh thái bài giảng thực chiến từ Đặng Ngọc Hiếu trên nền tảng Unica.</p>
+                <p class="text-slate-400 mt-4 max-w-2xl mx-auto">Nâng cấp kỹ năng toàn diện với hệ sinh thái bài giảng
+                    thực chiến từ Đặng Ngọc Hiếu trên nền tảng Unica.</p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
                 <!-- Course 1 -->
-                <div class="bg-brand-surface rounded-2xl overflow-hidden border border-slate-700 hover:border-brand-gold transition-all duration-300 group flex flex-col h-full shadow-lg relative">
+                <div
+                    class="bg-brand-surface rounded-2xl overflow-hidden border border-slate-700 hover:border-brand-gold transition-all duration-300 group flex flex-col h-full shadow-lg relative">
                     <div class="relative overflow-hidden aspect-[16/9] bg-slate-800">
                         <!-- Ảnh minh họa chủ đề Video AI -->
-                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&h=340&q=80" alt="Video AI Tự Động" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute top-2 left-2 bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider shadow-md">Xuất bản</div>
+                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&h=340&q=80"
+                            alt="Video AI Tự Động"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div
+                            class="absolute top-2 left-2 bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider shadow-md">
+                            Xuất bản</div>
                     </div>
                     <div class="p-5 flex flex-col flex-1">
-                        <h3 class="font-bold text-white text-[15px] leading-snug mb-3 hover:text-brand-gold transition-colors line-clamp-3">
-                            <a href="https://unica.vn/?ref=708026" target="_blank">Học Làm Video Bán Hàng TỰ ĐỘNG bằng AI trên TikTok, Facebook</a>
+                        <h3
+                            class="font-bold text-white text-[15px] leading-snug mb-3 hover:text-brand-gold transition-colors line-clamp-3">
+                            <a href="https://unica.vn/?ref=708026" target="_blank">Học Làm Video Bán Hàng TỰ ĐỘNG bằng
+                                AI trên TikTok, Facebook</a>
                         </h3>
                         <div class="mt-auto">
                             <div class="flex items-center gap-2 mb-4">
                                 <span class="text-lg font-black text-brand-gold">399,000 đ</span>
                                 <span class="text-xs text-slate-500 line-through">990,000 đ</span>
                             </div>
-                            <a href="https://unica.vn/?ref=708026" target="_blank" class="block w-full text-center py-2.5 bg-slate-800 text-slate-300 font-bold rounded-lg hover:bg-brand-gold hover:text-brand-dark transition-colors border border-slate-600 hover:border-brand-gold text-sm">
+                            <a href="https://unica.vn/?ref=708026" target="_blank"
+                                class="block w-full text-center py-2.5 bg-slate-800 text-slate-300 font-bold rounded-lg hover:bg-brand-gold hover:text-brand-dark transition-colors border border-slate-600 hover:border-brand-gold text-sm">
                                 Xem Chi Tiết
                             </a>
                         </div>
@@ -347,22 +511,30 @@
                 </div>
 
                 <!-- Course 2 -->
-                <div class="bg-brand-surface rounded-2xl overflow-hidden border border-slate-700 hover:border-brand-gold transition-all duration-300 group flex flex-col h-full shadow-lg relative">
+                <div
+                    class="bg-brand-surface rounded-2xl overflow-hidden border border-slate-700 hover:border-brand-gold transition-all duration-300 group flex flex-col h-full shadow-lg relative">
                     <div class="relative overflow-hidden aspect-[16/9] bg-slate-800">
                         <!-- Ảnh minh họa chủ đề Quay phim bằng điện thoại -->
-                        <img src="https://images.unsplash.com/photo-1523206489230-c012c64b2b48?auto=format&fit=crop&w=600&h=340&q=80" alt="Quay Dựng Video Điện Thoại" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute top-2 left-2 bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider shadow-md">Xuất bản</div>
+                        <img src="https://images.unsplash.com/photo-1523206489230-c012c64b2b48?auto=format&fit=crop&w=600&h=340&q=80"
+                            alt="Quay Dựng Video Điện Thoại"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div
+                            class="absolute top-2 left-2 bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider shadow-md">
+                            Xuất bản</div>
                     </div>
                     <div class="p-5 flex flex-col flex-1">
-                        <h3 class="font-bold text-white text-[15px] leading-snug mb-3 hover:text-brand-gold transition-colors line-clamp-3">
-                            <a href="https://unica.vn/?ref=708026" target="_blank">Học Quay Dựng Video, Làm Kịch Bản Từ ChatGPT Trên Điện Thoại</a>
+                        <h3
+                            class="font-bold text-white text-[15px] leading-snug mb-3 hover:text-brand-gold transition-colors line-clamp-3">
+                            <a href="https://unica.vn/?ref=708026" target="_blank">Học Quay Dựng Video, Làm Kịch Bản Từ
+                                ChatGPT Trên Điện Thoại</a>
                         </h3>
                         <div class="mt-auto">
                             <div class="flex items-center gap-2 mb-4">
                                 <span class="text-lg font-black text-brand-gold">199,000 đ</span>
                                 <span class="text-xs text-slate-500 line-through">790,000 đ</span>
                             </div>
-                            <a href="https://unica.vn/?ref=708026" target="_blank" class="block w-full text-center py-2.5 bg-slate-800 text-slate-300 font-bold rounded-lg hover:bg-brand-gold hover:text-brand-dark transition-colors border border-slate-600 hover:border-brand-gold text-sm">
+                            <a href="https://unica.vn/?ref=708026" target="_blank"
+                                class="block w-full text-center py-2.5 bg-slate-800 text-slate-300 font-bold rounded-lg hover:bg-brand-gold hover:text-brand-dark transition-colors border border-slate-600 hover:border-brand-gold text-sm">
                                 Xem Chi Tiết
                             </a>
                         </div>
@@ -370,22 +542,30 @@
                 </div>
 
                 <!-- Course 3 -->
-                <div class="bg-brand-surface rounded-2xl overflow-hidden border border-slate-700 hover:border-brand-gold transition-all duration-300 group flex flex-col h-full shadow-lg relative">
+                <div
+                    class="bg-brand-surface rounded-2xl overflow-hidden border border-slate-700 hover:border-brand-gold transition-all duration-300 group flex flex-col h-full shadow-lg relative">
                     <div class="relative overflow-hidden aspect-[16/9] bg-slate-800">
                         <!-- Ảnh minh họa chủ đề ChatGPT / AI -->
-                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=600&h=340&q=80" alt="ChatGPT Thực Chiến" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute top-2 left-2 bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider shadow-md">Xuất bản</div>
+                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=600&h=340&q=80"
+                            alt="ChatGPT Thực Chiến"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div
+                            class="absolute top-2 left-2 bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider shadow-md">
+                            Xuất bản</div>
                     </div>
                     <div class="p-5 flex flex-col flex-1">
-                        <h3 class="font-bold text-white text-[15px] leading-snug mb-3 hover:text-brand-gold transition-colors line-clamp-3">
-                            <a href="https://unica.vn/?ref=708026" target="_blank">ChatGPT Thực Chiến Cho Người Mới - Ứng Dụng Vào Bán Hàng</a>
+                        <h3
+                            class="font-bold text-white text-[15px] leading-snug mb-3 hover:text-brand-gold transition-colors line-clamp-3">
+                            <a href="https://unica.vn/?ref=708026" target="_blank">ChatGPT Thực Chiến Cho Người Mới -
+                                Ứng Dụng Vào Bán Hàng</a>
                         </h3>
                         <div class="mt-auto">
                             <div class="flex items-center gap-2 mb-4">
                                 <span class="text-lg font-black text-brand-gold">49,000 đ</span>
                                 <span class="text-xs text-slate-500 line-through">299,000 đ</span>
                             </div>
-                            <a href="https://unica.vn/?ref=708026" target="_blank" class="block w-full text-center py-2.5 bg-slate-800 text-slate-300 font-bold rounded-lg hover:bg-brand-gold hover:text-brand-dark transition-colors border border-slate-600 hover:border-brand-gold text-sm">
+                            <a href="https://unica.vn/?ref=708026" target="_blank"
+                                class="block w-full text-center py-2.5 bg-slate-800 text-slate-300 font-bold rounded-lg hover:bg-brand-gold hover:text-brand-dark transition-colors border border-slate-600 hover:border-brand-gold text-sm">
                                 Xem Chi Tiết
                             </a>
                         </div>
@@ -393,22 +573,30 @@
                 </div>
 
                 <!-- Course 4 -->
-                <div class="bg-brand-surface rounded-2xl overflow-hidden border border-slate-700 hover:border-brand-gold transition-all duration-300 group flex flex-col h-full shadow-lg relative">
+                <div
+                    class="bg-brand-surface rounded-2xl overflow-hidden border border-slate-700 hover:border-brand-gold transition-all duration-300 group flex flex-col h-full shadow-lg relative">
                     <div class="relative overflow-hidden aspect-[16/9] bg-slate-800">
                         <!-- Ảnh minh họa chủ đề Facebook Ads / Social Media -->
-                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&h=340&q=80" alt="Facebook Ads PRO" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute top-2 left-2 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider shadow-md">Khóa học mới</div>
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&h=340&q=80"
+                            alt="Facebook Ads PRO"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div
+                            class="absolute top-2 left-2 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider shadow-md">
+                            Khóa học mới</div>
                     </div>
                     <div class="p-5 flex flex-col flex-1">
-                        <h3 class="font-bold text-white text-[15px] leading-snug mb-3 hover:text-brand-gold transition-colors line-clamp-3">
-                            <a href="https://unica.vn/?ref=708026" target="_blank">Chủ Quán Tự Chạy Quảng Cáo Facebook Ads PRO Hiệu Quả Cao</a>
+                        <h3
+                            class="font-bold text-white text-[15px] leading-snug mb-3 hover:text-brand-gold transition-colors line-clamp-3">
+                            <a href="https://unica.vn/?ref=708026" target="_blank">Chủ Quán Tự Chạy Quảng Cáo Facebook
+                                Ads PRO Hiệu Quả Cao</a>
                         </h3>
                         <div class="mt-auto">
                             <div class="flex items-center gap-2 mb-4">
                                 <span class="text-lg font-black text-brand-gold">449,000 đ</span>
                                 <span class="text-xs text-slate-500 line-through">499,000 đ</span>
                             </div>
-                            <a href="https://unica.vn/?ref=708026" target="_blank" class="block w-full text-center py-2.5 bg-slate-800 text-slate-300 font-bold rounded-lg hover:bg-brand-gold hover:text-brand-dark transition-colors border border-slate-600 hover:border-brand-gold text-sm">
+                            <a href="https://unica.vn/?ref=708026" target="_blank"
+                                class="block w-full text-center py-2.5 bg-slate-800 text-slate-300 font-bold rounded-lg hover:bg-brand-gold hover:text-brand-dark transition-colors border border-slate-600 hover:border-brand-gold text-sm">
                                 Xem Chi Tiết
                             </a>
                         </div>
@@ -416,9 +604,11 @@
                 </div>
 
             </div>
-            
+
             <div class="text-center mt-12">
-                <a href="https://unica.vn/search?key=%C4%91%E1%BA%B7ng+ng%E1%BB%8Dc+hi%E1%BA%BFu&ref=708026" target="_blank" class="inline-flex items-center gap-2 px-8 py-4 border-2 border-brand-gold text-brand-gold rounded-full hover:bg-brand-gold hover:text-brand-dark transition-colors font-bold text-sm uppercase tracking-wide">
+                <a href="https://unica.vn/search?key=%C4%91%E1%BA%B7ng+ng%E1%BB%8Dc+hi%E1%BA%BFu&ref=708026"
+                    target="_blank"
+                    class="inline-flex items-center gap-2 px-8 py-4 border-2 border-brand-gold text-brand-gold rounded-full hover:bg-brand-gold hover:text-brand-dark transition-colors font-bold text-sm uppercase tracking-wide">
                     Xem Toàn Bộ Khóa Học Trên Unica <i class="fa-solid fa-arrow-right"></i>
                 </a>
             </div>
@@ -429,22 +619,30 @@
     <section id="consultation-form" class="py-20 bg-slate-100 border-t border-slate-200">
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-3xl font-bold text-brand-dark mb-4">Đăng Ký Tư Vấn / Giữ Ưu Đãi</h2>
-            <p class="text-slate-600 mb-8">Nếu bạn chưa tiện nhắn Zalo, hãy để lại SĐT, Hiếu sẽ liên hệ tư vấn lộ trình phù hợp với quán của bạn.</p>
-            
-            <div class="max-w-md mx-auto bg-white p-8 rounded-2xl border border-slate-200 shadow-xl relative overflow-hidden">
+            <p class="text-slate-600 mb-8">Nếu bạn chưa tiện nhắn Zalo, hãy để lại SĐT, Hiếu sẽ liên hệ tư vấn lộ trình
+                phù hợp với quán của bạn.</p>
+
+            <div
+                class="max-w-md mx-auto bg-white p-8 rounded-2xl border border-slate-200 shadow-xl relative overflow-hidden">
                 <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-gold to-yellow-400"></div>
                 <form onsubmit="handleFinalConsultation(event)" class="space-y-4">
                     <div>
-                        <input type="text" name="Họ tên" required class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-gold outline-none text-slate-700" placeholder="Họ và tên của bạn">
+                        <input type="text" name="Họ tên" required
+                            class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-gold outline-none text-slate-700"
+                            placeholder="Họ và tên của bạn">
                     </div>
                     <div>
-                        <input type="tel" name="Số điện thoại" required pattern="[0-9]{10}" class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-gold outline-none text-slate-700" placeholder="Số điện thoại Zalo (10 số)">
+                        <input type="tel" name="Số điện thoại" required pattern="[0-9]{10}"
+                            class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-gold outline-none text-slate-700"
+                            placeholder="Số điện thoại Zalo (10 số)">
                     </div>
                     <input type="hidden" name="Loại đăng ký" value="Form Tư Vấn (Sale Page)">
-                    <button type="submit" class="w-full py-4 bg-brand-dark text-white font-bold rounded-lg hover:bg-slate-800 transition shadow-lg uppercase tracking-wide mt-2">
+                    <button type="submit"
+                        class="w-full py-4 bg-brand-dark text-white font-bold rounded-lg hover:bg-slate-800 transition shadow-lg uppercase tracking-wide mt-2">
                         ĐĂNG KÝ NGAY
                     </button>
-                    <p class="text-xs text-slate-400 mt-4"><i class="fa-solid fa-lock"></i> Thông tin của bạn được bảo mật tuyệt đối.</p>
+                    <p class="text-xs text-slate-400 mt-4"><i class="fa-solid fa-lock"></i> Thông tin của bạn được bảo
+                        mật tuyệt đối.</p>
                 </form>
             </div>
         </div>
@@ -452,33 +650,45 @@
 
     <!-- AI Feature Section (Chuyển xuống cuối trang để hỗ trợ chốt sale) -->
     <section id="ai-tool" class="py-20 bg-brand-dark relative overflow-hidden border-t border-slate-700">
-        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-gold to-transparent opacity-30"></div>
+        <div
+            class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-gold to-transparent opacity-30">
+        </div>
         <div class="container mx-auto px-4 md:px-6 relative z-10">
             <div class="text-center mb-10">
-                <span class="inline-block py-1 px-3 rounded-full bg-slate-800 border border-slate-700 text-brand-gold text-xs font-bold uppercase tracking-wider mb-3">
+                <span
+                    class="inline-block py-1 px-3 rounded-full bg-slate-800 border border-slate-700 text-brand-gold text-xs font-bold uppercase tracking-wider mb-3">
                     <i class="fa-solid fa-bolt text-yellow-400 mr-1"></i> Trải Nghiệm Công Nghệ F&B
                 </span>
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">HỎI ĐÁP VỚI AI CỦA HIẾU</h2>
                 <p class="text-slate-400 max-w-2xl mx-auto text-sm md:text-base">
-                    Chưa sẵn sàng đăng ký? Hãy thử nhập câu hỏi kinh doanh của bạn vào đây để xem cách tư duy hệ thống của chúng tôi vận hành.
+                    Chưa sẵn sàng đăng ký? Hãy thử nhập câu hỏi kinh doanh của bạn vào đây để xem cách tư duy hệ thống
+                    của chúng tôi vận hành.
                 </p>
             </div>
 
-            <div class="max-w-4xl mx-auto bg-brand-surface rounded-xl shadow-2xl border border-slate-700 flex flex-col h-[500px]">
+            <div
+                class="max-w-4xl mx-auto bg-brand-surface rounded-xl shadow-2xl border border-slate-700 flex flex-col h-[500px]">
                 <div class="h-14 border-b border-slate-700 flex items-center px-6 justify-between bg-slate-900/50">
-                    <span id="mode-title" class="font-bold text-brand-gold"><i class="fa-regular fa-comments"></i> AI Tư Vấn Chiến Lược</span>
+                    <span id="mode-title" class="font-bold text-brand-gold"><i class="fa-regular fa-comments"></i> AI Tư
+                        Vấn Chiến Lược</span>
                     <button onclick="clearChat()" class="text-xs text-slate-500 hover:text-white">Xóa lịch sử</button>
                 </div>
                 <div class="flex-1 p-6 overflow-y-auto space-y-6 custom-scroll" id="chat-container">
                     <div class="flex gap-4">
-                        <div class="w-10 h-10 rounded-full bg-brand-gold flex items-center justify-center shrink-0"><i class="fa-solid fa-robot text-brand-dark"></i></div>
-                        <div class="bg-slate-700 p-4 rounded-2xl rounded-tl-none text-slate-200 text-sm">Chào bạn, bạn đang thắc mắc điều gì về cách tối ưu đơn hàng trên App Food? Hãy hỏi tôi nhé!</div>
+                        <div class="w-10 h-10 rounded-full bg-brand-gold flex items-center justify-center shrink-0"><i
+                                class="fa-solid fa-robot text-brand-dark"></i></div>
+                        <div class="bg-slate-700 p-4 rounded-2xl rounded-tl-none text-slate-200 text-sm">Chào bạn, bạn
+                            đang thắc mắc điều gì về cách tối ưu đơn hàng trên App Food? Hãy hỏi tôi nhé!</div>
                     </div>
                 </div>
                 <div class="p-4 bg-slate-900 border-t border-slate-700">
                     <form id="ai-chat-form" class="flex gap-2">
-                        <input type="text" id="user-input" class="flex-1 bg-slate-800 border border-slate-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold" placeholder="Ví dụ: Làm sao để đặt tên món chuẩn SEO?">
-                        <button type="submit" id="send-btn" class="bg-brand-gold text-brand-dark w-12 rounded-xl hover:bg-white transition-all"><i class="fa-solid fa-paper-plane"></i></button>
+                        <input type="text" id="user-input"
+                            class="flex-1 bg-slate-800 border border-slate-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold"
+                            placeholder="Ví dụ: Làm sao để đặt tên món chuẩn SEO?">
+                        <button type="submit" id="send-btn"
+                            class="bg-brand-gold text-brand-dark w-12 rounded-xl hover:bg-white transition-all"><i
+                                class="fa-solid fa-paper-plane"></i></button>
                     </form>
                 </div>
             </div>
@@ -498,7 +708,7 @@
         async function sendDataToSheet(formData) {
             // Tự động lấy giờ Việt Nam
             formData.append('Thời gian', new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' }));
-            
+
             const params = new URLSearchParams();
             for (const pair of formData.entries()) {
                 params.append(pair[0], pair[1]);
@@ -524,18 +734,23 @@
             const form = e.target;
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
-            
+
             // UI Feedback
             submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> ĐANG GỬI...';
             submitBtn.disabled = true;
 
             const formData = new FormData(form);
             await sendDataToSheet(formData);
-            
+
+            // Tracking sự kiện Đăng ký/Tư vấn với Facebook Pixel
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Lead');
+            }
+
             // Hiển thị thông báo thành công & Chuyển sang Zalo
             alert("Đăng ký thành công! Chuyển hướng tới Zalo của Hiếu để nhận hỗ trợ ngay.");
             window.location.href = 'https://zalo.me/0931343455';
-            
+
             // Reset form
             form.reset();
             submitBtn.innerHTML = originalText;
@@ -566,10 +781,10 @@
         async function handleChat(e) {
             e.preventDefault();
             const text = userInput.value.trim();
-            if(!text) return;
+            if (!text) return;
             appendMessage('user', text);
             userInput.value = '';
-            
+
             // Disabled input while waiting
             userInput.disabled = true;
 
@@ -593,5 +808,5 @@
         function toggleMobileMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
     </script>
 </body>
-</html>
 
+</html>
