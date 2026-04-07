@@ -2,11 +2,20 @@
 <html lang="vi" class="scroll-smooth">
 
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-11533715820"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-11533715820');
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bí Quyết Xây Gian Hàng Nghìn Đơn - Đặng Ngọc Hiếu</title>
+    <title>BÃ­ Quyáº¿t XÃ¢y Gian HÃ ng NghÃ¬n ÄÆ¡n - Äáº·ng Ngá»c Hiáº¿u</title>
     <meta name="description"
-        content="Hệ thống bài giảng thực chiến giúp bạn tối ưu lợi nhuận, làm chủ thuật toán hiển thị và bùng nổ doanh số GrabFood, ShopeeFood.">
+        content="Há»‡ thá»‘ng bÃ i giáº£ng thá»±c chiáº¿n giÃºp báº¡n tá»‘i Æ°u lá»£i nhuáº­n, lÃ m chá»§ thuáº­t toÃ¡n hiá»ƒn thá»‹ vÃ  bÃ¹ng ná»• doanh sá»‘ GrabFood, ShopeeFood.">
 
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -34,7 +43,7 @@
                             light: '#F8FAFC',
                             accent: '#3B82F6',
                             surface: '#162032',
-                            trust: '#2563EB' /* Màu xanh uy tín Unica */
+                            trust: '#2563EB' /* MÃ u xanh uy tÃ­n Unica */
                         }
                     },
                     fontFamily: {
@@ -117,7 +126,7 @@
             animation: typing 1.4s infinite ease-in-out both;
         }
 
-        /* Hiệu ứng Rung rinh / Tỏa sáng cho nút CTA */
+        /* Hiá»‡u á»©ng Rung rinh / Tá»a sÃ¡ng cho nÃºt CTA */
         @keyframes pulse-ring {
             0% {
                 transform: scale(1);
@@ -173,16 +182,16 @@
         <div class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
                 <a href="#" class="text-xl md:text-2xl font-bold text-white flex items-center gap-3 group">
-                    <span class="tracking-tight group-hover:text-brand-gold transition-colors">ĐẶNG NGỌC HIẾU</span>
+                    <span class="tracking-tight group-hover:text-brand-gold transition-colors">Äáº¶NG NGá»ŒC HIáº¾U</span>
                 </a>
                 <nav class="hidden md:flex space-x-8 items-center text-sm font-medium uppercase">
-                    <a href="#hero" class="hover:text-brand-gold transition-colors">Khóa Học</a>
-                    <a href="#trai-nghiem" class="hover:text-brand-gold transition-colors">Trải Nghiệm</a>
-                    <a href="#uu-dai" class="hover:text-brand-gold transition-colors text-brand-gold">Ưu Đãi Đặc
-                        Quyền</a>
-                    <a href="#ai-tool"
-                        class="px-5 py-2 bg-brand-gold text-brand-dark rounded-full font-bold hover:bg-white transition-all shadow-lg">AI
-                        GIẢI ĐÁP 1:1</a>
+                    <a href="#hero" class="hover:text-brand-gold transition-colors">KhÃ³a Há»c</a>
+                    <a href="#trai-nghiem" class="hover:text-brand-gold transition-colors">Tráº£i Nghiá»‡m</a>
+                    <a href="#uu-dai" class="hover:text-brand-gold transition-colors text-brand-gold">Æ¯u ÄÃ£i Äáº·c
+                        Quyá»n</a>
+                    <a href="https://zalo.me/g/csocss597" target="_blank" onclick="trackPrimaryCTA('nav_desktop')"
+                        class="px-5 py-2 bg-brand-gold text-brand-dark rounded-full font-bold hover:bg-white transition-all shadow-lg">NHáº®N
+                        ZALO NHáº¬N Æ¯U ÄÃƒI</a>
                 </nav>
                 <button onclick="toggleMobileMenu()" class="md:hidden text-2xl text-white"><i
                         class="fa-solid fa-bars"></i></button>
@@ -190,18 +199,18 @@
             <div id="mobile-menu"
                 class="hidden md:hidden absolute top-full left-0 w-full bg-brand-dark/95 backdrop-blur-xl border-t border-slate-700">
                 <div class="flex flex-col p-6 space-y-4 text-center">
-                    <a href="#hero" onclick="toggleMobileMenu()">Khóa Học</a>
-                    <a href="#trai-nghiem" onclick="toggleMobileMenu()">Trải Nghiệm</a>
-                    <a href="#uu-dai" onclick="toggleMobileMenu()" class="text-brand-gold font-bold">Ưu Đãi Đặc
-                        Quyền</a>
-                    <a href="#ai-tool" onclick="toggleMobileMenu()"
-                        class="py-2 bg-brand-gold text-brand-dark rounded font-bold">AI GIẢI ĐÁP 1:1</a>
+                    <a href="#hero" onclick="toggleMobileMenu()">KhÃ³a Há»c</a>
+                    <a href="#trai-nghiem" onclick="toggleMobileMenu()">Tráº£i Nghiá»‡m</a>
+                    <a href="#uu-dai" onclick="toggleMobileMenu()" class="text-brand-gold font-bold">Æ¯u ÄÃ£i Äáº·c
+                        Quyá»n</a>
+                    <a href="https://zalo.me/g/csocss597" target="_blank" onclick="toggleMobileMenu(); trackPrimaryCTA('nav_mobile')"
+                        class="py-2 bg-brand-gold text-brand-dark rounded font-bold">NHáº®N ZALO NHáº¬N Æ¯U ÄÃƒI</a>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- 1. HERO SECTION: KHẲNG ĐỊNH GIÁ TRỊ -->
+    <!-- 1. HERO SECTION: KHáº²NG Äá»ŠNH GIÃ TRá»Š -->
     <section id="hero" class="relative pt-32 pb-20 lg:pt-40 overflow-hidden border-b border-slate-800">
         <!-- Background Effects -->
         <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5">
@@ -220,53 +229,56 @@
                     <div
                         class="inline-flex items-center gap-2 px-4 py-1.5 border border-blue-500/30 rounded-full bg-blue-500/10 text-blue-400 text-xs font-bold tracking-widest uppercase">
                         <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
-                        Khóa Học Thực Chiến F&B
+                        KhÃ³a Há»c Thá»±c Chiáº¿n F&B
                     </div>
 
                     <h1
                         class="text-3xl md:text-5xl lg:text-6xl font-black leading-tight text-white uppercase font-sans">
-                        BÍ QUYẾT XÂY DỰNG GIAN HÀNG <br class="hidden md:block" />
+                        BÃ QUYáº¾T XÃ‚Y Dá»°NG GIAN HÃ€NG <br class="hidden md:block" />
                         <span
-                            class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold to-yellow-300">"NGHÌN
-                            ĐƠN"</span> <br class="hidden md:block" />
-                        TRÊN GRABFOOD & SHOPEEFOOD CHO NGƯỜI MỚI.
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold to-yellow-300">"NGHÃŒN
+                            ÄÆ N"</span> <br class="hidden md:block" />
+                        TRÃŠN GRABFOOD & SHOPEEFOOD CHO NGÆ¯á»œI Má»šI.
                     </h1>
 
                     <p class="text-lg md:text-xl text-slate-300 leading-relaxed font-light">
-                        Hệ thống bài giảng thực chiến giúp bạn tối ưu lợi nhuận, làm chủ thuật toán hiển thị và bùng nổ
-                        doanh số mà không cần đốt tiền marketing.
+                        Há»‡ thá»‘ng bÃ i giáº£ng thá»±c chiáº¿n giÃºp báº¡n tá»‘i Æ°u lá»£i nhuáº­n, lÃ m chá»§ thuáº­t toÃ¡n hiá»ƒn thá»‹ vÃ  bÃ¹ng ná»•
+                        doanh sá»‘ mÃ  khÃ´ng cáº§n Ä‘á»‘t tiá»n marketing.
                     </p>
 
-                    <div class="hidden flex-col gap-4 pt-4">
-                        <!-- CTA 1: MÀU XANH UY TÍN -->
-                        <a href="https://unica.vn/huong-dan-ban-do-an-online-tren-grab-food-shopee-food-cho-nguoi-moi?ref=708026"
-                            target="_blank"
-                            class="w-full md:w-max px-10 py-5 bg-brand-trust text-white font-bold rounded-xl hover:bg-blue-700 transition-all shadow-[0_10px_30px_rgba(37,99,235,0.4)] flex items-center justify-center gap-3 text-lg group">
-                            <i class="fa-solid fa-play-circle text-2xl group-hover:scale-110 transition-transform"></i>
-                            HỌC THỬ MIỄN PHÍ TRÊN UNICA TẠI ĐÂY
+                    <div class="flex flex-col gap-4 pt-4">
+                        <a href="https://zalo.me/g/csocss597" target="_blank" onclick="trackPrimaryCTA('hero')"
+                            class="animate-cta w-full md:w-max px-10 py-5 bg-gradient-to-r from-red-600 to-red-500 text-white font-black rounded-xl hover:from-red-500 hover:to-red-400 transition-all shadow-[0_10px_30px_rgba(220,38,38,0.35)] flex items-center justify-center gap-3 text-lg group uppercase">
+                            <i class="fa-solid fa-paper-plane text-2xl group-hover:scale-110 transition-transform"></i>
+                            NHáº®N ZALO NHáº¬N Æ¯U ÄÃƒI VÃ€ Há»ŒC THá»¬
                         </a>
 
-                        <div
-                            class="flex items-center justify-center lg:justify-start gap-2 text-sm text-slate-400 mt-2">
-                            <i class="fa-solid fa-shield-check text-green-500"></i>
-                            <span>Nội dung đã được kiểm định chất lượng và bảo trợ bởi nền tảng Unica.</span>
+                        <div class="space-y-2 text-sm text-slate-300">
+                            <div class="flex items-center justify-center lg:justify-start gap-2">
+                                <i class="fa-solid fa-shield-check text-green-500"></i>
+                                <span>LiÃªn há»‡ Hiáº¿u Hiáº¿u, trÆ°á»Ÿng nhÃ³m vÃ  phÃ³ nhÃ³m cá»™ng Ä‘á»“ng, Ä‘á»ƒ há»c thá»­ lá»™ trÃ¬nh 25 bÃ i giáº£ng trÃªn Unica.</span>
+                            </div>
+                            <div class="flex items-center justify-center lg:justify-start gap-2">
+                                <i class="fa-solid fa-badge-check text-blue-400"></i>
+                                <span>ToÃ n bá»™ CTA chÃ­nh dáº«n vá» Zalo Ä‘á»ƒ chá»‘t Æ°u Ä‘Ã£i vÃ  nháº­n hÆ°á»›ng dáº«n nhanh nháº¥t.</span>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Hero Visual -->
                 <div class="lg:w-[40%] relative w-full max-w-lg mx-auto mt-12 lg:mt-0">
-                    <!-- Ánh sáng nền (Glow effect) làm nổi bật ảnh -->
+                    <!-- Ãnh sÃ¡ng ná»n (Glow effect) lÃ m ná»•i báº­t áº£nh -->
                     <div class="absolute -inset-4 bg-brand-gold/20 rounded-full blur-3xl -z-10 animate-pulse"></div>
 
-                    <!-- Khung ảnh chính vuông vức, sạch sẽ để không che mất logo các App Food ở đáy ảnh -->
+                    <!-- Khung áº£nh chÃ­nh vuÃ´ng vá»©c, sáº¡ch sáº½ Ä‘á»ƒ khÃ´ng che máº¥t logo cÃ¡c App Food á»Ÿ Ä‘Ã¡y áº£nh -->
                     <div
                         class="relative z-10 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-slate-700 bg-brand-surface aspect-square group">
-                        <img src="food600x600.jpg" alt="Xây dựng gian hàng nghìn đơn"
+                        <img src="food600x600.jpg" alt="XÃ¢y dá»±ng gian hÃ ng nghÃ¬n Ä‘Æ¡n"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     </div>
 
-                    <!-- Badge Đánh giá (Nổi lên góc trên phải) -->
+                    <!-- Badge ÄÃ¡nh giÃ¡ (Ná»•i lÃªn gÃ³c trÃªn pháº£i) -->
                     <div
                         class="absolute -top-4 -right-2 md:-right-6 bg-white text-brand-dark font-black px-4 py-2.5 rounded-xl shadow-xl z-20 flex items-center gap-2 transform hover:scale-105 transition-transform border border-slate-100">
                         <div class="flex text-yellow-500 text-xs">
@@ -274,10 +286,10 @@
                                 class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
                                 class="fa-solid fa-star"></i>
                         </div>
-                        <span class="text-sm">4.9/5 Thực Chiến</span>
+                        <span class="text-sm">4.9/5 Thá»±c Chiáº¿n</span>
                     </div>
 
-                    <!-- Icon trang trí góc dưới trái -->
+                    <!-- Icon trang trÃ­ gÃ³c dÆ°á»›i trÃ¡i -->
                     <div
                         class="absolute -bottom-4 -left-2 md:-left-6 w-14 h-14 bg-gradient-to-br from-brand-gold to-yellow-600 rounded-2xl shadow-xl flex items-center justify-center text-2xl text-white z-20 transform -rotate-12 animate-bounce">
                         <i class="fa-solid fa-fire"></i>
@@ -287,36 +299,35 @@
         </div>
     </section>
 
-    <!-- 2. SECTION: TRẢI NGHIỆM TRƯỚC - ĐĂNG KÝ SAU -->
+    <!-- 2. SECTION: TRáº¢I NGHIá»†M TRÆ¯á»šC - ÄÄ‚NG KÃ SAU -->
     <section id="trai-nghiem" class="py-12 bg-slate-50">
         <div class="container mx-auto px-6">
             <div class="max-w-5xl mx-auto">
                 <img src="bannerDNH.png" alt="Banner Dang Ngoc Hieu"
                     class="w-full h-auto rounded-3xl shadow-xl border border-slate-200">
                 <div class="flex flex-col items-center gap-4 pt-8">
-                    <a href="https://unica.vn/huong-dan-ban-do-an-online-tren-grab-food-shopee-food-cho-nguoi-moi?ref=708026"
-                        target="_blank"
-                        class="w-full md:w-max px-10 py-5 bg-brand-trust text-white font-bold rounded-xl hover:bg-blue-700 transition-all shadow-[0_10px_30px_rgba(37,99,235,0.4)] flex items-center justify-center gap-3 text-lg group">
-                        <i class="fa-solid fa-play-circle text-2xl group-hover:scale-110 transition-transform"></i>
-                         HỌC THỬ MIỄN PHÍ TRÊN UNICA TẠI ĐÂY
+                    <a href="https://zalo.me/g/csocss597" target="_blank" onclick="trackPrimaryCTA('proof_banner')"
+                        class="w-full md:w-max px-10 py-5 bg-gradient-to-r from-red-600 to-red-500 text-white font-black rounded-xl hover:from-red-500 hover:to-red-400 transition-all shadow-[0_10px_30px_rgba(220,38,38,0.35)] flex items-center justify-center gap-3 text-lg group uppercase">
+                        <i class="fa-solid fa-paper-plane text-2xl group-hover:scale-110 transition-transform"></i>
+                         NHáº®N ZALO Äá»‚ Há»ŒC THá»¬ Lá»˜ TRÃŒNH 25 BÃ€I
                     </a>
                     <div class="flex items-center justify-center gap-2 text-sm text-slate-500">
                         <i class="fa-solid fa-shield-check text-green-500"></i>
-                        <span>Nội dung đã được kiểm định chất lượng và bảo trợ bởi nền tảng Unica.</span>
+                        <span>Báº¡n sáº½ Ä‘Æ°á»£c hÆ°á»›ng dáº«n cÃ¡ch vÃ o há»c thá»­ lộ trÃ¬nh 25 bÃ i giáº£ng trÃªn Unica sau khi nháº¯n Zalo.</span>
                     </div>
                 </div>
                 <div class="hidden text-center mb-12">
                     <i class="fa-solid fa-quote-left text-5xl text-slate-300 mb-6"></i>
                     <h2 class="text-2xl md:text-4xl font-bold mb-6 font-serif leading-relaxed text-slate-800">
-                        "Tôi muốn bạn hoàn toàn tin tưởng vào giá trị kiến thức trước khi bắt đầu. Hãy bấm xem thử các
-                        bài giảng miễn phí trên Unica để thấy sự khác biệt trong tư duy vận hành F&B thực chiến."
+                        "TÃ´i muá»‘n báº¡n hoÃ n toÃ n tin tÆ°á»Ÿng vÃ o giÃ¡ trá»‹ kiáº¿n thá»©c trÆ°á»›c khi báº¯t Ä‘áº§u. HÃ£y báº¥m xem thá»­ cÃ¡c
+                        bÃ i giáº£ng miá»…n phÃ­ trÃªn Unica Ä‘á»ƒ tháº¥y sá»± khÃ¡c biá»‡t trong tÆ° duy váº­n hÃ nh F&B thá»±c chiáº¿n."
                     </h2>
-                    <p class="font-bold text-brand-gold text-lg">- Đặng Ngọc Hiếu -</p>
+                    <p class="font-bold text-brand-gold text-lg">- Äáº·ng Ngá»c Hiáº¿u -</p>
                 </div>
 
                 <div class="hidden bg-white rounded-2xl shadow-xl p-8 md:p-10 border border-slate-200">
-                    <h3 class="text-xl font-bold mb-6 border-b border-slate-100 pb-4 text-center">Những Gì Bạn Sẽ Học
-                        Được Khác Biệt Ra Sao?</h3>
+                    <h3 class="text-xl font-bold mb-6 border-b border-slate-100 pb-4 text-center">Nhá»¯ng GÃ¬ Báº¡n Sáº½ Há»c
+                        ÄÆ°á»£c KhÃ¡c Biá»‡t Ra Sao?</h3>
                     <ul class="space-y-6">
                         <li class="flex items-start gap-4">
                             <div
@@ -324,9 +335,9 @@
                                 <i class="fa-solid fa-check"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-lg">Setup gian hàng chuẩn SEO, nhìn là muốn đặt</h4>
-                                <p class="text-slate-600 text-sm mt-1">Không chỉ là tải ảnh lên. Học cách cấu trúc tên
-                                    món, mô tả và hình ảnh để App tự động đẩy hiển thị quán bạn lên Top tìm kiếm.</p>
+                                <h4 class="font-bold text-lg">Setup gian hÃ ng chuáº©n SEO, nhÃ¬n lÃ  muá»‘n Ä‘áº·t</h4>
+                                <p class="text-slate-600 text-sm mt-1">KhÃ´ng chá»‰ lÃ  táº£i áº£nh lÃªn. Há»c cÃ¡ch cáº¥u trÃºc tÃªn
+                                    mÃ³n, mÃ´ táº£ vÃ  hÃ¬nh áº£nh Ä‘á»ƒ App tá»± Ä‘á»™ng Ä‘áº©y hiá»ƒn thá»‹ quÃ¡n báº¡n lÃªn Top tÃ¬m kiáº¿m.</p>
                             </div>
                         </li>
                         <li class="flex items-start gap-4">
@@ -335,10 +346,10 @@
                                 <i class="fa-solid fa-check"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-lg">Chiến lược Menu "Chim mồi"</h4>
-                                <p class="text-slate-600 text-sm mt-1">Nghệ thuật định giá và gộp Combo giúp tăng giá
-                                    trị trung bình trên mỗi đơn hàng (AOV), lấy lợi nhuận từ món phụ bù cho chiết khấu
-                                    sàn.</p>
+                                <h4 class="font-bold text-lg">Chiáº¿n lÆ°á»£c Menu "Chim má»“i"</h4>
+                                <p class="text-slate-600 text-sm mt-1">Nghá»‡ thuáº­t Ä‘á»‹nh giÃ¡ vÃ  gá»™p Combo giÃºp tÄƒng giÃ¡
+                                    trá»‹ trung bÃ¬nh trÃªn má»—i Ä‘Æ¡n hÃ ng (AOV), láº¥y lá»£i nhuáº­n tá»« mÃ³n phá»¥ bÃ¹ cho chiáº¿t kháº¥u
+                                    sÃ n.</p>
                             </div>
                         </li>
                         <li class="flex items-start gap-4">
@@ -347,9 +358,9 @@
                                 <i class="fa-solid fa-check"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-lg">Bí kíp xử lý khủng hoảng đánh giá 1 sao</h4>
-                                <p class="text-slate-600 text-sm mt-1">Quy trình CSKH chuẩn xác biến lời phàn nàn thành
-                                    cơ hội. Biến khách vãng lai trên App thành khách trung thành đặt trực tiếp qua Zalo.
+                                <h4 class="font-bold text-lg">BÃ­ kÃ­p xá»­ lÃ½ khá»§ng hoáº£ng Ä‘Ã¡nh giÃ¡ 1 sao</h4>
+                                <p class="text-slate-600 text-sm mt-1">Quy trÃ¬nh CSKH chuáº©n xÃ¡c biáº¿n lá»i phÃ n nÃ n thÃ nh
+                                    cÆ¡ há»™i. Biáº¿n khÃ¡ch vÃ£ng lai trÃªn App thÃ nh khÃ¡ch trung thÃ nh Ä‘áº·t trá»±c tiáº¿p qua Zalo.
                                 </p>
                             </div>
                         </li>
@@ -359,7 +370,54 @@
         </div>
     </section>
 
-    <!-- 3. SECTION: ĐẶC QUYỀN TRỰC TIẾP (TRUNG TÂM CHUYỂN ĐỔI) -->
+    <section id="cro-proof" class="py-20 bg-slate-50 border-t border-slate-200">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto grid lg:grid-cols-[1.15fr_0.85fr] gap-10 items-center">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-100 text-red-700 text-xs font-bold uppercase tracking-[0.2em] mb-5">
+                        <i class="fa-solid fa-chart-line"></i> Báº±ng chá»©ng CRO
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-black text-brand-dark leading-tight uppercase">
+                        Há»ŒC THá»¬ TRÆ¯á»šC, NHáº®N ZALO TRÆ¯á»šC, <span class="text-red-600">CHá»T Æ¯U ÄÃƒI SAU</span>
+                    </h2>
+                    <p class="text-slate-600 text-lg mt-6 leading-relaxed">
+                        ÄÃ¢y lÃ  hÃ¬nh áº£nh báº±ng chá»©ng vá» khoÃ¡ há»c vÃ  lá»™ trÃ¬nh 25 bÃ i giáº£ng. Thay vÃ¬ Ä‘áº©y traffic láº¡nh ra nhiá»u hÆ°á»›ng,
+                        landing page sáº½ chá»‰ giÃ¡m ma sáº¡t vá»›i má»™t hÃ nh Ä‘á»™ng chÃ­nh: nháº¯n Zalo Ä‘á»ƒ Ä‘Æ°á»£c Hiáº¿u Hiáº¿u vá»µc tay chá»‰ cÃ¡ch
+                        há»c thá»­, nháº­n Æ°u Ä‘Ã£i vÃ  vÃ o nhÃ³m cá»™ng Ä‘á»“ng.
+                    </p>
+                    <div class="mt-8 space-y-3 text-slate-700">
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-green-600 mt-1"></i>
+                            <span>Proof rÃµ rÃ ng: giáº£ng viÃªn Äáº·ng Ngá»c Hiáº¿u, rating, sá»‘ há»c viÃªn, giÃ¡ khoÃ¡ há»c vÃ  cam káº¿t hoÃ n tiá»n.</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-green-600 mt-1"></i>
+                            <span>Chuyá»ƒn Ä‘á»•i tá»‘t hÆ¡n vá»›i traffic láº¡nh khi toÃ n bá»™ hero, nÃºt ná»•i báº­t, sticky CTA vÃ  tracking Ä‘á»u quay vá» Zalo.</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-green-600 mt-1"></i>
+                            <span>Nháº¯n Zalo Ä‘á»ƒ Ä‘Æ°á»£c Hiáº¿u Hiáº¿u, trÆ°á»Ÿng nhÃ³m vÃ  phÃ³ nhÃ³m cá»™ng Ä‘á»“ng, hÆ°á»›ng dáº«n há»c thá»­ lá»™ trÃ¬nh 25 bÃ i.</span>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <a href="https://zalo.me/g/csocss597" target="_blank" onclick="trackPrimaryCTA('cro_section')"
+                            class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-red-600 to-red-500 text-white font-black rounded-xl hover:from-red-500 hover:to-red-400 transition-all shadow-[0_10px_30px_rgba(220,38,38,0.35)] uppercase">
+                            <i class="fa-solid fa-paper-plane"></i> NHáº®N ZALO Äá»‚ NHáº¬N LINK Há»ŒC THá»¬
+                        </a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="absolute -inset-3 bg-red-500/10 blur-2xl rounded-[2rem]"></div>
+                    <div class="relative rounded-[2rem] overflow-hidden border border-slate-200 shadow-2xl bg-white">
+                        <img src="CRO.png" alt="Báº±ng chá»©ng CRO vÃ  lộ trÃ¬nh 25 bÃ i giáº£ng"
+                            class="w-full h-auto object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SECTION: Äáº¶C QUYá»€N TRá»°C TIáº¾P (TRUNG TÃ‚M CHUYá»‚N Äá»”I) -->
     <section id="uu-dai" class="py-24 bg-brand-dark relative overflow-hidden">
         <!-- Decor -->
         <div
@@ -368,12 +426,12 @@
 
         <div class="container mx-auto px-6 relative z-10 text-center">
             <h2 class="text-3xl md:text-5xl font-black text-white mb-6 uppercase tracking-tight">
-                ƯU ĐÃI DÀNH CHO HỌC VIÊN <br class="hidden md:block" />
-                <span class="text-brand-gold">KẾT NỐI TRỰC TIẾP HIẾU HIẾU</span>
+                Æ¯U ÄÃƒI DÃ€NH CHO Há»ŒC VIÃŠN <br class="hidden md:block" />
+                <span class="text-brand-gold">Káº¾T Ná»I TRá»°C TIáº¾P HIáº¾U HIáº¾U</span>
             </h2>
             <p class="text-lg text-slate-300 max-w-3xl mx-auto mb-12">
-                Để hỗ trợ tốt nhất cho các chủ quán mới khởi nghiệp, khi đăng ký khóa học thông qua Zalo/Messenger của
-                HIẾU, bạn sẽ nhận được <strong class="text-white bg-red-600 px-2 py-1 rounded">ĐẶC QUYỀN 2 TRONG
+                Äá»ƒ há»— trá»£ tá»‘t nháº¥t cho cÃ¡c chá»§ quÃ¡n má»›i khá»Ÿi nghiá»‡p, khi Ä‘Äƒng kÃ½ khÃ³a há»c thÃ´ng qua Zalo/Messenger cá»§a
+                HIáº¾U, báº¡n sáº½ nháº­n Ä‘Æ°á»£c <strong class="text-white bg-red-600 px-2 py-1 rounded">Äáº¶C QUYá»€N 2 TRONG
                     1</strong>:
             </p>
 
@@ -386,54 +444,54 @@
                         HOT DEAL</div>
 
                     <div class="flex flex-col md:flex-row items-center gap-10">
-                        <!-- Cột Trái: Giá -->
+                        <!-- Cá»™t TrÃ¡i: GiÃ¡ -->
                         <div
                             class="w-full md:w-1/2 border-b md:border-b-0 md:border-r border-slate-700 pb-8 md:pb-0 md:pr-8">
-                            <div class="text-slate-400 font-medium mb-2 uppercase tracking-wider text-sm">Học phí ưu đãi
-                                trực tiếp</div>
+                            <div class="text-slate-400 font-medium mb-2 uppercase tracking-wider text-sm">Há»c phÃ­ Æ°u Ä‘Ã£i
+                                trá»±c tiáº¿p</div>
                             <div class="flex items-end justify-center md:justify-start gap-4 mb-2">
                                 <span class="text-5xl md:text-6xl font-black text-brand-gold">299K</span>
                                 <span class="strike-through text-2xl font-bold mb-1">499K</span>
                             </div>
                             <p class="text-sm text-slate-400 mt-4 text-center md:text-left">
-                                *Chỉ áp dụng khi đăng ký trực tiếp qua số Zalo chính thức bên dưới. Tiết kiệm ngay
-                                200.000đ so với giá niêm yết trên sàn.
+                                *Chá»‰ Ã¡p dá»¥ng khi Ä‘Äƒng kÃ½ trá»±c tiáº¿p qua sá»‘ Zalo chÃ­nh thá»©c bÃªn dÆ°á»›i. Tiáº¿t kiá»‡m ngay
+                                200.000Ä‘ so vá»›i giÃ¡ niÃªm yáº¿t trÃªn sÃ n.
                             </p>
                         </div>
 
-                        <!-- Cột Phải: Quà tặng -->
+                        <!-- Cá»™t Pháº£i: QuÃ  táº·ng -->
                         <div class="w-full md:w-1/2 text-left space-y-4">
                             <div
                                 class="inline-block bg-green-500/20 text-green-400 px-3 py-1 rounded text-xs font-bold border border-green-500/30 uppercase">
-                                <i class="fa-solid fa-gift mr-1"></i> Quà tặng kèm độc quyền
+                                <i class="fa-solid fa-gift mr-1"></i> QuÃ  táº·ng kÃ¨m Ä‘á»™c quyá»n
                             </div>
-                            <h3 class="text-xl font-bold text-white">Khóa học "Quay dựng & Edit Video trên điện thoại"
-                                chuyên nghiệp</h3>
+                            <h3 class="text-xl font-bold text-white">KhÃ³a há»c "Quay dá»±ng & Edit Video trÃªn Ä‘iá»‡n thoáº¡i"
+                                chuyÃªn nghiá»‡p</h3>
                             <p class="text-slate-400 text-sm">
-                                <span class="text-white line-through opacity-50 mr-2">(Trị giá 499.000đ)</span> <br>
-                                Giúp bạn đồng thời có hành trình nội dung xây dựng mạng xã hội nổi bật hơn đối thủ. Tự
-                                tay làm video ngàn view không cần máy móc đắt tiền.
+                                <span class="text-white line-through opacity-50 mr-2">(Trá»‹ giÃ¡ 499.000Ä‘)</span> <br>
+                                GiÃºp báº¡n Ä‘á»“ng thá»i cÃ³ hÃ nh trÃ¬nh ná»™i dung xÃ¢y dá»±ng máº¡ng xÃ£ há»™i ná»•i báº­t hÆ¡n Ä‘á»‘i thá»§. Tá»±
+                                tay lÃ m video ngÃ n view khÃ´ng cáº§n mÃ¡y mÃ³c Ä‘áº¯t tiá»n.
                             </p>
                         </div>
                     </div>
 
-                    <!-- CTA 2: NỔI BẬT RUNG RINH -->
+                    <!-- CTA 2: Ná»”I Báº¬T RUNG RINH -->
                     <div class="mt-10 text-center">
-                        <a href="https://zalo.me/g/csocss597" target="_blank"
+                        <a href="https://zalo.me/g/csocss597" target="_blank" onclick="trackPrimaryCTA('offer_section')"
                             class="animate-cta inline-block w-full md:w-auto px-8 md:px-12 py-5 bg-gradient-to-r from-red-600 to-red-500 text-white font-black rounded-xl hover:from-red-500 hover:to-red-400 transition-all text-lg md:text-xl uppercase tracking-wide">
-                            <i class="fa-solid fa-paper-plane mr-2"></i> LIÊN HỆ HIẾU HIẾU NHẬN ƯU ĐÃI TẠI ĐÂY
+                            <i class="fa-solid fa-paper-plane mr-2"></i> LIÃŠN Há»† HIáº¾U HIáº¿U NHáº¬N Æ¯U ÄÃƒI QUA ZALO
                         </a>
-                        <p class="text-xs text-slate-500 mt-4">Cam kết hoàn tiền 100% nếu nội dung không như mô tả.</p>
+                        <p class="text-xs text-slate-500 mt-4">Nháº¯n Zalo Ä‘á»ƒ nháº­n Æ°u Ä‘Ã£i, link há»c thá»­ lộ trÃ¬nh 25 bÃ i vÃ  há»— trá»£ vÃ o nhÃ³m cá»™ng Ä‘á»“ng.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 4. SECTION: TẠI SAO NÊN NHẮN TIN TRỰC TIẾP? -->
+    <!-- 4. SECTION: Táº I SAO NÃŠN NHáº®N TIN TRá»°C TIáº¾P? -->
     <section id="tai-sao" class="py-20 bg-brand-navy border-t border-slate-800">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-white mb-16">Tại Sao Bạn Nên Chọn Liên Hệ Trực Tiếp?</h2>
+            <h2 class="text-3xl font-bold text-center text-white mb-16">Táº¡i Sao Báº¡n NÃªn Chá»n LiÃªn Há»‡ Trá»±c Tiáº¿p?</h2>
 
             <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
                 <!-- Card 1 -->
@@ -443,10 +501,10 @@
                         class="w-20 h-20 mx-auto bg-blue-500/20 text-blue-400 rounded-full flex items-center justify-center text-3xl mb-6 group-hover:bg-blue-500 group-hover:text-white transition-all">
                         <i class="fa-solid fa-headset"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-4">Hỗ Trợ 1-1 Sát Sao</h3>
+                    <h3 class="text-xl font-bold text-white mb-4">Há»— Trá»£ 1-1 SÃ¡t Sao</h3>
                     <p class="text-slate-400 text-sm leading-relaxed">
-                        Tôi sẽ trực tiếp giải đáp mọi thắc mắc trong quá trình bạn vận hành quán thực tế. Đây là giá trị
-                        Vô Giá mà khi mua khóa học tự động trên sàn bạn không bao giờ có được.
+                        TÃ´i sáº½ trá»±c tiáº¿p giáº£i Ä‘Ã¡p má»i tháº¯c máº¯c trong quÃ¡ trÃ¬nh báº¡n váº­n hÃ nh quÃ¡n thá»±c táº¿. ÄÃ¢y lÃ  giÃ¡ trá»‹
+                        VÃ´ GiÃ¡ mÃ  khi mua khÃ³a há»c tá»± Ä‘á»™ng trÃªn sÃ n báº¡n khÃ´ng bao giá» cÃ³ Ä‘Æ°á»£c.
                     </p>
                 </div>
 
@@ -457,10 +515,10 @@
                         class="w-20 h-20 mx-auto bg-green-500/20 text-green-400 rounded-full flex items-center justify-center text-3xl mb-6 group-hover:bg-green-500 group-hover:text-white transition-all">
                         <i class="fa-solid fa-sync"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-4">Cập Nhật Liên Tục</h3>
+                    <h3 class="text-xl font-bold text-white mb-4">Cáº­p Nháº­t LiÃªn Tá»¥c</h3>
                     <p class="text-slate-400 text-sm leading-relaxed">
-                        Thuật toán hiển thị của ShopeeFood và GrabFood thay đổi liên tục. Bạn sẽ được tham gia nhóm kín
-                        để nhận ngay các tài liệu update chiến thuật mới nhất hoàn toàn miễn phí.
+                        Thuáº­t toÃ¡n hiá»ƒn thá»‹ cá»§a ShopeeFood vÃ  GrabFood thay Ä‘á»•i liÃªn tá»¥c. Báº¡n sáº½ Ä‘Æ°á»£c tham gia nhÃ³m kÃ­n
+                        Ä‘á»ƒ nháº­n ngay cÃ¡c tÃ i liá»‡u update chiáº¿n thuáº­t má»›i nháº¥t hoÃ n toÃ n miá»…n phÃ­.
                     </p>
                 </div>
 
@@ -471,24 +529,24 @@
                         class="w-20 h-20 mx-auto bg-purple-500/20 text-purple-400 rounded-full flex items-center justify-center text-3xl mb-6 group-hover:bg-purple-500 group-hover:text-white transition-all">
                         <i class="fa-solid fa-bolt"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-4">Kích Hoạt Nhanh Chóng</h3>
+                    <h3 class="text-xl font-bold text-white mb-4">KÃ­ch Hoáº¡t Nhanh ChÃ³ng</h3>
                     <p class="text-slate-400 text-sm leading-relaxed">
-                        Không cần thao tác lằng nhằng. Chỉ cần nhắn tin xác nhận, bạn sẽ nhận ngay mã kích hoạt khóa học
-                        chính thức và có thể bắt đầu học ngay chỉ sau 30 giây.
+                        KhÃ´ng cáº§n thao tÃ¡c láº±ng nháº±ng. Chá»‰ cáº§n nháº¯n tin xÃ¡c nháº­n, báº¡n sáº½ nháº­n ngay mÃ£ kÃ­ch hoáº¡t khÃ³a há»c
+                        chÃ­nh thá»©c vÃ  cÃ³ thá»ƒ báº¯t Ä‘áº§u há»c ngay chá»‰ sau 30 giÃ¢y.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Các Khóa Học Khác Section -->
-    <section id="other-courses" class="py-20 bg-brand-navy border-t border-slate-800">
+    <!-- CÃ¡c KhÃ³a Há»c KhÃ¡c Section -->
+    <section id="other-courses" class="hidden py-20 bg-brand-navy border-t border-slate-800">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Các Khóa Học Chuyên Sâu Khác</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">CÃ¡c KhÃ³a Há»c ChuyÃªn SÃ¢u KhÃ¡c</h2>
                 <div class="w-20 h-1 bg-brand-gold mx-auto rounded"></div>
-                <p class="text-slate-400 mt-4 max-w-2xl mx-auto">Nâng cấp kỹ năng toàn diện với hệ sinh thái bài giảng
-                    thực chiến từ Đặng Ngọc Hiếu trên nền tảng Unica.</p>
+                <p class="text-slate-400 mt-4 max-w-2xl mx-auto">NÃ¢ng cáº¥p ká»¹ nÄƒng toÃ n diá»‡n vá»›i há»‡ sinh thÃ¡i bÃ i giáº£ng
+                    thá»±c chiáº¿n tá»« Äáº·ng Ngá»c Hiáº¿u trÃªn ná»n táº£ng Unica.</p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
@@ -496,28 +554,28 @@
                 <div
                     class="bg-brand-surface rounded-2xl overflow-hidden border border-slate-700 hover:border-brand-gold transition-all duration-300 group flex flex-col h-full shadow-lg relative">
                     <div class="relative overflow-hidden aspect-[16/9] bg-slate-800">
-                        <!-- Ảnh minh họa chủ đề Video AI -->
+                        <!-- áº¢nh minh há»a chá»§ Ä‘á» Video AI -->
                         <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&h=340&q=80"
-                            alt="Video AI Tự Động"
+                            alt="Video AI Tá»± Äá»™ng"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <div
                             class="absolute top-2 left-2 bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider shadow-md">
-                            Xuất bản</div>
+                            Xuáº¥t báº£n</div>
                     </div>
                     <div class="p-5 flex flex-col flex-1">
                         <h3
                             class="font-bold text-white text-[15px] leading-snug mb-3 hover:text-brand-gold transition-colors line-clamp-3">
-                            <a href="https://unica.vn/?ref=708026" target="_blank">Học Làm Video Bán Hàng TỰ ĐỘNG bằng
-                                AI trên TikTok, Facebook</a>
+                            <a href="https://unica.vn/?ref=708026" target="_blank">Há»c LÃ m Video BÃ¡n HÃ ng Tá»° Äá»˜NG báº±ng
+                                AI trÃªn TikTok, Facebook</a>
                         </h3>
                         <div class="mt-auto">
                             <div class="flex items-center gap-2 mb-4">
-                                <span class="text-lg font-black text-brand-gold">399,000 đ</span>
-                                <span class="text-xs text-slate-500 line-through">990,000 đ</span>
+                                <span class="text-lg font-black text-brand-gold">399,000 Ä‘</span>
+                                <span class="text-xs text-slate-500 line-through">990,000 Ä‘</span>
                             </div>
                             <a href="https://unica.vn/?ref=708026" target="_blank"
                                 class="block w-full text-center py-2.5 bg-slate-800 text-slate-300 font-bold rounded-lg hover:bg-brand-gold hover:text-brand-dark transition-colors border border-slate-600 hover:border-brand-gold text-sm">
-                                Xem Chi Tiết
+                                Xem Chi Tiáº¿t
                             </a>
                         </div>
                     </div>
@@ -527,28 +585,28 @@
                 <div
                     class="bg-brand-surface rounded-2xl overflow-hidden border border-slate-700 hover:border-brand-gold transition-all duration-300 group flex flex-col h-full shadow-lg relative">
                     <div class="relative overflow-hidden aspect-[16/9] bg-slate-800">
-                        <!-- Ảnh minh họa chủ đề Quay phim bằng điện thoại -->
+                        <!-- áº¢nh minh há»a chá»§ Ä‘á» Quay phim báº±ng Ä‘iá»‡n thoáº¡i -->
                         <img src="https://images.unsplash.com/photo-1523206489230-c012c64b2b48?auto=format&fit=crop&w=600&h=340&q=80"
-                            alt="Quay Dựng Video Điện Thoại"
+                            alt="Quay Dá»±ng Video Äiá»‡n Thoáº¡i"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <div
                             class="absolute top-2 left-2 bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider shadow-md">
-                            Xuất bản</div>
+                            Xuáº¥t báº£n</div>
                     </div>
                     <div class="p-5 flex flex-col flex-1">
                         <h3
                             class="font-bold text-white text-[15px] leading-snug mb-3 hover:text-brand-gold transition-colors line-clamp-3">
-                            <a href="https://unica.vn/?ref=708026" target="_blank">Học Quay Dựng Video, Làm Kịch Bản Từ
-                                ChatGPT Trên Điện Thoại</a>
+                            <a href="https://unica.vn/?ref=708026" target="_blank">Há»c Quay Dá»±ng Video, LÃ m Ká»‹ch Báº£n Tá»«
+                                ChatGPT TrÃªn Äiá»‡n Thoáº¡i</a>
                         </h3>
                         <div class="mt-auto">
                             <div class="flex items-center gap-2 mb-4">
-                                <span class="text-lg font-black text-brand-gold">199,000 đ</span>
-                                <span class="text-xs text-slate-500 line-through">790,000 đ</span>
+                                <span class="text-lg font-black text-brand-gold">199,000 Ä‘</span>
+                                <span class="text-xs text-slate-500 line-through">790,000 Ä‘</span>
                             </div>
                             <a href="https://unica.vn/?ref=708026" target="_blank"
                                 class="block w-full text-center py-2.5 bg-slate-800 text-slate-300 font-bold rounded-lg hover:bg-brand-gold hover:text-brand-dark transition-colors border border-slate-600 hover:border-brand-gold text-sm">
-                                Xem Chi Tiết
+                                Xem Chi Tiáº¿t
                             </a>
                         </div>
                     </div>
@@ -558,28 +616,28 @@
                 <div
                     class="bg-brand-surface rounded-2xl overflow-hidden border border-slate-700 hover:border-brand-gold transition-all duration-300 group flex flex-col h-full shadow-lg relative">
                     <div class="relative overflow-hidden aspect-[16/9] bg-slate-800">
-                        <!-- Ảnh minh họa chủ đề ChatGPT / AI -->
+                        <!-- áº¢nh minh há»a chá»§ Ä‘á» ChatGPT / AI -->
                         <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=600&h=340&q=80"
-                            alt="ChatGPT Thực Chiến"
+                            alt="ChatGPT Thá»±c Chiáº¿n"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <div
                             class="absolute top-2 left-2 bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider shadow-md">
-                            Xuất bản</div>
+                            Xuáº¥t báº£n</div>
                     </div>
                     <div class="p-5 flex flex-col flex-1">
                         <h3
                             class="font-bold text-white text-[15px] leading-snug mb-3 hover:text-brand-gold transition-colors line-clamp-3">
-                            <a href="https://unica.vn/?ref=708026" target="_blank">ChatGPT Thực Chiến Cho Người Mới -
-                                Ứng Dụng Vào Bán Hàng</a>
+                            <a href="https://unica.vn/?ref=708026" target="_blank">ChatGPT Thá»±c Chiáº¿n Cho NgÆ°á»i Má»›i -
+                                á»¨ng Dá»¥ng VÃ o BÃ¡n HÃ ng</a>
                         </h3>
                         <div class="mt-auto">
                             <div class="flex items-center gap-2 mb-4">
-                                <span class="text-lg font-black text-brand-gold">49,000 đ</span>
-                                <span class="text-xs text-slate-500 line-through">299,000 đ</span>
+                                <span class="text-lg font-black text-brand-gold">49,000 Ä‘</span>
+                                <span class="text-xs text-slate-500 line-through">299,000 Ä‘</span>
                             </div>
                             <a href="https://unica.vn/?ref=708026" target="_blank"
                                 class="block w-full text-center py-2.5 bg-slate-800 text-slate-300 font-bold rounded-lg hover:bg-brand-gold hover:text-brand-dark transition-colors border border-slate-600 hover:border-brand-gold text-sm">
-                                Xem Chi Tiết
+                                Xem Chi Tiáº¿t
                             </a>
                         </div>
                     </div>
@@ -589,28 +647,28 @@
                 <div
                     class="bg-brand-surface rounded-2xl overflow-hidden border border-slate-700 hover:border-brand-gold transition-all duration-300 group flex flex-col h-full shadow-lg relative">
                     <div class="relative overflow-hidden aspect-[16/9] bg-slate-800">
-                        <!-- Ảnh minh họa chủ đề Facebook Ads / Social Media -->
+                        <!-- áº¢nh minh há»a chá»§ Ä‘á» Facebook Ads / Social Media -->
                         <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&h=340&q=80"
                             alt="Facebook Ads PRO"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <div
                             class="absolute top-2 left-2 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider shadow-md">
-                            Khóa học mới</div>
+                            KhÃ³a há»c má»›i</div>
                     </div>
                     <div class="p-5 flex flex-col flex-1">
                         <h3
                             class="font-bold text-white text-[15px] leading-snug mb-3 hover:text-brand-gold transition-colors line-clamp-3">
-                            <a href="https://unica.vn/?ref=708026" target="_blank">Chủ Quán Tự Chạy Quảng Cáo Facebook
-                                Ads PRO Hiệu Quả Cao</a>
+                            <a href="https://unica.vn/?ref=708026" target="_blank">Chá»§ QuÃ¡n Tá»± Cháº¡y Quáº£ng CÃ¡o Facebook
+                                Ads PRO Hiá»‡u Quáº£ Cao</a>
                         </h3>
                         <div class="mt-auto">
                             <div class="flex items-center gap-2 mb-4">
-                                <span class="text-lg font-black text-brand-gold">449,000 đ</span>
-                                <span class="text-xs text-slate-500 line-through">499,000 đ</span>
+                                <span class="text-lg font-black text-brand-gold">449,000 Ä‘</span>
+                                <span class="text-xs text-slate-500 line-through">499,000 Ä‘</span>
                             </div>
                             <a href="https://unica.vn/?ref=708026" target="_blank"
                                 class="block w-full text-center py-2.5 bg-slate-800 text-slate-300 font-bold rounded-lg hover:bg-brand-gold hover:text-brand-dark transition-colors border border-slate-600 hover:border-brand-gold text-sm">
-                                Xem Chi Tiết
+                                Xem Chi Tiáº¿t
                             </a>
                         </div>
                     </div>
@@ -622,46 +680,46 @@
                 <a href="https://unica.vn/search?key=%C4%91%E1%BA%B7ng+ng%E1%BB%8Dc+hi%E1%BA%BFu&ref=708026"
                     target="_blank"
                     class="inline-flex items-center gap-2 px-8 py-4 border-2 border-brand-gold text-brand-gold rounded-full hover:bg-brand-gold hover:text-brand-dark transition-colors font-bold text-sm uppercase tracking-wide">
-                    Xem Toàn Bộ Khóa Học Trên Unica <i class="fa-solid fa-arrow-right"></i>
+                    Xem ToÃ n Bá»™ KhÃ³a Há»c TrÃªn Unica <i class="fa-solid fa-arrow-right"></i>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Consultation Section (Kết nối Google Sheets) -->
+    <!-- Consultation Section (Káº¿t ná»‘i Google Sheets) -->
     <section id="consultation-form" class="py-20 bg-slate-100 border-t border-slate-200">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold text-brand-dark mb-4">Đăng Ký Tư Vấn / Giữ Ưu Đãi</h2>
-            <p class="text-slate-600 mb-8">Nếu bạn chưa tiện nhắn Zalo, hãy để lại SĐT, Hiếu sẽ liên hệ tư vấn lộ trình
-                phù hợp với quán của bạn.</p>
+            <h2 class="text-3xl font-bold text-brand-dark mb-4">ÄÄƒng KÃ½ TÆ° Váº¥n / Giá»¯ Æ¯u ÄÃ£i</h2>
+            <p class="text-slate-600 mb-8">Náº¿u báº¡n chÆ°a tiá»‡n nháº¯n Zalo, hÃ£y Ä‘á»ƒ láº¡i SÄT, Hiáº¿u sáº½ liÃªn há»‡ tÆ° váº¥n lá»™ trÃ¬nh
+                phÃ¹ há»£p vá»›i quÃ¡n cá»§a báº¡n.</p>
 
             <div
                 class="max-w-md mx-auto bg-white p-8 rounded-2xl border border-slate-200 shadow-xl relative overflow-hidden">
                 <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-gold to-yellow-400"></div>
                 <form onsubmit="handleFinalConsultation(event)" class="space-y-4">
                     <div>
-                        <input type="text" name="Họ tên" required
+                        <input type="text" name="Há» tÃªn" required
                             class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-gold outline-none text-slate-700"
-                            placeholder="Họ và tên của bạn">
+                            placeholder="Há» vÃ  tÃªn cá»§a báº¡n">
                     </div>
                     <div>
-                        <input type="tel" name="Số điện thoại" required pattern="[0-9]{10}"
+                        <input type="tel" name="Sá»‘ Ä‘iá»‡n thoáº¡i" required pattern="[0-9]{10}"
                             class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-gold outline-none text-slate-700"
-                            placeholder="Số điện thoại Zalo (10 số)">
+                            placeholder="Sá»‘ Ä‘iá»‡n thoáº¡i Zalo (10 sá»‘)">
                     </div>
-                    <input type="hidden" name="Loại đăng ký" value="Form Tư Vấn (Sale Page)">
+                    <input type="hidden" name="Loáº¡i Ä‘Äƒng kÃ½" value="Form TÆ° Váº¥n (Sale Page)">
                     <button type="submit"
                         class="w-full py-4 bg-brand-dark text-white font-bold rounded-lg hover:bg-slate-800 transition shadow-lg uppercase tracking-wide mt-2">
-                        ĐĂNG KÝ NGAY
+                        ÄÄ‚NG KÃ NGAY
                     </button>
-                    <p class="text-xs text-slate-400 mt-4"><i class="fa-solid fa-lock"></i> Thông tin của bạn được bảo
-                        mật tuyệt đối.</p>
+                    <p class="text-xs text-slate-400 mt-4"><i class="fa-solid fa-lock"></i> ThÃ´ng tin cá»§a báº¡n Ä‘Æ°á»£c báº£o
+                        máº­t tuyá»‡t Ä‘á»‘i.</p>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- AI Feature Section (Chuyển xuống cuối trang để hỗ trợ chốt sale) -->
+    <!-- AI Feature Section (Chuyá»ƒn xuá»‘ng cuá»‘i trang Ä‘á»ƒ há»— trá»£ chá»‘t sale) -->
     <section id="ai-tool" class="py-20 bg-brand-dark relative overflow-hidden border-t border-slate-700">
         <div
             class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-gold to-transparent opacity-30">
@@ -670,35 +728,35 @@
             <div class="text-center mb-10">
                 <span
                     class="inline-block py-1 px-3 rounded-full bg-slate-800 border border-slate-700 text-brand-gold text-xs font-bold uppercase tracking-wider mb-3">
-                    <i class="fa-solid fa-bolt text-yellow-400 mr-1"></i> Trải Nghiệm Công Nghệ F&B
+                    <i class="fa-solid fa-bolt text-yellow-400 mr-1"></i> Tráº£i Nghiá»‡m CÃ´ng Nghá»‡ F&B
                 </span>
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">HỎI ĐÁP VỚI AI CỦA HIẾU</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Há»ŽI ÄÃP Vá»šI AI Cá»¦A HIáº¾U</h2>
                 <p class="text-slate-400 max-w-2xl mx-auto text-sm md:text-base">
-                    Chưa sẵn sàng đăng ký? Hãy thử nhập câu hỏi kinh doanh của bạn vào đây để xem cách tư duy hệ thống
-                    của chúng tôi vận hành.
+                    ChÆ°a sáºµn sÃ ng Ä‘Äƒng kÃ½? HÃ£y thá»­ nháº­p cÃ¢u há»i kinh doanh cá»§a báº¡n vÃ o Ä‘Ã¢y Ä‘á»ƒ xem cÃ¡ch tÆ° duy há»‡ thá»‘ng
+                    cá»§a chÃºng tÃ´i váº­n hÃ nh.
                 </p>
             </div>
 
             <div
                 class="max-w-4xl mx-auto bg-brand-surface rounded-xl shadow-2xl border border-slate-700 flex flex-col h-[500px]">
                 <div class="h-14 border-b border-slate-700 flex items-center px-6 justify-between bg-slate-900/50">
-                    <span id="mode-title" class="font-bold text-brand-gold"><i class="fa-regular fa-comments"></i> AI Tư
-                        Vấn Chiến Lược</span>
-                    <button onclick="clearChat()" class="text-xs text-slate-500 hover:text-white">Xóa lịch sử</button>
+                    <span id="mode-title" class="font-bold text-brand-gold"><i class="fa-regular fa-comments"></i> AI TÆ°
+                        Váº¥n Chiáº¿n LÆ°á»£c</span>
+                    <button onclick="clearChat()" class="text-xs text-slate-500 hover:text-white">XÃ³a lá»‹ch sá»­</button>
                 </div>
                 <div class="flex-1 p-6 overflow-y-auto space-y-6 custom-scroll" id="chat-container">
                     <div class="flex gap-4">
                         <div class="w-10 h-10 rounded-full bg-brand-gold flex items-center justify-center shrink-0"><i
                                 class="fa-solid fa-robot text-brand-dark"></i></div>
-                        <div class="bg-slate-700 p-4 rounded-2xl rounded-tl-none text-slate-200 text-sm">Chào bạn, bạn
-                            đang thắc mắc điều gì về cách tối ưu đơn hàng trên App Food? Hãy hỏi tôi nhé!</div>
+                        <div class="bg-slate-700 p-4 rounded-2xl rounded-tl-none text-slate-200 text-sm">ChÃ o báº¡n, báº¡n
+                            Ä‘ang tháº¯c máº¯c Ä‘iá»u gÃ¬ vá» cÃ¡ch tá»‘i Æ°u Ä‘Æ¡n hÃ ng trÃªn App Food? HÃ£y há»i tÃ´i nhÃ©!</div>
                     </div>
                 </div>
                 <div class="p-4 bg-slate-900 border-t border-slate-700">
                     <form id="ai-chat-form" class="flex gap-2">
                         <input type="text" id="user-input"
                             class="flex-1 bg-slate-800 border border-slate-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold"
-                            placeholder="Ví dụ: Làm sao để đặt tên món chuẩn SEO?">
+                            placeholder="VÃ­ dá»¥: LÃ m sao Ä‘á»ƒ Ä‘áº·t tÃªn mÃ³n chuáº©n SEO?">
                         <button type="submit" id="send-btn"
                             class="bg-brand-gold text-brand-dark w-12 rounded-xl hover:bg-white transition-all"><i
                                 class="fa-solid fa-paper-plane"></i></button>
@@ -712,15 +770,23 @@
         <p>&copy; 2024 Dang Ngoc Hieu. All rights reserved.</p>
     </footer>
 
+    <div class="md:hidden fixed bottom-4 left-4 right-4 z-50">
+        <a href="https://zalo.me/g/csocss597" target="_blank" onclick="trackPrimaryCTA('sticky_mobile')"
+            class="animate-cta flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-red-600 to-red-500 px-5 py-4 text-center text-sm font-black uppercase tracking-wide text-white shadow-[0_18px_40px_rgba(220,38,38,0.45)]">
+            <i class="fa-solid fa-paper-plane"></i>
+            NHáº®N ZALO NHáº¬N Æ¯U ÄÃƒI VÃ€ LINK Há»ŒC THá»¬
+        </a>
+    </div>
+
     <script>
-        // --- 1. CẤU HÌNH GOOGLE SHEETS & API ---
+        // --- 1. Cáº¤U HÃŒNH GOOGLE SHEETS & API ---
         const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzoefWPAB_2R6G6EBBP6GBf_krCNRWSlvrnP2_hmVYiOETAzKtuZlcC_VDNsB0CRK8c/exec";
         const apiKey = "AIzaSyATuUtjMpD-xUOYuMG1XCMOlGIvWBeLme0";
 
-        // --- 2. HÀM GỬI DATA VỀ GOOGLE SHEETS (GIỮ NGUYÊN) ---
+        // --- 2. HÃ€M Gá»¬I DATA Vá»€ GOOGLE SHEETS (GIá»® NGUYÃŠN) ---
         async function sendDataToSheet(formData) {
-            // Tự động lấy giờ Việt Nam
-            formData.append('Thời gian', new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' }));
+            // Tá»± Ä‘á»™ng láº¥y giá» Viá»‡t Nam
+            formData.append('Thá»i gian', new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' }));
 
             const params = new URLSearchParams();
             for (const pair of formData.entries()) {
@@ -735,13 +801,26 @@
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                     body: params.toString()
                 });
-                console.log("Đã kích hoạt gửi dữ liệu.");
+                console.log("ÄÃ£ kÃ­ch hoáº¡t gá»­i dá»¯ liá»‡u.");
             } catch (error) {
-                console.error("Lỗi gửi dữ liệu:", error);
+                console.error("Lá»—i gá»­i dá»¯ liá»‡u:", error);
             }
         }
 
-        // Xử lý Form ở cuối trang
+        function trackPrimaryCTA(location) {
+            if (typeof fbq !== 'undefined') {
+                fbq('trackCustom', 'PrimaryZaloCTA', { location });
+            }
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'zalo_cta_click', {
+                    event_category: 'engagement',
+                    event_label: location,
+                    value: 1
+                });
+            }
+        }
+
+        // Xá»­ lÃ½ Form á»Ÿ cuá»‘i trang
         async function handleFinalConsultation(e) {
             e.preventDefault();
             const form = e.target;
@@ -749,21 +828,27 @@
             const originalText = submitBtn.innerHTML;
 
             // UI Feedback
-            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> ĐANG GỬI...';
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> ÄANG Gá»¬I...';
             submitBtn.disabled = true;
 
             const formData = new FormData(form);
             await sendDataToSheet(formData);
 
-            // Tracking sự kiện Đăng ký/Tư vấn với Facebook Pixel
+            // Tracking sá»± kiá»‡n ÄÄƒng kÃ½/TÆ° váº¥n vá»›i Facebook Pixel
             if (typeof fbq !== 'undefined') {
                 fbq('track', 'Lead');
             }
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'generate_lead', {
+                    event_category: 'lead',
+                    event_label: 'consultation_form'
+                });
+            }
 
-            // Đợi 500ms để đảm bảo Facebook Pixel kịp gửi mạng trước khi trình duyệt bị chặn bởi lệnh alert() và chuyển trang
+            // Äá»£i 500ms Ä‘á»ƒ Ä‘áº£m báº£o Facebook Pixel ká»‹p gá»­i máº¡ng trÆ°á»›c khi trÃ¬nh duyá»‡t bá»‹ cháº·n bá»Ÿi lá»‡nh alert() vÃ  chuyá»ƒn trang
             setTimeout(() => {
-                // Hiển thị thông báo thành công & Chuyển sang Zalo
-                alert("Đăng ký thành công! Chuyển hướng tới Zalo của Hiếu để nhận hỗ trợ ngay.");
+                // Hiá»ƒn thá»‹ thÃ´ng bÃ¡o thÃ nh cÃ´ng & Chuyá»ƒn sang Zalo
+                alert("ÄÄƒng kÃ½ thÃ nh cÃ´ng! Chuyá»ƒn hÆ°á»›ng tá»›i Zalo cá»§a Hiáº¿u Ä‘á»ƒ nháº­n há»— trá»£ ngay.");
                 window.location.href = 'https://zalo.me/0931343455';
 
                 // Reset form
@@ -791,7 +876,7 @@
         }
 
         function clearChat() {
-            chatContainer.innerHTML = '<div class="text-center text-slate-500 text-sm italic my-4">Lịch sử trò chuyện đã được làm mới.</div>';
+            chatContainer.innerHTML = '<div class="text-center text-slate-500 text-sm italic my-4">Lá»‹ch sá»­ trÃ² chuyá»‡n Ä‘Ã£ Ä‘Æ°á»£c lÃ m má»›i.</div>';
         }
 
         async function handleChat(e) {
@@ -808,12 +893,12 @@
                 const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ contents: [{ parts: [{ text: "Bạn là trợ lý AI của Đặng Ngọc Hiếu, chuyên gia vận hành F&B trên Food App. Hãy trả lời ngắn gọn, thực chiến và chuyên nghiệp về câu hỏi sau: " + text }] }] })
+                    body: JSON.stringify({ contents: [{ parts: [{ text: "Báº¡n lÃ  trá»£ lÃ½ AI cá»§a Äáº·ng Ngá»c Hiáº¿u, chuyÃªn gia váº­n hÃ nh F&B trÃªn Food App. HÃ£y tráº£ lá»i ngáº¯n gá»n, thá»±c chiáº¿n vÃ  chuyÃªn nghiá»‡p vá» cÃ¢u há»i sau: " + text }] }] })
                 });
                 const data = await res.json();
                 appendMessage('ai', data.candidates[0].content.parts[0].text);
             } catch (err) {
-                appendMessage('ai', "Hệ thống đang bận, bạn vui lòng nhắn trực tiếp qua Zalo: 0931.3434.55 nhé!");
+                appendMessage('ai', "Há»‡ thá»‘ng Ä‘ang báº­n, báº¡n vui lÃ²ng nháº¯n trá»±c tiáº¿p qua Zalo: 0931.3434.55 nhÃ©!");
             } finally {
                 userInput.disabled = false;
                 userInput.focus();
@@ -826,3 +911,4 @@
 </body>
 
 </html>
+
