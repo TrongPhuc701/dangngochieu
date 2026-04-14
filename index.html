@@ -684,6 +684,148 @@
         </div>
     </section>
 
+    <!-- F&B Calculator Section -->
+    <section id="fnb-calculator" class="py-20 bg-white border-t border-slate-200">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-10">
+                <span class="inline-block py-1 px-3 rounded-full bg-green-100 text-green-700 text-xs font-bold uppercase tracking-wider mb-3">
+                    <i class="fa-solid fa-calculator mr-1"></i> Quà tặng miễn phí
+                </span>
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-4">CÔNG CỤ TÍNH GIÁ BÁN & LỢI NHUẬN</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto">Nhập thử số liệu quán của bạn để xem sự khác biệt giữa Giá Tại Quán và Giá Bán Trên App.</p>
+            </div>
+            
+            <div id="fnb-calculator-container" style="max-width: 400px; margin: auto;">
+                <style>
+                    #fnb-calculator-container { font-family: 'Segoe UI', Tahoma, sans-serif; padding: 12px; font-size: 13px; background-color: #f8f9fa; color: #333; border-radius: 15px; border: 1px solid #ddd; }
+                    .card-custom { background: #fff; border-radius: 10px; padding: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 15px; border: 1px solid #eee; }
+                    .header-brand { border-bottom: 1px dashed #ccc; padding-bottom: 12px; margin-bottom: 15px; text-align: center; }
+                    .brand-name { font-size: 12px; color: #444; margin-top: 5px; }
+                    .brand-link { font-size: 11px; color: #666; margin-top: 2px; }
+                    .brand-link a { color: #0056b3; text-decoration: none; font-weight: bold; }
+                    .input-group { display: flex; margin-bottom: 8px; align-items: center; }
+                    .input-label { width: 150px; font-size: 11px; font-weight: 600; background: #fdfdfd; padding: 8px; border: 1px solid #ced4da; border-right: none; border-radius: 4px 0 0 4px; }
+                    .form-input { flex: 1; padding: 7px; border: 1px solid #ced4da; border-radius: 0 4px 4px 0; text-align: right; width: 100%; }
+                    .price-row { display: flex; gap: 10px; margin-bottom: 15px; }
+                    .price-box { flex: 1; text-align: center; padding: 12px; border-radius: 8px; }
+                    .price-instore { background-color: #e6f4ea; border: 1px solid #ceead6; color: #0d652d; }
+                    .price-app { background-color: #fce8e6; border: 1px solid #fad2cf; color: #a50e0e; }
+                    .price-val { font-size: 18px; font-weight: bold; margin-top: 4px; }
+                    .chart-container { height: 160px; position: relative; }
+                    .text-danger { color: #dc3545; font-weight: bold; }
+                </style>
+
+                <div class="header-brand">
+                    <h6 style="font-weight: bold; color: #198754; margin-bottom: 5px;">🍲 CÔNG CỤ ĐỊNH GIÁ F&B</h6>
+                    <div class="brand-name">Phát triển bởi <strong>Đặng Ngọc Hiếu</strong></div>
+                    <div class="brand-link">Website: <a href="https://www.dangngochieu.vn/" target="_blank">www.dangngochieu.vn</a></div>
+                </div>
+
+                <div class="card-custom">
+                    <p style="font-weight: bold; color: #007bff; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-bottom: 10px;">1. Chi phí cố định</p>
+                    <div class="input-group">
+                        <div class="input-label">Tiền thuê/tháng</div>
+                        <input type="text" id="lpRent" class="form-input" value="10.000.000" oninput="formatAndCalc(this)">
+                    </div>
+                    <div class="input-group">
+                        <div class="input-label">Mục tiêu suất/tháng</div>
+                        <input type="text" id="lpTarget" class="form-input" value="800" oninput="formatAndCalc(this)">
+                    </div>
+                    <div style="text-align: right; font-size: 10px; color: #666;">Định phí mặt bằng/suất: <span id="lblLpRentUnit" class="text-danger">0đ</span></div>
+                </div>
+
+                <div class="card-custom">
+                    <p style="font-weight: bold; color: #007bff; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-bottom: 10px;">2. Biến phí & Lợi nhuận</p>
+                    <div class="input-group">
+                        <div class="input-label">Food Cost (Giá vốn)</div>
+                        <input type="text" id="lpFood" class="form-input" value="25.000" oninput="formatAndCalc(this)">
+                    </div>
+                    <div class="input-group">
+                        <div class="input-label">Bao bì, hộp, muỗng</div>
+                        <input type="text" id="lpPack" class="form-input" value="3.000" oninput="formatAndCalc(this)">
+                    </div>
+                    <div class="input-group">
+                        <div class="input-label">Nhân công, điện nước</div>
+                        <input type="text" id="lpUtil" class="form-input" value="5.000" oninput="formatAndCalc(this)">
+                    </div>
+                    <div class="input-group">
+                        <div class="input-label" style="color: #198754;">Lợi nhuận mong muốn</div>
+                        <input type="text" id="lpProf" class="form-input" style="color: #198754; font-weight: bold;" value="15.000" oninput="formatAndCalc(this)">
+                    </div>
+                </div>
+
+                <div class="price-row">
+                    <div class="price-box price-instore">
+                        <div style="font-size: 10px;">GIÁ TẠI QUÁN</div>
+                        <div id="lblLpInStore" class="price-val">0đ</div>
+                    </div>
+                    <div class="price-box price-app">
+                        <div style="font-size: 10px;">GIÁ TRÊN APP</div>
+                        <div id="lblLpApp" class="price-val">0đ</div>
+                    </div>
+                </div>
+
+                <div class="input-group" style="margin-bottom: 15px;">
+                    <div class="input-label">Chiết khấu App (%)</div>
+                    <input type="text" id="lpDisc" class="form-input" value="25" oninput="formatAndCalc(this)">
+                </div>
+
+                <div class="card-custom" style="text-align: center;">
+                    <div class="chart-container"><canvas id="lpChart"></canvas></div>
+                </div>
+
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                <script>
+                    let lpChart;
+                    const fmtVnd = (n) => new Intl.NumberFormat('vi-VN').format(Math.round(n)) + 'đ';
+                    
+                    function formatAndCalc(el) {
+                        let v = el.value.replace(/\D/g, '');
+                        el.value = v !== '' ? parseInt(v, 10).toLocaleString('vi-VN') : '';
+                        calculateLp();
+                    }
+
+                    function gv(id) {
+                        return parseFloat(document.getElementById(id).value.replace(/\./g, '')) || 0;
+                    }
+
+                    function calculateLp() {
+                        const r = gv('lpRent'), t = gv('lpTarget') || 1, f = gv('lpFood'), p = gv('lpPack'), u = gv('lpUtil'), pr = gv('lpProf'), d = gv('lpDisc');
+                        const ru = r / t;
+                        const is = f + p + u + ru + pr;
+                        let ap = d < 100 ? Math.ceil((is / (1 - (d / 100))) / 1000) * 1000 : 0;
+
+                        document.getElementById('lblLpRentUnit').innerText = fmtVnd(ru);
+                        document.getElementById('lblLpInStore').innerText = fmtVnd(is);
+                        document.getElementById('lblLpApp').innerText = fmtVnd(ap);
+
+                        if (lpChart) {
+                            lpChart.data.datasets[0].data = [f, ru, p, u, pr];
+                            lpChart.update();
+                        }
+                    }
+
+                    window.addEventListener('load', function() {
+                        const ctx = document.getElementById('lpChart').getContext('2d');
+                        lpChart = new Chart(ctx, {
+                            type: 'doughnut',
+                            data: {
+                                labels: ['Giá vốn', 'Mặt bằng', 'Bao bì', 'Nhân công', 'Lợi nhuận'],
+                                datasets: [{
+                                    data: [0,0,0,0,0],
+                                    backgroundColor: ['#4285F4', '#EA4335', '#FBBC05', '#9AA0A6', '#34A853'],
+                                    borderWidth: 1, cutout: '65%'
+                                }]
+                            },
+                            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'right', labels: { boxWidth: 10, font: {size: 9} } } } }
+                        });
+                        calculateLp();
+                    });
+                </script>
+            </div>
+        </div>
+    </section>
+
     <!-- Consultation Section (Kết nối Google Sheets) -->
     <section id="consultation-form" class="py-20 bg-slate-100 border-t border-slate-200">
         <div class="container mx-auto px-6 text-center">
