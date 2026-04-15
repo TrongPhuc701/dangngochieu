@@ -755,8 +755,10 @@
                         <input type="text" id="lpUtil" class="form-input" value="5.000" oninput="formatAndCalc(this)">
                     </div>
                     <div class="input-group" style="margin-top: 10px;">
-                        <div class="input-label" style="color: #198754; background: #e6f4ea; border-color: #c3e6cb;">Lợi nhuận mục tiêu</div>
-                        <input type="text" id="lpProf" class="form-input" style="color: #198754; font-weight: 800; border-color: #c3e6cb; background: #f8fff9;" value="15.000" oninput="formatAndCalc(this)">
+                        <div class="input-label" style="color: #198754; background: #e6f4ea; border-color: #c3e6cb; padding-right: 4px;">Lợi nhuận mục tiêu</div>
+                        <input type="text" id="lpProf" class="form-input" style="color: #198754; font-weight: 800; border-color: #c3e6cb; background: #f8fff9;" value="15.000" oninput="window.profActive='amt'; formatAndCalc(this)">
+                        <input type="text" id="lpProfPct" class="form-input-pct" style="width: 55px; flex: none; text-align: center; color: #198754; font-weight: 800; border-color: #c3e6cb; background: #f8fff9; border-left: none; padding-right: 0; padding-left: 0;" value="24.8" oninput="window.profActive='pct'; formatAndCalc(this)">
+                        <div class="pct-addon" style="border-color: #c3e6cb; background: #e6f4ea; color: #198754;">%</div>
                     </div>
                 </div>
 
@@ -774,7 +776,7 @@
                     </div>
                     <div class="input-group mb-0">
                         <div class="input-label" style="width: 120px;">Thuế / Phí</div>
-                        <input type="text" id="lpTax" class="form-input-pct" value="0" oninput="formatAndCalc(this)">
+                        <input type="text" id="lpTax" class="form-input-pct" value="4.5" oninput="formatAndCalc(this)">
                         <div class="pct-addon">%</div>
                     </div>
                     <div id="errTotalPct" class="error-msg">Tổng % giảm trừ phải < 100%</div>
@@ -802,23 +804,53 @@
                     const fmtVnd = (n) => new Intl.NumberFormat('vi-VN').format(Math.round(n)) + 'đ';
                     
                     function formatAndCalc(el) {
-                        let v = el.value.replace(/\D/g, '');
-                        el.value = v !== '' ? parseInt(v, 10).toLocaleString('vi-VN') : '';
+                        if (el) {
+                            if (el.classList.contains('form-input-pct') || el.id === 'lpProfPct') {
+                                let v = el.value.replace(/[^0-9.,]/g, '').replace(',', '.');
+                                const parts = v.split('.');
+                                if (parts.length > 2) v = parts[0] + '.' + parts.slice(1).join('');
+                                el.value = v;
+                            } else {
+                                let v = el.value.replace(/\D/g, '');
+                                el.value = v !== '' ? parseInt(v, 10).toLocaleString('vi-VN') : '';
+                            }
+                        }
                         calculateLp();
                     }
 
                     function gv(id) {
-                        return parseFloat(document.getElementById(id).value.replace(/\./g, '')) || 0;
+                        const el = document.getElementById(id);
+                        if (!el) return 0;
+                        if (el.classList.contains('form-input-pct') || id === 'lpProfPct') {
+                            return parseFloat(el.value) || 0;
+                        }
+                        return parseFloat(el.value.replace(/\./g, '')) || 0;
                     }
 
                     function calculateLp() {
                         const r = gv('lpRent'), t = gv('lpTarget') || 1;
-                        const f = gv('lpFood'), p = gv('lpPack'), u = gv('lpUtil'), pr = gv('lpProf');
+                        const f = gv('lpFood'), p = gv('lpPack'), u = gv('lpUtil');
                         const disc = gv('lpDisc'), promo = gv('lpPromo'), tax = gv('lpTax');
                         
                         const totalDeductionPct = disc + promo + tax;
                         const ru = r / t;
-                        const is = f + p + u + ru + pr;
+                        const baseCost = f + p + u + ru;
+                        
+                        let pr = gv('lpProf');
+                        let prPct = parseFloat(document.getElementById('lpProfPct').value) || 0;
+
+                        if (window.profActive === 'pct') {
+                            if (prPct >= 100) prPct = 99; // tránh chia cho 0
+                            const is_temp = baseCost / (1 - (prPct / 100));
+                            pr = is_temp - baseCost;
+                            document.getElementById('lpProf').value = Math.round(pr).toLocaleString('vi-VN');
+                        } else {
+                            const is_temp = baseCost + pr;
+                            prPct = is_temp > 0 ? (pr / is_temp) * 100 : 0;
+                            document.getElementById('lpProfPct').value = prPct % 1 === 0 ? prPct : prPct.toFixed(1);
+                        }
+
+                        const is = baseCost + pr;
                         
                         document.getElementById('lblLpRentUnit').innerText = fmtVnd(ru);
                         document.getElementById('lblLpInStore').innerText = fmtVnd(is);
