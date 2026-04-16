@@ -1156,19 +1156,24 @@
             <div
                 class="max-w-md mx-auto bg-white p-8 rounded-2xl border border-slate-200 shadow-xl relative overflow-hidden">
                 <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-gold to-yellow-400"></div>
-                <form onsubmit="handleFinalConsultation(event)" class="space-y-4">
+                <form id="dnhForm" onsubmit="handleFinalConsultation(event)" class="space-y-4">
                     <div>
-                        <input type="text" name="Họ tên" required
+                        <input type="text" name="Họ tên" required minlength="2" maxlength="50"
                             class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-gold outline-none text-slate-700"
                             placeholder="Họ và tên của bạn">
                     </div>
                     <div>
-                        <input type="tel" name="Số điện thoại" required pattern="[0-9]{10}"
+                        <input type="tel" name="Số điện thoại" required pattern="0[35789][0-9]{8}"
+                            title="Vui lòng nhập đúng 10 chữ số (VD: 0912345678)"
                             class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-gold outline-none text-slate-700"
-                            placeholder="Số điện thoại Zalo (10 số)">
+                            placeholder="Số điện thoại Zalo (bắt buộc 10 số)">
+                    </div>
+                    <!-- Honeypot chống bot -->
+                    <div style="display:none; position:absolute; left:-9999px;">
+                        <input type="text" name="bot_check" value="" autocomplete="off" tabindex="-1">
                     </div>
                     <input type="hidden" name="Loại đăng ký" value="Form Tư Vấn (Sale Page)">
-                    <button type="submit"
+                    <button type="submit" id="submitBtn"
                         class="animate-cta w-full py-4 bg-gradient-to-r from-red-600 to-red-500 text-white font-black rounded-xl hover:from-red-500 hover:to-red-400 transition-all shadow-[0_10px_30px_rgba(220,38,38,0.35)] uppercase tracking-wide mt-2 text-lg flex items-center justify-center gap-2">
                         <i class="fa-solid fa-paper-plane"></i> GỬI & THAM GIA NHÓM ZALO
                     </button>
@@ -1281,18 +1286,58 @@
             }
         }
 
+        let isSubmitting = false;
+
         // Xử lý Form ở cuối trang
         async function handleFinalConsultation(e) {
             e.preventDefault();
+            
+            // 1. Chống click đúp gây spam
+            if (isSubmitting) return;
+
             const form = e.target;
+            const nameInput = form.querySelector('input[name="Họ tên"]').value.trim();
+            const phoneInput = form.querySelector('input[name="Số điện thoại"]').value.trim();
+            const botCheckInput = form.querySelector('input[name="bot_check"]');
+
+            // 2. Chống Bot: Nếu trường Honeypot ẩn mà bị điền thì bỏ qua luôn (Bot điền form tự động)
+            if (botCheckInput && botCheckInput.value) {
+                console.warn("Spam bot detected.");
+                return; 
+            }
+
+            // 3. Phân tích Regex số điện thoại VN chuẩn để tránh lỗi nhập bừa
+            const phoneRegex = /^0[35789]\d{8}$/;
+            if (!phoneRegex.test(phoneInput)) {
+                alert("Vui lòng nhập số điện thoại Việt Nam hợp lệ (VD: 0912345678).");
+                return;
+            }
+
+            // 4. Kiểm tra Tên (không chứa toàn số, dài hơn 2 ký tự)
+            if (nameInput.length < 2 || /^\d+$/.test(nameInput)) {
+                alert("Vui lòng nhập tên thật của bạn.");
+                return;
+            }
+
+            // 5. Ngăn chặn liên hoàn spam bằng cách lưu ở bộ nhớ trình duyệt
+            const lastSubmittedTime = localStorage.getItem('dnh_form_submitted');
+            if (lastSubmittedTime && (Date.now() - parseInt(lastSubmittedTime)) < 600000) { // Giới hạn 10 phút / lần gửi
+                alert("Bạn đã đăng ký rồi! Hệ thống đang chuyển hướng bạn qua Zalo nhóm.");
+                window.location.href = 'https://zalo.me/g/csocss597';
+                return;
+            }
+
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
 
-            // UI Feedback
+            // Bắt đầu gửi
+            isSubmitting = true;
             submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> ĐANG GỬI...';
             submitBtn.disabled = true;
 
             const formData = new FormData(form);
+            formData.delete("bot_check"); // Cắt thông tin botCheck đi trước khi gửi lên Sheet
+
             await sendDataToSheet(formData);
 
             // Tracking sự kiện Đăng ký/Tư vấn với Facebook Pixel
@@ -1306,16 +1351,18 @@
                 });
             }
 
-            // Đợi 500ms để đảm bảo Facebook Pixel kịp gửi mạng trước khi trình duyệt bị chặn bởi lệnh alert() và chuyển trang
+            // Ghi nhận đã gửi thành công
+            localStorage.setItem('dnh_form_submitted', Date.now());
+
+            // Đợi 500ms để đảm bảo Facebook Pixel kịp gửi mạng trước khi trình duyệt bị chặn
             setTimeout(() => {
-                // Hiển thị thông báo thành công & Chuyển sang Zalo
-                alert("Đăng ký thành công! Chuyển hướng tới Zalo của Hiếu để nhận hỗ trợ ngay.");
+                alert("Đăng ký thành công! Chuyển hướng tới Zalo để vào nhóm ngay.");
                 window.location.href = 'https://zalo.me/g/csocss597';
 
-                // Reset form
                 form.reset();
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
+                isSubmitting = false;
             }, 500);
         }
 
