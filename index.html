@@ -1137,9 +1137,21 @@
     <!-- Consultation Section (Kết nối Google Sheets) -->
     <section id="consultation-form" class="py-20 bg-slate-100 border-t border-slate-200">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold text-brand-dark mb-4">Chưa tiện nhắn Zalo? Để lại số để được gọi lại</h2>
-            <p class="text-slate-600 mb-8">Điền thông tin, đội ngũ sẽ liên hệ tư vấn lộ trình phù hợp và hướng dẫn cách
-                nhận ưu đãi hiện tại cho quán của bạn.</p>
+            <h2 class="text-3xl font-bold text-brand-dark mb-3">Đăng Ký Nhận Link Học Thử & Vào Nhóm Zalo</h2>
+            <p class="text-slate-600 mb-8 max-w-xl mx-auto">Điền thông tin bên dưới để nhận link học thử miễn phí và được mời tham gia nhóm cộng đồng Zalo hỗ trợ chủ quán.</p>
+
+            <!-- Step Indicator -->
+            <div class="max-w-sm mx-auto flex items-center justify-center gap-3 mb-8">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-full bg-brand-dark text-white flex items-center justify-center text-sm font-black">1</div>
+                    <span class="text-sm font-bold text-brand-dark">Điền form</span>
+                </div>
+                <i class="fa-solid fa-arrow-right text-slate-400 text-xs"></i>
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-full bg-green-600 text-white flex items-center justify-center text-sm font-black">2</div>
+                    <span class="text-sm font-bold text-green-700">Vào nhóm Zalo</span>
+                </div>
+            </div>
 
             <div
                 class="max-w-md mx-auto bg-white p-8 rounded-2xl border border-slate-200 shadow-xl relative overflow-hidden">
@@ -1157,11 +1169,11 @@
                     </div>
                     <input type="hidden" name="Loại đăng ký" value="Form Tư Vấn (Sale Page)">
                     <button type="submit"
-                        class="w-full py-4 bg-brand-dark text-white font-bold rounded-lg hover:bg-slate-800 transition shadow-lg uppercase tracking-wide mt-2">
-                        GỬI THÔNG TIN TƯ VẤN
+                        class="animate-cta w-full py-4 bg-gradient-to-r from-red-600 to-red-500 text-white font-black rounded-xl hover:from-red-500 hover:to-red-400 transition-all shadow-[0_10px_30px_rgba(220,38,38,0.35)] uppercase tracking-wide mt-2 text-lg flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-paper-plane"></i> GỬI & THAM GIA NHÓM ZALO
                     </button>
                     <p class="text-xs text-slate-400 mt-4"><i class="fa-solid fa-lock"></i> Thông tin của bạn được bảo
-                        mật tuyệt đối.</p>
+                        mật tuyệt đối. Sau khi gửi, bạn sẽ được tự động chuyển đến Zalo.</p>
                 </form>
             </div>
         </div>
