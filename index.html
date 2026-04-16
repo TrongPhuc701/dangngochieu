@@ -176,39 +176,39 @@
     <!-- End Meta Pixel Code -->
 </head>
 
-<body class="bg-brand-dark text-slate-300 antialiased selection:bg-brand-gold selection:text-white">
+<body class="bg-brand-dark text-slate-300 antialiased selection:bg-brand-gold selection:text-white overflow-x-hidden">
 
     <!-- Fixed Container for Both Banners -->
     <div class="fixed top-0 left-0 w-full z-[60] flex flex-col shadow-lg">
         <!-- Countdown Top Bar -->
         <div id="countdown-banner" class="w-full bg-[#FC4B5A] border-b border-red-500">
-            <div class="container mx-auto px-3 md:px-6 py-2">
-                <div class="flex items-center justify-between gap-1">
+            <div class="container mx-auto px-1 md:px-6 py-1.5 md:py-2">
+                <div class="flex flex-wrap items-center justify-between sm:justify-between gap-1 md:gap-1">
                     <!-- Prices -->
                     <div class="flex flex-col justify-center leading-tight">
-                        <div class="text-[11px] md:text-[14px] font-black text-brand-dark uppercase tracking-tight">
+                        <div class="text-[10px] md:text-[14px] font-black text-brand-dark uppercase tracking-tight">
                             Giá gốc: <span class="line-through opacity-70">1.250.000đ</span>
                         </div>
-                        <div class="text-[20px] md:text-[32px] font-black text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] leading-none mt-0.5" style="font-family: 'Arial', sans-serif;">
+                        <div class="text-[18px] md:text-[32px] font-black text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] leading-none mt-0.5" style="font-family: 'Arial', sans-serif;">
                             299.000đ
                         </div>
                     </div>
 
                     <!-- Timer -->
                     <div class="flex flex-col items-center">
-                        <span class="text-[10px] md:text-[13px] font-medium text-white mb-1">Khuyến mãi sẽ kết thúc sau</span>
-                        <div class="flex gap-1 md:gap-1.5 text-brand-dark font-black text-xs md:text-xl">
-                            <div class="bg-white rounded px-1.5 md:px-2.5 py-0.5 md:py-1 shadow-[inset_0_1px_3px_rgba(0,0,0,0.2)] border border-slate-200" id="cd-days">00</div>
-                            <div class="bg-white rounded px-1.5 md:px-2.5 py-0.5 md:py-1 shadow-[inset_0_1px_3px_rgba(0,0,0,0.2)] border border-slate-200" id="cd-hours">00</div>
-                            <div class="bg-white rounded px-1.5 md:px-2.5 py-0.5 md:py-1 shadow-[inset_0_1px_3px_rgba(0,0,0,0.2)] border border-slate-200" id="cd-minutes">00</div>
-                            <div class="bg-white rounded px-1.5 md:px-2.5 py-0.5 md:py-1 shadow-[inset_0_1px_3px_rgba(0,0,0,0.2)] border border-slate-200" id="cd-seconds">00</div>
+                        <span class="text-[9px] md:text-[13px] font-medium text-white mb-0.5 md:mb-1">Khuyến mãi kết thúc sau</span>
+                        <div class="flex gap-1 text-brand-dark font-black text-[11px] md:text-xl">
+                            <div class="bg-white rounded px-1 md:px-2.5 py-0.5 md:py-1 shadow-[inset_0_1px_2px_rgba(0,0,0,0.2)] border border-slate-200" id="cd-days">00</div><span class="text-white hidden md:block">:</span>
+                            <div class="bg-white rounded px-1 md:px-2.5 py-0.5 md:py-1 shadow-[inset_0_1px_2px_rgba(0,0,0,0.2)] border border-slate-200" id="cd-hours">00</div><span class="text-white hidden md:block">:</span>
+                            <div class="bg-white rounded px-1 md:px-2.5 py-0.5 md:py-1 shadow-[inset_0_1px_2px_rgba(0,0,0,0.2)] border border-slate-200" id="cd-minutes">00</div><span class="text-white hidden md:block">:</span>
+                            <div class="bg-white rounded px-1 md:px-2.5 py-0.5 md:py-1 shadow-[inset_0_1px_2px_rgba(0,0,0,0.2)] border border-slate-200" id="cd-seconds">00</div>
                         </div>
                     </div>
 
                     <!-- Button -->
                     <div>
                         <a href="#uu-dai" onclick="document.getElementById('uu-dai').scrollIntoView({behavior: 'smooth'})" 
-                           class="inline-block bg-white text-[#FC4B5A] hover:bg-brand-gold hover:text-white transition-colors uppercase font-black px-4 md:px-8 py-2 md:py-2.5 rounded-full shadow-md text-[11px] md:text-[16px] animate-pulse whitespace-nowrap">
+                           class="inline-block bg-white text-[#FC4B5A] hover:bg-brand-dark hover:text-white transition-colors uppercase font-black px-3 md:px-8 py-1.5 md:py-2.5 rounded-full shadow-md text-[10px] md:text-[16px] animate-pulse whitespace-nowrap">
                             ĐĂNG KÝ
                         </a>
                     </div>
@@ -235,14 +235,16 @@
                         class="fa-solid fa-bars"></i></button>
             </div>
             <div id="mobile-menu"
-                class="hidden md:hidden absolute top-full left-0 w-full bg-brand-dark/95 backdrop-blur-xl border-t border-slate-700">
-                <div class="flex flex-col p-6 space-y-4 text-center">
-                    <a href="#hero" onclick="toggleMobileMenu()">Lộ Trình</a>
-                    <a href="#trai-nghiem" onclick="toggleMobileMenu()">Thực Chứng</a>
-                    <a href="#uu-dai" onclick="toggleMobileMenu()" class="text-brand-gold font-bold">Ưu Đãi Hôm Nay</a>
-                    <a href="#fnb-calculator" onclick="toggleMobileMenu()">🍲 Công Cụ Định Giá F&B</a>
+                class="hidden md:hidden absolute top-full left-0 w-full bg-[#0B1120] border-t border-slate-700 shadow-[0_30px_40px_rgba(0,0,0,0.8)] max-h-[85vh] overflow-y-auto">
+                <div class="flex flex-col px-6 py-2">
+                    <a href="#hero" onclick="toggleMobileMenu()" class="py-4 border-b border-slate-800/80 text-slate-200 font-bold text-[16px] hover:text-brand-gold transition-colors flex items-center justify-between"><span class="uppercase tracking-wide">Lộ Trình</span> <i class="fa-solid fa-chevron-right text-xs opacity-40"></i></a>
+                    <a href="#trai-nghiem" onclick="toggleMobileMenu()" class="py-4 border-b border-slate-800/80 text-slate-200 font-bold text-[16px] hover:text-brand-gold transition-colors flex items-center justify-between"><span class="uppercase tracking-wide">Thực Chứng</span> <i class="fa-solid fa-chevron-right text-xs opacity-40"></i></a>
+                    <a href="#uu-dai" onclick="toggleMobileMenu()" class="py-4 border-b border-slate-800/80 text-brand-gold font-bold text-[16px] flex items-center justify-between"><span class="uppercase tracking-wide">Ưu Đãi Hôm Nay</span> <i class="fa-solid fa-star text-xs"></i></a>
+                    <a href="#fnb-calculator" onclick="toggleMobileMenu()" class="py-4 border-b border-slate-800/80 text-white font-bold text-[16px] hover:text-brand-gold transition-colors flex items-center justify-between"><span class="uppercase tracking-wide">🍲 Công Cụ Định Giá F&B</span> <i class="fa-solid fa-calculator text-xs opacity-40"></i></a>
                     <a href="https://zalo.me/g/csocss597" target="_blank" onclick="toggleMobileMenu(); trackPrimaryCTA('nav_mobile')"
-                        class="py-2 bg-brand-gold text-brand-dark rounded font-bold">NHẮN ZALO NHẬN LINK HỌC THỬ</a>
+                        class="mt-6 mb-6 py-4 bg-gradient-to-r from-red-600 to-red-500 text-white shadow-lg shadow-red-500/30 rounded-xl font-black text-center text-[15px] uppercase tracking-wide flex justify-center items-center gap-2">
+                        <i class="fa-solid fa-paper-plane"></i> NHẬN LINK HỌC THỬ
+                    </a>
                 </div>
             </div>
         </div>
