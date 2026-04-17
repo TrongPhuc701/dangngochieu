@@ -1406,9 +1406,10 @@
                 const data = await res.json();
                 appendMessage('ai', data.candidates[0].content.parts[0].text);
             } catch (err) {
-                appendMessage('ai', "Hệ thống đang bận, bạn vui lòng nhắn trực tiếp qua Zalo: 0931.3434.55 nhé!");
+                appendMessage('ai', "Chủ quán hết tiền thuê tôi rồi, giờ bạn hãy liên hệ chủ quán qua Zalo: 0931.3434.55 để ổng có tiền thuê tôi phục vụ các bạn tiếp nha!!!  ");
             } finally {
                 userInput.disabled = false;
+
                 userInput.focus();
             }
         }
