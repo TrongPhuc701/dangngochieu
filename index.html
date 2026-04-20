@@ -315,6 +315,13 @@
                     </p>
 
                     <div class="flex flex-col gap-4 pt-4">
+                        <div class="flex items-center gap-2 text-sm mb-1 bg-[#1e293b]/80 backdrop-blur w-max px-4 py-1.5 rounded-full border border-slate-700/50 shadow-lg">
+                            <span class="relative flex h-2.5 w-2.5">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-80"></span>
+                                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500"></span>
+                            </span>
+                            <span class="font-medium inline-block text-white">Đang có <span id="live-viewers" class="font-black text-brand-gold text-base mx-0.5">246</span> người cùng xem trang này</span>
+                        </div>
                         <a href="#consultation-form" onclick="trackPrimaryCTA('hero')"
                             class="animate-cta w-full md:w-max px-10 py-5 bg-gradient-to-r from-red-600 to-red-500 text-white font-black rounded-xl hover:from-red-500 hover:to-red-400 transition-all shadow-[0_10px_30px_rgba(220,38,38,0.35)] flex items-center justify-center gap-3 text-lg group uppercase">
                             <i class="fa-solid fa-paper-plane text-2xl group-hover:scale-110 transition-transform"></i>
@@ -1461,6 +1468,80 @@
         }
         startBannerCountdown();
 
+        // Live viewers script
+        function updateViewers() {
+            const countEl = document.getElementById('live-viewers');
+            if (countEl) {
+                let current = parseInt(countEl.innerText);
+                const change = Math.floor(Math.random() * 5) - 2; 
+                current += change;
+                if (current < 150) current = 150 + Math.floor(Math.random() * 30); 
+                countEl.innerText = current;
+            }
+        }
+        setInterval(updateViewers, 5000); 
+
+    </script>
+
+    <!-- Toast Notification FOMO -->
+    <div id="toast-container" class="fixed bottom-24 left-4 md:bottom-6 md:left-6 z-[60] flex flex-col gap-3 pointer-events-none"></div>
+    <style>
+        .toast-enter {
+            animation: slideInLeft 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+        .toast-leave {
+            animation: fadeOutLeft 0.5s ease-in forwards;
+        }
+        @keyframes slideInLeft {
+            from { transform: translateX(-120%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes fadeOutLeft {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(-120%); opacity: 0; }
+        }
+    </style>
+    <script>
+        const toastNames = ["Trần Đức Minh", "Lê Thanh Hằng", "Nguyễn Ngọc Huy", "Phạm Văn Tuấn", "Hoàng Kim Chi", "Vũ Minh Anh", "Đặng Thùy Linh", "Bùi Quốc Bảo", "Ngô Khắc Tiệp", "Lý Hải", "Châu Khải Phong", "Nguyễn Tuấn Lâm", "Trần Mai Anh"];
+        const toastActions = ["vừa đăng ký khóa học", "đã chuyển khoản thành công", "đã tham gia nhóm Zalo", "vừa nhận link học thử"];
+        const toastLocations = ["Hà Nội", "TP.HCM", "Đà Nẵng", "Cần Thơ", "Hải Phòng", "Bình Dương", "Đồng Nai", "Nha Trang", "Vũng Tàu"];
+
+        function showToast() {
+            const container = document.getElementById('toast-container');
+            const name = toastNames[Math.floor(Math.random() * toastNames.length)];
+            const action = toastActions[Math.floor(Math.random() * toastActions.length)];
+            const location = toastLocations[Math.floor(Math.random() * toastLocations.length)];
+            const time = Math.floor(Math.random() * 15) + 1;
+
+            const toast = document.createElement('div');
+            toast.className = 'bg-white/95 backdrop-blur rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.15)] border border-slate-200 p-3.5 flex items-center gap-3.5 toast-enter pointer-events-auto max-w-[320px] w-max';
+            toast.innerHTML = `
+                <div class="w-10 h-10 rounded-full bg-green-500/10 text-green-600 flex items-center justify-center shrink-0 border border-green-500/20 relative">
+                    <i class="fa-solid fa-check text-lg"></i>
+                    <span class="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white animate-pulse"></span>
+                </div>
+                <div class="flex flex-col">
+                    <p class="text-sm text-slate-800 leading-tight mb-0.5"><span class="font-bold text-brand-dark">${name}</span> <span class="text-xs text-slate-500 font-medium">(${location})</span></p>
+                    <p class="text-xs font-medium text-[#2563EB] mb-0.5">${action}</p>
+                    <p class="text-[10px] text-slate-400 flex items-center gap-1"><i class="fa-regular fa-clock"></i> ${time} phút trước</p>
+                </div>
+            `;
+            container.appendChild(toast);
+
+            // Thu hồi thông báo sau 6 giây
+            setTimeout(() => {
+                toast.classList.replace('toast-enter', 'toast-leave');
+                setTimeout(() => {
+                    toast.remove();
+                }, 500);
+            }, 6000); 
+        }
+
+        // Hiện sau 3s đầu tiên, sau đó cứ 40s hiện lại 1 lần
+        setTimeout(() => {
+            showToast();
+            setInterval(showToast, 40000);
+        }, 3000);
     </script>
 </body>
 
