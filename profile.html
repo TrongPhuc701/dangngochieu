@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11533715820"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'AW-11533715820');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hồ Sơ Chuyên Gia - Đặng Ngọc Hiếu</title>
+    <meta name="description"
+        content="Hành trình truyền động lực và cảm hứng kinh doanh của Đặng Ngọc Hiếu. Chuyên gia đào tạo, setup F&B và hỗ trợ phụ nữ làm chủ tài chính.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Roboto:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#C5A059',
+                            goldHover: '#B08D45',
+                            dark: '#0B1120',
+                            navy: '#1E293B',
+                            light: '#F8FAFC',
+                            accent: '#3B82F6',
+                            surface: '#162032',
+                            trust: '#2563EB'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Merriweather', 'serif'],
+                        sans: ['Roboto', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'glow': '0 0 20px rgba(197, 160, 89, 0.4)',
+                        'card': '0 10px 30px -5px rgba(0, 0, 0, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Roboto', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Merriweather', serif; }
+        .glass-nav { background: rgba(11, 17, 32, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .custom-scroll::-webkit-scrollbar { width: 6px; height: 6px; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #475569; border-radius: 3px; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-up { animation: fadeUp 0.6s ease-out forwards; }
+        @keyframes pulse-ring { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7); } 50% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(197, 160, 89, 0); } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(197, 160, 89, 0); } }
+        .animate-cta { animation: pulse-ring 2s infinite ease-in-out; }
+    </style>
+</head>
+
+<body class="bg-brand-dark text-slate-300 antialiased selection:bg-brand-gold selection:text-white overflow-x-hidden">
+
+    <!-- Navbar -->
+    <div class="fixed top-0 left-0 w-full z-[60] flex flex-col shadow-lg">
+        <header class="w-full glass-nav transition-all duration-300 relative border-t-0" id="navbar">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex justify-between items-center">
+                    <a href="index.html" class="text-xl md:text-2xl font-bold text-white flex items-center gap-3 group">
+                        <span class="tracking-tight group-hover:text-brand-gold transition-colors">ĐẶNG NGỌC HIẾU</span>
+                    </a>
+                    <nav class="hidden md:flex space-x-8 items-center text-sm font-medium uppercase">
+                        <a href="index.html#hero" class="hover:text-brand-gold transition-colors">Lộ Trình</a>
+                        <a href="profile.html" class="text-brand-gold border-b-2 border-brand-gold pb-1">HỒ SƠ</a>
+                        <a href="index.html#trai-nghiem" class="hover:text-brand-gold transition-colors">Thực Chứng</a>
+                        <a href="index.html#uu-dai" class="hover:text-brand-gold transition-colors">Ưu Đãi</a>
+                        <a href="index.html#consultation-form" class="px-5 py-2 bg-brand-gold text-brand-dark rounded-full font-bold hover:bg-white transition-all shadow-lg">Đăng Ký Ngay</a>
+                    </nav>
+                    <button onclick="toggleMobileMenu()" class="md:hidden text-2xl text-white"><i class="fa-solid fa-bars"></i></button>
+                </div>
+                <!-- Mobile Menu -->
+                <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-[#0B1120] border-t border-slate-700 shadow-[0_30px_40px_rgba(0,0,0,0.8)] max-h-[85vh] overflow-y-auto">
+                    <div class="flex flex-col px-6 py-2">
+                        <a href="index.html#hero" class="py-4 border-b border-slate-800/80 text-slate-200 font-bold text-[16px]"><span class="uppercase">Lộ Trình</span></a>
+                        <a href="profile.html" class="py-4 border-b border-slate-800/80 text-brand-gold font-bold text-[16px]"><span class="uppercase">HỒ SƠ CÁ NHÂN</span></a>
+                        <a href="index.html#trai-nghiem" class="py-4 border-b border-slate-800/80 text-slate-200 font-bold text-[16px]"><span class="uppercase">Thực Chứng</span></a>
+                        <a href="index.html#uu-dai" class="py-4 border-b border-slate-800/80 text-slate-200 font-bold text-[16px]"><span class="uppercase">Ưu Đãi Hôm Nay</span></a>
+                        <a href="index.html#consultation-form" class="mt-6 mb-6 py-4 bg-gradient-to-r from-red-600 to-red-500 text-white shadow-lg rounded-xl font-black text-center text-[15px] uppercase">NHẬN LINK HỌC THỬ</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <!-- 1. HERO PROFILE SECTION -->
+    <section class="relative pt-32 pb-20 lg:pt-40 overflow-hidden border-b border-slate-800 bg-brand-surface">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+        <div class="absolute -top-20 -right-20 w-[400px] h-[400px] bg-brand-gold rounded-full filter blur-[150px] opacity-10"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-12 max-w-6xl mx-auto">
+                <!-- Image -->
+                <div class="w-full lg:w-1/3 relative flex justify-center">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-brand-gold shadow-[0_0_40px_rgba(197,160,89,0.3)] bg-brand-navy flex items-center justify-center">
+                        <i class="fa-solid fa-user-tie text-8xl text-slate-600 opacity-50 absolute"></i>
+                        <img src="bannerDNH.png" alt="Đặng Ngọc Hiếu Profile" class="w-full h-full object-cover object-top relative z-10 hover:scale-105 transition-transform duration-500" onerror="this.style.display='none'">
+                    </div>
+                    <div class="absolute bottom-4 right-4 md:right-10 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase shadow-lg z-20 border border-white">Nhà Đào Tạo</div>
+                </div>
+
+                <!-- Bio Text -->
+                <div class="w-full lg:w-2/3 space-y-6 text-center lg:text-left">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight py-2 leading-relaxed">
+                        Đặng Ngọc <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold to-yellow-300 py-2">Hiếu</span>
+                    </h1>
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 uppercase font-bold text-xs tracking-wider text-slate-400">
+                        <span class="flex items-center gap-2"><i class="fa-solid fa-briefcase text-brand-gold"></i> Chuyên Gia F&B System</span>
+                        <span class="flex items-center gap-2"><i class="fa-solid fa-bullhorn text-brand-gold"></i> Nhà Đào Tạo Thực Chứng</span>
+                        <span class="flex items-center gap-2"><i class="fa-solid fa-heart text-red-500"></i> Phụng Sự Cộng Đồng</span>
+                    </div>
+
+                    <p class="text-lg md:text-xl text-slate-300 leading-relaxed font-serif italic border-l-4 border-brand-gold pl-4 max-w-3xl mx-auto lg:mx-0">
+                        "Khát khao trở thành người bạn đồng hành đáng tin cậy của những doanh nghiệp tử tế, kinh doanh đạo đức, sống thật, làm thật và tạo ra giá trị thật. Làm việc không chỉ để thăng tiến, mà để sống chủ động và trải nghiệm lớn hơn mỗi ngày."
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center gap-4 pt-4 justify-center lg:justify-start">
+                        <a href="https://zalo.me/0931343455" target="_blank" class="px-8 py-3 bg-brand-gold text-brand-dark font-black rounded-lg hover:bg-white transition-all shadow-[0_5px_15px_rgba(197,160,89,0.3)] uppercase flex items-center gap-2">
+                            <i class="fa-solid fa-phone"></i> Liên hệ Zalo Quản trị
+                        </a>
+                        <span class="text-sm text-slate-400 flex items-center gap-2">
+                            <i class="fa-solid fa-envelope"></i> beppyboss35@gmail.com
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. PHIẾT LÝ HÀNH ĐỘNG & SỨ MỆNH XÃ HỘI -->
+    <section class="py-20 bg-brand-dark">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="text-center mb-16">
+                <span class="inline-block py-1 px-3 rounded-full bg-slate-800/50 border border-brand-gold/30 text-brand-gold text-xs font-bold uppercase tracking-wider mb-3">Tôn Chỉ Hoạt Động</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 uppercase">Phản Quang - Thấu Hiểu - <span class="text-brand-gold">Đồng Hành</span></h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Text -->
+                <div class="space-y-6">
+                    <p class="text-slate-300 leading-relaxed">
+                        Từ một Giám đốc Marketing và sáng lập chuỗi F&B với hàng triệu sản phẩm bán ra, Hiếu thấu hiểu sâu sắc những khó khăn của việc khởi nghiệp. Không đi lên từ những lý thuyết sáo rỗng, Hiếu đúc kết kiến thức qua từng lần thất bại và đứng lên.
+                    </p>
+                    <div class="bg-brand-surface p-6 rounded-2xl border border-slate-700 shadow-xl relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-red-600/10 rounded-bl-full transition-transform group-hover:scale-150"></div>
+                        <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-3">
+                            <i class="fa-solid fa-venus text-pink-500 text-2xl"></i> Truyền Động Lực Cho Phái Nữ
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            "Tôi mong muốn những người phụ nữ làm chủ được tài chính và có quyền theo đuổi ước mơ của riêng mình." Nhận thấy ngành F&B online/Food Apply là cơ hội vàng, Hiếu đã thiết kế các lộ trình đặc biệt giúp phụ nữ thu nhập thấp, mẹ bỉm sữa đơn thân xây dựng gian hàng, tạo thêm thu nhập tự chủ kinh tế mà không cần ra khỏi nhà.
+                        </p>
+                    </div>
+
+                    <div class="bg-brand-surface p-6 rounded-2xl border border-slate-700 shadow-xl relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-brand-gold/10 rounded-bl-full transition-transform group-hover:scale-150"></div>
+                        <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-3">
+                            <i class="fa-solid fa-seedling text-green-500 text-2xl"></i> Gieo Hạt Tam Bảo
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Phương châm "Làm việc chân thành - Kết nối bền lâu". Với tâm nguyện lan tỏa những giá trị đạo đức tốt đẹp và triết lý gieo hạt, Hiếu cam kết trích <strong class="text-brand-gold">20% doanh thu</strong> từ các hoạt động đào tạo để phụng sự Tam Bảo và các hoạt động cộng đồng thiện nguyện.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Metrics Grid -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-brand-navy p-8 rounded-2xl text-center border border-slate-800 shadow-lg flex flex-col justify-center transform hover:-translate-y-2 transition-transform">
+                        <div class="text-4xl font-black text-brand-gold mb-2">+200</div>
+                        <div class="text-xs uppercase text-slate-400 font-bold tracking-wide">CEO được đồng hành xây chuỗi, quản lý Sales & Marketing</div>
+                    </div>
+                    <div class="bg-slate-800 p-8 rounded-2xl text-center border border-slate-700 shadow-lg flex flex-col justify-center transform hover:-translate-y-2 transition-transform">
+                        <div class="text-4xl font-black text-white mb-2">> 1Tr</div>
+                        <div class="text-xs uppercase text-slate-400 font-bold tracking-wide">Sản phẩm ẩm thực phân phối tại thị trường TP.HCM</div>
+                    </div>
+                    <div class="bg-slate-800 p-8 rounded-2xl text-center border border-slate-700 shadow-lg flex flex-col justify-center transform hover:-translate-y-2 transition-transform">
+                        <div class="text-4xl font-black text-white mb-2">9</div>
+                        <div class="text-xs uppercase text-slate-400 font-bold tracking-wide">Chi nhánh Fruit Crush tự tay sáng lập & Nhượng quyền</div>
+                    </div>
+                    <div class="bg-brand-navy p-8 rounded-2xl text-center border border-slate-800 shadow-lg flex flex-col justify-center transform hover:-translate-y-2 transition-transform">
+                        <div class="text-4xl font-black text-brand-gold mb-2">12</div>
+                        <div class="text-xs uppercase text-slate-400 font-bold tracking-wide">Cấp độ Năng đoạn kim cương (DCI Global) hoàn thành</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. TIMELINE SỰ NGHIỆP TỪ BOTTOM UP -->
+    <section class="py-20 bg-brand-surface border-y border-slate-800">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 uppercase">Hành Trình Sự Nghiệp</h2>
+                <div class="w-16 h-1 bg-brand-gold mx-auto"></div>
+            </div>
+
+            <div class="relative border-l-2 border-slate-700 pl-8 space-y-12 ml-4 md:ml-0">
+                
+                <!-- 2025 -->
+                <div class="relative">
+                    <div class="absolute -left-[41px] bg-brand-gold p-2 rounded-full border-4 border-brand-surface shadow-glow z-10 w-5 h-5 flex items-center justify-center"></div>
+                    <h3 class="text-2xl font-bold text-white">Công Ty Cổ Phần Truyền Thông Phương Minh</h3>
+                    <div class="text-brand-gold font-bold mb-3 uppercase tracking-wider text-sm mt-1">Năm 2025 - Nay | Content Creator & Leader Đào Tạo</div>
+                    <ul class="text-slate-400 space-y-2 text-sm">
+                        <li>• Trực tiếp phụ trách Sale & Marketing Vật Phẩm Phong Thủy.</li>
+                        <li>• Nghiên cứu, đóng gói các sản phẩm truyền thống văn hoá nghệ thuật (Cắm hoa, Trà Đạo, Đàn Tranh).</li>
+                        <li>• Xây dựng quy trình đào tạo nhân sự nội bộ chuyên nghiệp.</li>
+                    </ul>
+                </div>
+
+                <!-- 2023 -->
+                <div class="relative">
+                    <div class="absolute -left-[41px] bg-slate-600 p-2 rounded-full border-4 border-brand-surface z-10 w-5 h-5 flex items-center justify-center"></div>
+                    <h3 class="text-2xl font-bold text-white">Công Ty Cổ Phần Đại Lộ Kim Cương</h3>
+                    <div class="text-brand-gold font-bold mb-3 uppercase tracking-wider text-sm mt-1">2023 - 2025 | Marketing Manager (CMO)</div>
+                    <ul class="text-slate-400 space-y-2 text-sm">
+                        <li>• Quản lý toàn bộ định hướng Marketing tổng thể.</li>
+                        <li>• Trưởng nhóm Truyền thông Xã hội (Social Media Team Leader) & Sáng tạo nội dung (Content Creator).</li>
+                        <li>• Trực tiếp đứng lớp hướng dẫn đào tạo qua Zoom.</li>
+                    </ul>
+                </div>
+
+                <!-- 2018 -->
+                <div class="relative">
+                    <div class="absolute -left-[41px] bg-slate-600 p-2 rounded-full border-4 border-brand-surface z-10 w-5 h-5 flex items-center justify-center"></div>
+                    <h3 class="text-2xl font-bold text-white">Chuỗi Fruit Crush Cơm Trưa & Trái Cây</h3>
+                    <div class="text-brand-gold font-bold mb-3 uppercase tracking-wider text-sm mt-1">2018 - Nay | CEO & Founder</div>
+                    <ul class="text-slate-400 space-y-2 text-sm">
+                        <li>• Khởi nghiệp từ số 0, sáng lập chuỗi kinh doanh ẩm thực văn phòng phát triển lên tận 9 chi nhánh.</li>
+                        <li>• Tạo dựng mô hình nhượng quyền F&B chuẩn chỉnh: đóng gói hệ thống, đào tạo đối tác nhượng quyền, hỗ trợ điểm hoà vốn sau 6-8 tháng.</li>
+                        <li>• Quản lý trực tiếp Marketing, Bán hàng, Branding thương hiệu trên đa nền tảng Food Apps.</li>
+                    </ul>
+                </div>
+
+                <!-- 2014 -->
+                <div class="relative">
+                    <div class="absolute -left-[41px] bg-slate-600 p-2 rounded-full border-4 border-brand-surface z-10 w-5 h-5 flex items-center justify-center"></div>
+                    <h3 class="text-2xl font-bold text-slate-300">Tư Vấn Đầu Tư Bất Động Sản Trung Tâm</h3>
+                    <div class="text-slate-500 font-bold mb-3 uppercase tracking-wider text-sm mt-1">2014 - 2018 | Bất Động Sản Quận Trung Tâm</div>
+                    <ul class="text-slate-500 space-y-2 text-sm">
+                        <li>• Chuyên viên môi giới BĐS nhà phố (Q1, Q3, Phú Nhuận...) giao dịch thành công thương vụ từ 2 tỷ đến hàng chục tỷ đồng.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. TRUYỀN THÔNG BÁO CHÍ -->
+    <section class="py-20 bg-brand-dark">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 uppercase">Báo Chí & Truyền Thông</h2>
+                <p class="text-slate-400">Những dấu ấn lan toả cảm hứng khởi nghiệp của Đặng Ngọc Hiếu trên sóng truyền hình và tạp chí điện tử.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Báo Diễn Đàn -->
+                <a href="https://diendandoanhnhanvietnam.vn/dien-dan/hanh-trinh-truyen-dong-luc-va-cam-hung-kinh-doanh-cho-phai-nu-cua-nha-dao-tao-dang-ngoc-hieu/" target="_blank" class="bg-brand-surface rounded-2xl overflow-hidden border border-slate-700 hover:border-brand-gold transition-all group flex flex-col cursor-pointer shadow-lg">
+                    <div class="h-48 bg-slate-800 flex items-center justify-center p-6 text-center border-b border-slate-700 relative overflow-hidden">
+                        <i class="fa-solid fa-newspaper text-6xl text-slate-600 group-hover:scale-110 transition-transform"></i>
+                        <div class="absolute top-2 right-2 bg-blue-600 text-white text-[10px] font-bold px-2 py-1 uppercase rounded">Báo Chí</div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <div class="text-xs text-brand-gold font-bold mb-2 uppercase">Diễn Đàn Doanh Nhân Việt Nam</div>
+                        <h3 class="text-lg font-bold text-white mb-3 group-hover:text-brand-gold transition-colors line-clamp-3">
+                            Hành Trình Truyền Động Lực Và Cảm Hứng Kinh Doanh Cho Phái Nữ Của Nhà Đào Tạo Đặng Ngọc Hiếu
+                        </h3>
+                        <p class="text-sm text-slate-400 mt-auto line-clamp-2">"Tôi mong muốn những người phụ nữ làm chủ được tài chính và có quyền theo đuổi ước mơ của riêng mình."</p>
+                    </div>
+                </a>
+
+                <!-- VTV9 -->
+                <div class="bg-brand-surface rounded-2xl overflow-hidden border border-slate-700 transition-all group flex flex-col shadow-lg relative">
+                    <div class="h-48 bg-slate-800 flex items-center justify-center border-b border-slate-700 relative overflow-hidden">
+                        <!-- Placeholder VTV Image. Users can replace with real image src -->
+                        <div class="w-full h-full bg-slate-800 flex flex-col items-center justify-center p-4 text-center">
+                            <span class="text-red-500 font-black text-3xl italic tracking-tighter mb-2">VTV9</span>
+                            <span class="bg-blue-900 text-white text-xs px-2 py-1">Thị trường Trầm Hương</span>
+                        </div>
+                        <div class="absolute top-2 right-2 bg-red-600 text-white text-[10px] font-bold px-2 py-1 uppercase rounded">Truyền Hình</div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <div class="text-xs text-brand-gold font-bold mb-2 uppercase">Đài Truyền Hình Việt Nam (VTV9)</div>
+                        <h3 class="text-lg font-bold text-white mb-3 line-clamp-3">
+                            Khách mời chuyên mục: Lan toả văn hóa Trầm Hương tại Việt Nam
+                        </h3>
+                        <p class="text-sm text-slate-400 mt-auto">Sự xuất hiện trên sóng truyền hình chia sẻ về thị trường Trầm và đóng góp văn hóa tâm linh.</p>
+                    </div>
+                </div>
+
+                <!-- Youtube -->
+                <a href="https://www.youtube.com/@dangngochieu35" target="_blank" class="bg-brand-surface rounded-2xl overflow-hidden border border-slate-700 hover:border-brand-gold transition-all group flex flex-col cursor-pointer shadow-lg">
+                    <div class="h-48 bg-slate-800 flex items-center justify-center border-b border-slate-700 relative overflow-hidden p-6 text-center">
+                        <i class="fa-brands fa-youtube text-7xl text-red-600 group-hover:scale-110 transition-transform"></i>
+                        <div class="absolute top-2 right-2 bg-red-600 text-white text-[10px] font-bold px-2 py-1 uppercase rounded">Social</div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <div class="text-xs text-brand-gold font-bold mb-2 uppercase">Kênh Youtube Chính Thức</div>
+                        <h3 class="text-lg font-bold text-white mb-3 group-hover:text-brand-gold transition-colors line-clamp-3">
+                            Đặng Ngọc Hiếu - Kênh Chia Sẻ Hành Trình Xây Dựng Hệ Thống Tư Duy Khi Làm Thật
+                        </h3>
+                        <div class="flex items-center gap-3 mt-auto">
+                            <span class="bg-slate-700 text-white text-xs px-2 py-1 rounded font-bold">4.78K Trữ Ký</span>
+                            <span class="bg-slate-700 text-white text-xs px-2 py-1 rounded font-bold">980+ Videos</span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <section class="py-16 bg-gradient-to-r from-brand-navy to-slate-900 border-t border-slate-800 text-center">
+        <div class="container mx-auto px-6">
+            <h2 class="text-2xl md:text-3xl font-bold text-white mb-6">Bạn Đã Sẵn Sàng Được Đồng Hành?</h2>
+            <p class="text-slate-400 mb-8 max-w-2xl mx-auto">Tham gia ngay các khoá học từ A-Z hoặc trao đổi trực tiếp trên nhóm Zalo cùng chuyên gia.</p>
+            <a href="index.html#consultation-form" class="animate-cta inline-block px-10 py-4 bg-gradient-to-r from-brand-gold to-yellow-500 text-brand-dark font-black rounded-full hover:from-yellow-500 hover:to-yellow-400 transition-all text-lg uppercase tracking-wide">
+                Đăng Ký Tư Vấn & Nhận Lộ Trình
+            </a>
+        </div>
+    </section>
+
+    <footer class="bg-black text-slate-500 py-10 text-center text-sm border-t border-slate-900">
+        <p>&copy; 2024 Dang Ngoc Hieu. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts (Menu Mobile only) -->
+    <script>
+        function toggleMobileMenu() { 
+            document.getElementById('mobile-menu').classList.toggle('hidden'); 
+        }
+    </script>
+</body>
+</html>
