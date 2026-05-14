@@ -1301,6 +1301,14 @@
             }
         }
 
+        function gtag_report_conversion(url) {
+            var callback = function () {
+                if (typeof(url) != 'undefined') { window.location = url; }
+            };
+            gtag('event', 'conversion', {'send_to': 'AW-11533715820/b-XLCOiFka0cEOyS2vsq', 'event_callback': callback});
+            return false;
+        }
+
         let isSubmitting = false;
 
         // Xử lý Form ở cuối trang
@@ -1364,6 +1372,7 @@
                     event_category: 'lead',
                     event_label: 'consultation_form'
                 });
+                gtag_report_conversion();
             }
 
             // Ghi nhận đã gửi thành công
