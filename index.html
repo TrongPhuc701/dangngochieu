@@ -180,7 +180,20 @@
         }
     }
 
+    function goToZaloWithTracking(locationName, zaloUrl) {
+        trackPrimaryZaloCTA(locationName);
+
+        setTimeout(function () {
+            window.location.href = zaloUrl;
+        }, 500);
+
+        return false;
+    }
+
     function trackLeadAfterFormSuccess() {
+        if (window.__leadTracked) return;
+        window.__leadTracked = true;
+
         if (typeof fbq === 'function') {
             fbq('track', 'Lead', {
                 content_name: 'FoodApp Zalo Form',
