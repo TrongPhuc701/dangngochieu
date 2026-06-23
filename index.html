@@ -168,11 +168,11 @@
             s.parentNode.insertBefore(t, s)
         }(window, document, 'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '1110545717666562');
+        fbq('init', '1412020163499358');
         fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=1110545717666562&ev=PageView&noscript=1" /></noscript>
+            src="https://www.facebook.com/tr?id=1412020163499358&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
 </head>
 
@@ -1301,14 +1301,6 @@
             }
         }
 
-        function gtag_report_conversion(url) {
-            var callback = function () {
-                if (typeof(url) != 'undefined') { window.location = url; }
-            };
-            gtag('event', 'conversion', {'send_to': 'AW-11533715820/b-XLCOiFka0cEOyS2vsq', 'event_callback': callback});
-            return false;
-        }
-
         let isSubmitting = false;
 
         // Xử lý Form ở cuối trang
@@ -1372,7 +1364,6 @@
                     event_category: 'lead',
                     event_label: 'consultation_form'
                 });
-                gtag_report_conversion();
             }
 
             // Ghi nhận đã gửi thành công
