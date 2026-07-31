@@ -36,6 +36,15 @@
     .countdown b { display:inline-block; min-width:32px; padding:6px 5px; border-radius:4px; background:#fff; color:#202020; text-align:center; font-size:16px; line-height:1; box-shadow:0 2px 0 #7c000038; }
     .countdown i { color:#fff; font-style:normal; font-size:18px; font-weight:900; }
     .countdown-form { width:min(100%,440px); padding:12px 16px; border:2px solid #ffacad; border-radius:12px; background:linear-gradient(135deg,#df151c,#ff3133 52%,#dc171b); box-shadow:0 4px 10px #85090d38; }
+    .calculator-section { background:linear-gradient(135deg,#f7fff5,#eaf7e6); border-block:1px solid #cce4c7; }
+    .calculator { max-width:760px; margin:28px auto 0; padding:24px; border:2px solid #b8d9af; border-radius:18px; background:#fff; box-shadow:0 12px 28px #124f2b1c; }
+    .calculator-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+    .calculator label { display:block; color:#294337; font-size:14px; font-weight:800; }
+    .calculator input { width:100%; margin-top:6px; padding:11px 12px; border:1px solid #b9cec2; border-radius:9px; background:#fbfffa; color:#10233e; font:inherit; font-weight:700; }
+    .calculator-result { margin-top:20px; padding:20px; border-radius:14px; background:#102f5f; color:#fff; text-align:center; }
+    .calculator-result strong { display:block; margin-top:4px; color:#ffe45c; font-size:clamp(30px,6vw,43px); line-height:1.1; }
+    .calculator-note { margin:10px 0 0; color:#d8e9ff; font-size:13px; line-height:1.45; }
+    @media (max-width:520px) { .calculator{padding:18px 14px} .calculator-grid{grid-template-columns:1fr} }
     @media (max-width:700px) { body{padding-bottom:84px} .wrap{width:min(100% - 32px,1120px)} .feedback{columns:1} }
   </style>
 </head>
@@ -66,6 +75,25 @@
           <a class="card" href="feedback-09.webp" target="_blank" rel="noopener"><img src="feedback-09.webp" alt="Kết quả doanh thu trước và sau khi tối ưu menu"></a>
           <a class="card" href="order-proof-02.webp" target="_blank" rel="noopener"><img src="order-proof-02.webp" alt="Kết quả doanh thu thực tế sau một tháng tối ưu"></a>
           <a class="card" href="order-proof-03.webp" target="_blank" rel="noopener"><img src="order-proof-03.webp" alt="Kết quả doanh thu thực tế sau tối ưu menu"></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="fnb-calculator" class="calculator-section py-11">
+      <div class="wrap">
+        <p class="text-center font-black text-[#a87517]">📉 KIỂM TRA SỨC KHỎE GIAN HÀNG TRONG 10 GIÂY</p>
+        <h2 class="heading mt-2">CÔNG CỤ TÍNH GIÁ BÁN FOODAPP</h2>
+        <p class="mx-auto mt-3 max-w-2xl text-center text-slate-600">Nhập số liệu trực tiếp của quán vào công cụ định giá F&amp;B ở bên dưới để tránh lỗ ngầm.</p>
+        <div class="calculator">
+          <div class="calculator-grid">
+            <label>Giá vốn món ăn (đ)<input id="calc-food" type="number" min="0" value="20000" inputmode="numeric"></label>
+            <label>Bao bì, hộp, muỗng (đ)<input id="calc-pack" type="number" min="0" value="3000" inputmode="numeric"></label>
+            <label>Chi phí khác/đơn (đ)<input id="calc-other" type="number" min="0" value="2000" inputmode="numeric"></label>
+            <label>Lợi nhuận mong muốn/đơn (đ)<input id="calc-profit" type="number" min="0" value="15000" inputmode="numeric"></label>
+            <label>Chiết khấu/Phí App (%)<input id="calc-app-fee" type="number" min="0" max="90" value="25" inputmode="decimal"></label>
+            <label>Khuyến mãi &amp; thuế (%)<input id="calc-extra-fee" type="number" min="0" max="90" value="5" inputmode="decimal"></label>
+          </div>
+          <div class="calculator-result"><span>GIÁ NIÊM YẾT GỢI Ý TRÊN APP</span><strong id="calc-price">57.500đ</strong><p class="calculator-note" id="calc-note">Sau phí App và chi phí, quán còn lợi nhuận theo mức bạn đã chọn.</p></div>
         </div>
       </div>
     </section>
@@ -158,6 +186,31 @@
       };
       updateCountdown();
       setInterval(updateCountdown, 1000);
+    })();
+
+    (() => {
+      const inputs = ['calc-food', 'calc-pack', 'calc-other', 'calc-profit', 'calc-app-fee', 'calc-extra-fee']
+        .map((id) => document.getElementById(id));
+      const priceOutput = document.getElementById('calc-price');
+      const noteOutput = document.getElementById('calc-note');
+      const number = (input) => Math.max(0, Number(input?.value) || 0);
+      const updatePrice = () => {
+        const food = number(inputs[0]);
+        const pack = number(inputs[1]);
+        const other = number(inputs[2]);
+        const profit = number(inputs[3]);
+        const rate = (number(inputs[4]) + number(inputs[5])) / 100;
+        if (rate >= .95) {
+          priceOutput.textContent = 'Kiểm tra lại phí';
+          noteOutput.textContent = 'Tổng tỷ lệ phí cần nhỏ hơn 95%.';
+          return;
+        }
+        const suggested = Math.ceil(((food + pack + other + profit) / (1 - rate)) / 500) * 500;
+        priceOutput.textContent = `${suggested.toLocaleString('vi-VN')}đ`;
+        noteOutput.textContent = `Giá vốn và chi phí: ${(food + pack + other).toLocaleString('vi-VN')}đ · Tổng phí App: ${(rate * 100).toFixed(0)}%.`;
+      };
+      inputs.forEach((input) => input?.addEventListener('input', updatePrice));
+      updatePrice();
     })();
 
     document.getElementById('dnhForm').addEventListener('submit', async (event) => {
