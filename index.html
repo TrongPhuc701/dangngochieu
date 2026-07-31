@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Tối ưu menu - tối đa doanh thu Foodapp | Đặng Ngọc Hiếu">
+  <meta name="description" content="Tối ưu menu - Tối đa hóa doanh thu Foodapp | Đặng Ngọc Hiếu">
   <link rel="canonical" href="https://www.dangngochieu.vn/">
   <meta property="og:locale" content="vi_VN">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Đặng Ngọc Hiếu">
-  <meta property="og:title" content="Tối ưu menu - tối đa doanh thu Foodapp | Đặng Ngọc Hiếu">
-  <meta property="og:description" content="Tối ưu menu - tối đa doanh thu Foodapp | Đặng Ngọc Hiếu">
+  <meta property="og:title" content="Tối ưu menu - Tối đa hóa doanh thu Foodapp | Đặng Ngọc Hiếu">
+  <meta property="og:description" content="Tối ưu menu - Tối đa hóa doanh thu Foodapp | Đặng Ngọc Hiếu">
   <meta property="og:url" content="https://www.dangngochieu.vn/">
-  <meta property="og:image" content="https://www.dangngochieu.vn/og-image.png">
-  <meta property="og:image:width" content="1728">
-  <meta property="og:image:height" content="912">
-  <meta property="og:image:alt" content="Tối ưu menu - tối đa doanh thu Foodapp cùng Đặng Ngọc Hiếu">
+  <meta property="og:image" content="https://www.dangngochieu.vn/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Tối ưu menu - Tối đa hóa doanh thu Foodapp cùng Đặng Ngọc Hiếu">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Tối ưu menu - tối đa doanh thu Foodapp | Đặng Ngọc Hiếu">
-  <meta name="twitter:description" content="Tối ưu menu - tối đa doanh thu Foodapp | Đặng Ngọc Hiếu">
-  <meta name="twitter:image" content="https://www.dangngochieu.vn/og-image.png">
-  <title>Tối ưu menu & doanh thu FoodApp | Đặng Ngọc Hiếu</title>
+  <meta name="twitter:title" content="Tối ưu menu - Tối đa hóa doanh thu Foodapp | Đặng Ngọc Hiếu">
+  <meta name="twitter:description" content="Tối ưu menu - Tối đa hóa doanh thu Foodapp | Đặng Ngọc Hiếu">
+  <meta name="twitter:image" content="https://www.dangngochieu.vn/og-image.jpg">
+  <title>Tối ưu menu - Tối đa hóa doanh thu Foodapp | Đặng Ngọc Hiếu</title>
   <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '27531148199905029');
@@ -38,8 +38,10 @@
     .cta:hover { transform:translateY(-2px); color:#fff; }
     .form-cta { min-height:78px; border:2px solid #fff7d2 !important; border-radius:14px !important; background:linear-gradient(135deg,#e71e26,#ff4645) !important; box-shadow:0 5px 0 #a70e14,0 12px 24px #c7192240 !important; font-size:18px; line-height:1.3; letter-spacing:.01em; }
     .form-cta:hover { background:linear-gradient(135deg,#f52b32,#ff5a54) !important; }
-    .sticky-cta { position:fixed; z-index:40; bottom:16px; left:50%; width:min(calc(100% - 32px),390px); transform:translateX(-50%); display:flex; align-items:center; justify-content:center; min-height:56px; border:2px solid #fff7d2; border-radius:14px; background:linear-gradient(135deg,#e71e26,#ff4645); box-shadow:0 5px 0 #a70e14,0 12px 28px #c7192260; color:#fff; font-size:15px; font-weight:900; text-decoration:none; text-transform:uppercase; letter-spacing:.035em; }
+    @keyframes sticky-cta-nudge { 0%,100% { transform:translateX(-50%) translateY(0) rotate(0); } 20% { transform:translateX(-50%) translateY(-2px) rotate(-.5deg); } 40% { transform:translateX(-50%) translateY(0) rotate(.5deg); } 60% { transform:translateX(-50%) translateY(-1px) rotate(-.35deg); } 80% { transform:translateX(-50%) translateY(0) rotate(.35deg); } }
+    .sticky-cta { position:fixed; z-index:40; bottom:16px; left:50%; width:min(calc(100% - 32px),390px); transform:translateX(-50%); display:flex; align-items:center; justify-content:center; min-height:56px; border:2px solid #fff7d2; border-radius:14px; background:linear-gradient(135deg,#e71e26,#ff4645); box-shadow:0 5px 0 #a70e14,0 12px 28px #c7192260; color:#fff; font-size:15px; font-weight:900; text-decoration:none; text-transform:uppercase; letter-spacing:.035em; animation:sticky-cta-nudge .9s ease-in-out infinite; }
     .sticky-cta:hover { color:#fff; transform:translateX(-50%) translateY(-2px); }
+    @media (prefers-reduced-motion:reduce) { .sticky-cta { animation:none; } }
     .heading { color:var(--navy); font-size:clamp(26px,4vw,42px); font-weight:900; line-height:1.2; text-align:center; }
     .card { border:2px solid #c9dfc2; border-radius:16px; background:#f5fff1; box-shadow:0 12px 25px #124f2b1a; overflow:hidden; }
     .card img { width:100%; height:auto; display:block; }
