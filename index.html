@@ -193,8 +193,7 @@
 
   <aside id="registration-proof" class="registration-proof" aria-live="polite">
     ✅ <strong id="registration-proof-message">Một chủ quán vừa gửi form đăng ký.</strong>
-    <span id="registration-proof-total" class="block text-xs text-slate-500"></span>
-    <a href="https://zalo.me/g/6lnfktixlonz6j3w2wfu" target="_blank" rel="noopener" onclick="trackPrimaryCTA('registration_proof')">Tham gia nhóm Zalo để nhận tài liệu →</a>
+    <a href="#consultation-form" onclick="trackPrimaryCTA('registration_proof')">Đăng ký ngay để nhận tài liệu →</a>
   </aside>
   <a class="sticky-cta" href="#consultation-form" onclick="trackPrimaryCTA('sticky_cta')">ĐĂNG KÝ NGAY</a>
 
@@ -228,8 +227,7 @@
     async function loadRegistrationProof() {
       const proof = document.getElementById('registration-proof');
       const messageOutput = document.getElementById('registration-proof-message');
-      const totalOutput = document.getElementById('registration-proof-total');
-      if (!proof || !messageOutput || !totalOutput) return;
+      if (!proof || !messageOutput) return;
       try {
         const response = await fetch(`${GOOGLE_SCRIPT_URL}?action=proof`, { cache:'no-store' });
         const result = await response.json();
@@ -244,7 +242,6 @@
             `${name} vừa điền form nhận link tham gia nhóm Zalo`
           ];
           messageOutput.textContent = messages[messageIndex % messages.length];
-          totalOutput.textContent = `Đã có ${count.toLocaleString('vi-VN')} chủ quán gửi form đăng ký`;
           messageIndex += 1;
           proof.classList.add('show');
           window.setTimeout(() => proof.classList.remove('show'), 6500);
