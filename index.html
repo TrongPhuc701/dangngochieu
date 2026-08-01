@@ -41,6 +41,10 @@
     @keyframes sticky-cta-nudge { 0%,100% { transform:translateX(-50%) translateY(0) rotate(0); } 20% { transform:translateX(-50%) translateY(-2px) rotate(-.5deg); } 40% { transform:translateX(-50%) translateY(0) rotate(.5deg); } 60% { transform:translateX(-50%) translateY(-1px) rotate(-.35deg); } 80% { transform:translateX(-50%) translateY(0) rotate(.35deg); } }
     .sticky-cta { position:fixed; z-index:40; bottom:16px; left:50%; width:min(calc(100% - 32px),390px); transform:translateX(-50%); display:flex; align-items:center; justify-content:center; min-height:56px; border:2px solid #fff7d2; border-radius:14px; background:linear-gradient(135deg,#e71e26,#ff4645); box-shadow:0 5px 0 #a70e14,0 12px 28px #c7192260; color:#fff; font-size:15px; font-weight:900; text-decoration:none; text-transform:uppercase; letter-spacing:.035em; animation:sticky-cta-nudge .9s ease-in-out infinite; }
     .sticky-cta:hover { color:#fff; transform:translateX(-50%) translateY(-2px); }
+    .registration-proof { position:fixed; z-index:39; left:14px; bottom:92px; width:min(calc(100% - 28px),320px); padding:12px 14px; border:1px solid #dbe7f5; border-radius:14px; background:#fff; color:#183153; box-shadow:0 12px 32px #10233e35; font-size:13px; line-height:1.4; opacity:0; visibility:hidden; transform:translateY(14px); transition:opacity .3s,transform .3s,visibility .3s; }
+    .registration-proof.show { opacity:1; visibility:visible; transform:translateY(0); }
+    .registration-proof strong { color:#087443; font-size:14px; }
+    .registration-proof a { display:block; margin-top:3px; color:#1266d4; font-weight:800; text-decoration:none; }
     @media (prefers-reduced-motion:reduce) { .sticky-cta { animation:none; } }
     .heading { color:var(--navy); font-size:clamp(26px,4vw,42px); font-weight:900; line-height:1.2; text-align:center; }
     .card { border:2px solid #c9dfc2; border-radius:16px; background:#f5fff1; box-shadow:0 12px 25px #124f2b1a; overflow:hidden; }
@@ -143,7 +147,7 @@
         <div>
           <h2 class="text-3xl font-black leading-tight text-[#09285e]">Tôi loại bỏ hoàn toàn việc bạn phải “ngồi học hàng giờ mệt mỏi”. Bạn nhận ngay bộ công cụ “mì ăn liền”:</h2>
           <ul class="mt-5 space-y-3 text-[15px] leading-relaxed">
-            <li>✓ Lộ trình 25 bài giảng thực chiến <b>(1.500.000đ)</b> — đã bao gồm</li>
+            <li>✓ Lộ trình 25 bài giảng video: Thiết lập menu và đăng ký bán FoodApp từ con số 0 <b>(trị giá 1.500.000đ)</b> — đã bao gồm</li>
             <li>✓ File Excel định giá tự động <b>(850.000đ)</b> — tặng miễn phí</li>
             <li>✓ Bộ video ChatGPT cho người sợ công nghệ <b>(950.000đ)</b> — tặng miễn phí</li>
             <li>✓ Bộ mẫu menu phễu "Kích Thích Mua" <b>(680.000đ)</b> — tặng miễn phí</li>
@@ -187,6 +191,11 @@
     </section>
   </main>
 
+  <aside id="registration-proof" class="registration-proof" aria-live="polite">
+    ✅ <strong id="registration-proof-message">Một chủ quán vừa gửi form đăng ký.</strong>
+    <span id="registration-proof-total" class="block text-xs text-slate-500"></span>
+    <a href="https://zalo.me/g/6lnfktixlonz6j3w2wfu" target="_blank" rel="noopener" onclick="trackPrimaryCTA('registration_proof')">Tham gia nhóm Zalo để nhận tài liệu →</a>
+  </aside>
   <a class="sticky-cta" href="#consultation-form" onclick="trackPrimaryCTA('sticky_cta')">ĐĂNG KÝ NGAY</a>
 
   <footer class="bg-slate-950 py-8 text-center text-sm text-slate-400">© 2026 Đặng Ngọc Hiếu. All rights reserved.</footer>
@@ -215,6 +224,38 @@
       popup.innerHTML = `<div role="dialog" aria-modal="true" aria-labelledby="zalo-popup-title" class="w-full max-w-sm rounded-2xl border border-blue-100 bg-white p-7 text-center shadow-2xl"><div class="text-4xl">${icon}</div><h3 id="zalo-popup-title" class="mt-3 text-xl font-black text-slate-900">${title}</h3><p class="mt-2 leading-relaxed text-slate-600">${message}</p><a href="${ZALO_GROUP_URL}" target="_blank" rel="noopener" class="mt-5 block rounded-xl bg-blue-600 px-4 py-3 font-black text-white shadow-lg shadow-blue-600/25 transition hover:bg-blue-700" onclick="trackPrimaryCTA('zalo_popup_${type}')">VÀO NHÓM ZALO NGAY</a></div>`;
       document.body.appendChild(popup);
     }
+
+    async function loadRegistrationProof() {
+      const proof = document.getElementById('registration-proof');
+      const messageOutput = document.getElementById('registration-proof-message');
+      const totalOutput = document.getElementById('registration-proof-total');
+      if (!proof || !messageOutput || !totalOutput) return;
+      try {
+        const response = await fetch(`${GOOGLE_SCRIPT_URL}?action=proof`, { cache:'no-store' });
+        const result = await response.json();
+        const count = Number(result?.count);
+        const people = Array.isArray(result?.recent) ? result.recent.filter((name) => typeof name === 'string' && name.trim()) : [];
+        if (!response.ok || !Number.isFinite(count) || count < 1 || !people.length) return;
+        let messageIndex = 0;
+        const showProof = () => {
+          const name = people[Math.floor(Math.random() * people.length)];
+          const messages = [
+            `${name} vừa đăng ký tìm hiểu khóa học 399K`,
+            `${name} vừa điền form nhận link tham gia nhóm Zalo`
+          ];
+          messageOutput.textContent = messages[messageIndex % messages.length];
+          totalOutput.textContent = `Đã có ${count.toLocaleString('vi-VN')} chủ quán gửi form đăng ký`;
+          messageIndex += 1;
+          proof.classList.add('show');
+          window.setTimeout(() => proof.classList.remove('show'), 6500);
+        };
+        window.setTimeout(showProof, 4500);
+        window.setInterval(showProof, 30000);
+      } catch (_) {
+        // Không hiển thị nếu chưa lấy được số đăng ký thật từ Google Sheet.
+      }
+    }
+    loadRegistrationProof();
 
     (() => {
       const minuteOutputs = [
