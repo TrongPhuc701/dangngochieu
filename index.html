@@ -259,17 +259,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .ba-sum strong { display:block; font-size:clamp(16px,2vw,19px); font-variant-numeric:tabular-nums; }
     .ba-sum em { display:block; font-style:normal; font-weight:900; color:#ffb547; font-size:clamp(24px,3vw,32px); line-height:1.2; }
     .ba-how { font-size:13px; color:#475569; margin:0 0 16px; }
-    .ba-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+    .ba-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; align-items:start; }
     .ba-grid figure { margin:0; display:flex; flex-direction:column; gap:8px; }
     .ba-grid figcaption { font-size:14px; color:#334155; }
     .ba-grid figcaption b { display:inline-block; font-size:12.5px; letter-spacing:.04em; border-radius:6px; padding:2px 8px; margin-right:6px; background:#e2e8f0; color:#0f172a; }
     .ba-grid figure.sau figcaption b { background:var(--orange); color:#fff; }
     .ba-grid a { display:block; border:1px solid #dbe4e9; border-radius:10px; overflow:hidden; background:#fff; }
     .ba-grid img { width:100%; height:auto; display:block; }
-    .ba-grid a.doc img { max-height:360px; object-fit:contain; object-position:top; }
     .ba-grid ul { list-style:none; margin:0; padding:0; font-size:14px; line-height:1.55; color:#334155; }
     .ba-grid ul b { color:#0f172a; font-variant-numeric:tabular-nums; }
-    @media (max-width:700px) { .ba-sum,.ba-grid { grid-template-columns:1fr; } }
+    .ba-grid figure.moi figcaption b { background:#fde68a; }
+    @media (max-width:900px) { .ba-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media (max-width:700px) { .ba-sum { grid-template-columns:1fr; } .ba-grid { gap:10px; } .ba-grid ul { font-size:13px; } .ba-grid figcaption b { display:table; margin:0 0 4px; } }
   </style>
 </head>
 <body>
@@ -309,17 +310,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <article class="ba-case" id="case-quan-com">
           <div class="ba-head"><h3>Một quán cơm trên GrabFood</h3></div>
           <div class="ba-sum">
-            <div><span>Doanh thu ròng trung bình / ngày</span><strong>1.586.800đ → 5.555.658đ</strong><em>gấp 3,5 lần</em></div>
-            <div><span>Số đơn trung bình / ngày</span><strong>14 → 51 đơn</strong><em>gấp 3,7 lần</em></div>
+            <div><span>Tổng doanh thu trung bình / ngày</span><strong>1.881.050đ → 6.643.032đ</strong><em>gấp 3,5 lần</em></div>
+            <div><span>Khách hàng trung bình / ngày</span><strong>8 → 36 khách</strong><em>gấp 4,4 lần</em></div>
           </div>
-          <p class="ba-how">So 12/8 – 31/8 (trước khi làm) với tháng 10. Lấy số trên ảnh chia cho số ngày của mỗi kỳ (20 và 31 ngày).</p>
+          <p class="ba-how">So 12/8 – 31/8 (trước khi làm) với tháng 10. Lấy số trên ảnh chia cho số ngày của mỗi kỳ (20 và 31 ngày). Tháng 7 là nửa tháng đầu quán mới lên bán.</p>
           <div class="ba-grid">
-            <figure class="truoc"><figcaption><b>TRƯỚC</b>12/8 – 31/8</figcaption><a class="doc" href="quan-com-truoc.webp" target="_blank" rel="noopener"><img src="quan-com-truoc.webp" width="900" height="1800" loading="lazy" alt="Số liệu GrabFood của quán cơm, 12/8 – 31/8"></a>
-              <ul><li>Doanh thu ròng: <b>31.736.000đ</b></li><li>Số giao dịch: <b>274</b></li><li>TB mỗi giao dịch: <b>115.825đ</b></li></ul></figure>
-            <figure class="sau"><figcaption><b>SAU</b>Tháng 9</figcaption><a href="quan-com-thang-9.webp" target="_blank" rel="noopener"><img src="quan-com-thang-9.webp" width="1178" height="568" loading="lazy" alt="Số liệu GrabFood của quán cơm, Tháng 9"></a>
-              <ul><li>Doanh thu ròng: <b>69.601.000đ</b></li><li>Số giao dịch: <b>636</b></li><li>TB mỗi giao dịch: <b>109.436đ</b></li></ul></figure>
-            <figure class="sau"><figcaption><b>SAU</b>Tháng 10</figcaption><a href="quan-com-thang-10.webp" target="_blank" rel="noopener"><img src="quan-com-thang-10.webp" width="1178" height="576" loading="lazy" alt="Số liệu GrabFood của quán cơm, Tháng 10"></a>
-              <ul><li>Doanh thu ròng: <b>172.225.400đ</b></li><li>Số giao dịch: <b>1.576</b></li><li>TB mỗi giao dịch: <b>109.280đ</b></li></ul></figure>
+            <figure class="moi"><figcaption><b>MỚI LÊN BÁN</b>1/7 – 14/7</figcaption><a href="quan-com-thang-7.webp" target="_blank" rel="noopener"><img src="quan-com-thang-7.webp" width="900" height="1690" loading="lazy" alt="Số liệu GrabFood của quán cơm, 1/7 – 14/7"></a>
+              <ul><li>Tổng doanh thu: <b>5.223.000đ</b></li><li>Tổng số khách hàng: <b>30</b></li><li>Tiếp cận khách hàng: <b>5.302</b></li></ul></figure>
+            <figure class="truoc"><figcaption><b>TRƯỚC</b>12/8 – 31/8</figcaption><a href="quan-com-thang-8.webp" target="_blank" rel="noopener"><img src="quan-com-thang-8.webp" width="900" height="1800" loading="lazy" alt="Số liệu GrabFood của quán cơm, 12/8 – 31/8"></a>
+              <ul><li>Tổng doanh thu: <b>37.621.000đ</b></li><li>Tổng số khách hàng: <b>162</b></li><li>Tiếp cận khách hàng: <b>16.227</b></li></ul></figure>
+            <figure class="sau"><figcaption><b>SAU</b>Tháng 9</figcaption><a href="quan-com-thang-9.webp" target="_blank" rel="noopener"><img src="quan-com-thang-9.webp" width="900" height="1800" loading="lazy" alt="Số liệu GrabFood của quán cơm, Tháng 9"></a>
+              <ul><li>Tổng doanh thu: <b>81.463.000đ</b></li><li>Tổng số khách hàng: <b>386</b></li><li>Tiếp cận khách hàng: <b>65.080</b></li></ul></figure>
+            <figure class="sau"><figcaption><b>SAU</b>Tháng 10</figcaption><a href="quan-com-thang-10.webp" target="_blank" rel="noopener"><img src="quan-com-thang-10.webp" width="900" height="1800" loading="lazy" alt="Số liệu GrabFood của quán cơm, Tháng 10"></a>
+              <ul><li>Tổng doanh thu: <b>205.934.000đ</b></li><li>Tổng số khách hàng: <b>1.107</b></li><li>Tiếp cận khách hàng: <b>161.969</b></li></ul></figure>
           </div>
         </article>
         <div class="copy-case-grid">
