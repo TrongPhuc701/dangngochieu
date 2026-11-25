@@ -1,2 +1,12 @@
 # dangngochieu
-Ladipage Đặng Ngọc Hiếu
+
+Từ 25/11/2026 repo này chứa hai phần, đẩy lên `main` là Vercel (project "dangngochieu") tự triển khai:
+
+- **Gốc (`/`)**: website Next.js mới của Đặng Ngọc Hiếu, đã build sẵn (thư mục `out/`). Mã nguồn ở repo website riêng (`WebsiteDNH-T4-preview`, nhánh `task/ui-kem-xanh`). Sửa ở đó, build với `NEXT_PUBLIC_SITE_URL=https://www.dangngochieu.vn NEXT_PUBLIC_ALLOW_INDEX=1 NEXT_PUBLIC_TRACKING=1`, rồi chép `out/` đè vào gốc repo này (giữ nguyên `saleapp/`, `vercel.json`, `README.md`).
+- **`/saleapp/`**: Ladipage bán khóa cũ (index.html + profile.html + ảnh). Sửa thẳng trong thư mục `saleapp/`.
+
+`vercel.json`:
+- `/profile.html` chuyển sang `/saleapp/profile.html`.
+- Khách bấm quảng cáo vào trang chủ (link có `fbclid`, `ttclid`, `gclid`, `gbraid`, `wbraid`) được chuyển sang `/saleapp/`, giữ nguyên tham số đo. Khi đã đổi link quảng cáo sang `/saleapp/` thì có thể bỏ các dòng này.
+
+Quay lại bản cũ: `git revert` commit chuyển đổi rồi đẩy `main`.

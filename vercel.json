@@ -1,0 +1,14 @@
+{
+  "trailingSlash": true,
+  "redirects": [
+    { "source": "/profile.html", "destination": "/saleapp/profile.html", "permanent": true },
+    { "source": "/", "has": [{ "type": "query", "key": "fbclid" }], "destination": "/saleapp/", "permanent": false },
+    { "source": "/", "has": [{ "type": "query", "key": "ttclid" }], "destination": "/saleapp/", "permanent": false },
+    { "source": "/", "has": [{ "type": "query", "key": "gclid" }], "destination": "/saleapp/", "permanent": false },
+    { "source": "/", "has": [{ "type": "query", "key": "gbraid" }], "destination": "/saleapp/", "permanent": false },
+    { "source": "/", "has": [{ "type": "query", "key": "wbraid" }], "destination": "/saleapp/", "permanent": false }
+  ],
+  "headers": [
+    { "source": "/_next/static/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }] }
+  ]
+}

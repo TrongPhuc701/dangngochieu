@@ -1,0 +1,32 @@
+# Đặng Ngọc Hiếu
+
+> Tối ưu menu, giá, combo và setup gian hàng GrabFood, ShopeeFood cho chủ quán F&B. Có khóa tự học, chẩn đoán, tối ưu menu và đồng hành 1:1.
+
+Website của Đặng Ngọc Hiếu, chuyên gia tối ưu menu và vận hành FoodApp cho chủ quán F&B vừa và nhỏ tại Việt Nam. Giá gói là giá tham khảo, chốt trước khi thanh toán. Không cam kết tăng đơn hay doanh thu cố định.
+
+## Trang chính
+
+- [Giải pháp](https://www.dangngochieu.vn/giai-phap/): các gói khóa học, chẩn đoán, tối ưu menu, setup và đồng hành 1:1
+- [Công cụ tính](https://www.dangngochieu.vn/cong-cu/): tính số đơn hòa vốn và giá bán trên GrabFood, ShopeeFood
+- [Số liệu quán thật](https://www.dangngochieu.vn/phan-hoi/): ảnh chụp trang quản lý của quán, chưa đối soát lãi
+- [Kiến thức](https://www.dangngochieu.vn/kien-thuc/): bài hướng dẫn cho chủ quán bán trên FoodApp
+- [Về Hiếu](https://www.dangngochieu.vn/dang-ngoc-hieu/)
+- [Nhận tư vấn](https://www.dangngochieu.vn/bat-dau/)
+
+## Gói giải pháp
+
+- [Khóa người mới đăng ký bán FoodApp](https://www.dangngochieu.vn/giai-phap/khoa-nguoi-moi/): 199k (mở đăng ký sớm). Người mới mở quán, chưa từng bán GrabFood, ShopeeFood.
+- [Khóa Học Tối Ưu Menu GrabFood/ShopeeFood](https://www.dangngochieu.vn/giai-phap/khoa-video/): 599k. Quán đã lên app, muốn tự học cách tối ưu menu, giá, combo và quảng cáo.
+- [Bộ video + tài liệu](https://www.dangngochieu.vn/giai-phap/bo-video-tai-lieu/): 2.990k. Chủ quán muốn tự làm nhưng cần người hướng dẫn, hỏi đáp trong lúc áp dụng.
+- [Chẩn đoán gian hàng](https://www.dangngochieu.vn/giai-phap/chan-doan-gian-hang/): 7 triệu. Quán đã bán lâu, có doanh thu, menu dài và rối, cần dọn lại cho chuẩn và tinh gọn.
+- [Tối ưu menu / combo / giá GrabFood](https://www.dangngochieu.vn/giai-phap/toi-uu-menu-combo-gia/): 9 triệu. Quán đang bán trên GrabFood, muốn tối ưu lại menu, combo và giá riêng cho GrabFood.
+- [GrabFood tăng cường + đồng bộ 4 FoodApp](https://www.dangngochieu.vn/giai-phap/trien-khai-van-hanh-foodapp/): 13 triệu. Người mới mở quán hoặc không có thời gian tự làm, muốn có mặt cùng lúc trên GrabFood, ShopeeFood, beFood, Xanh SM Ngon.
+- [Đồng hành 1:1](https://www.dangngochieu.vn/giai-phap/dong-hanh-1-1/): Theo từng quán. Chủ quán muốn có người đồng hành sâu sát, giải quyết bài toán riêng theo quy mô và hiện trạng cụ thể của quán.
+
+## Bài kiến thức
+
+- [Kiến trúc menu FoodApp: phương pháp 5 Flow+ cho GrabFood, ShopeeFood](https://www.dangngochieu.vn/kien-thuc/kien-truc-menu-foodapp-5-cua-mua/): Kiến trúc menu FoodApp theo 5 Flow+: THẤY, HIỂU, CHỌN, THÊM, CHỐT và vòng QUAY LẠI. Cách tự soát menu GrabFood, ShopeeFood theo đường khách quyết định mua, kèm kinh tế từng đơn.
+- [Chiết khấu GrabFood, ShopeeFood: chủ quán cần biết gì để tính giá sau chiết khấu](https://www.dangngochieu.vn/kien-thuc/chiet-khau-grabfood-shopeefood-chu-quan-can-biet/): Chiết khấu GrabFood bao nhiêu %, phí ShopeeFood ra sao và cách tính giá sau chiết khấu để biết mỗi đơn quán còn lại bao nhiêu. Có nguồn chính thức.
+- [Cách đăng ký GrabFood, ShopeeFood: hồ sơ cần chuẩn bị và các bước thực hiện](https://www.dangngochieu.vn/kien-thuc/ho-so-dang-ky-grabfood-shopeefood/): Cách đăng ký GrabFood và đăng ký ShopeeFood cho quán mới: hồ sơ cần chuẩn bị, các bước trên ứng dụng, thời gian duyệt và khoản phí khi vào nền tảng.
+- [Cách tối ưu menu GrabFood, ShopeeFood: sắp món, ảnh, mô tả và combo](https://www.dangngochieu.vn/kien-thuc/cach-toi-uu-menu-grabfood-shopeefood/): Cách tối ưu menu GrabFood và ShopeeFood: sắp nhóm món, ảnh, mô tả, combo và kiểm tra từng món theo lãi góp. Không hứa tăng đơn, chỉ nói cách làm.
+- [Cách tính giá bán trên GrabFood và điểm hòa vốn quán FoodApp](https://www.dangngochieu.vn/kien-thuc/cach-tinh-gia-ban-va-diem-hoa-von-foodapp/): Cách tính giá bán trên GrabFood, ShopeeFood từ giá vốn, đóng gói, phí nền tảng, khuyến mãi; có công thức điểm hòa vốn và ví dụ giả định.

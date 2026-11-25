@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Host: https://www.dangngochieu.vn
+Sitemap: https://www.dangngochieu.vn/sitemap.xml
