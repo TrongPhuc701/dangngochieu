@@ -7,7 +7,7 @@
       "permanent": true
     },
     {
-      "source": "/saleapp",
+      "source": "/saleapp/",
       "destination": "/khoahocfoodapp/",
       "permanent": true
     },
