@@ -1,12 +1,12 @@
 # Đặng Ngọc Hiếu
 
-> Tối ưu menu, giá, combo và setup gian hàng GrabFood, ShopeeFood cho chủ quán F&B. Có khóa tự học, chẩn đoán, tối ưu menu và đồng hành 1:1.
+> Tối ưu menu, giá, combo và setup gian hàng GrabFood, ShopeeFood cho chủ quán F&B. Có khóa tự học, khám quán qua Zoom, dọn lại menu, tối ưu menu và đồng hành 1:1.
 
 Website của Đặng Ngọc Hiếu, chuyên gia tối ưu menu và vận hành FoodApp cho chủ quán F&B vừa và nhỏ tại Việt Nam. Giá gói là giá tham khảo, chốt trước khi thanh toán. Không cam kết tăng đơn hay doanh thu cố định.
 
 ## Trang chính
 
-- [Giải pháp](https://www.dangngochieu.vn/giai-phap/): các gói khóa học, chẩn đoán, tối ưu menu, setup và đồng hành 1:1
+- [Giải pháp](https://www.dangngochieu.vn/giai-phap/): các gói khóa học, khám quán 1:1 qua Zoom, dọn lại menu, tối ưu menu, setup và đồng hành 1:1
 - [Công cụ tính](https://www.dangngochieu.vn/cong-cu/): tính số đơn hòa vốn và giá bán trên GrabFood, ShopeeFood
 - [Số liệu quán thật](https://www.dangngochieu.vn/phan-hoi/): ảnh chụp trang quản lý của quán, chưa đối soát lãi
 - [Kiến thức](https://www.dangngochieu.vn/kien-thuc/): bài hướng dẫn cho chủ quán bán trên FoodApp
@@ -18,7 +18,8 @@ Website của Đặng Ngọc Hiếu, chuyên gia tối ưu menu và vận hành 
 - [Khóa người mới đăng ký bán FoodApp](https://www.dangngochieu.vn/giai-phap/khoa-nguoi-moi/): 199k (mở đăng ký sớm). Người mới mở quán, chưa từng bán GrabFood, ShopeeFood.
 - [Khóa Học Tối Ưu Menu GrabFood/ShopeeFood](https://www.dangngochieu.vn/giai-phap/khoa-video/): 599k. Quán đã lên app, muốn tự học cách tối ưu menu, giá, combo và quảng cáo.
 - [Bộ video + tài liệu](https://www.dangngochieu.vn/giai-phap/bo-video-tai-lieu/): 2.990k. Chủ quán muốn tự làm nhưng cần người hướng dẫn, hỏi đáp trong lúc áp dụng.
-- [Chẩn đoán gian hàng](https://www.dangngochieu.vn/giai-phap/chan-doan-gian-hang/): 7 triệu. Quán đã bán lâu, có doanh thu, menu dài và rối, cần dọn lại cho chuẩn và tinh gọn.
+- [Khám quán 1:1 qua Zoom](https://www.dangngochieu.vn/giai-phap/kham-quan-zoom/): 1 triệu. Quán đã có gian hàng, đơn chưa như kỳ vọng hoặc đang tụt; học viên khóa video đã làm mà còn kẹt khi áp dụng.
+- [Dọn lại menu gian hàng](https://www.dangngochieu.vn/giai-phap/chan-doan-gian-hang/): 7 triệu. Quán đã bán lâu, có doanh thu, menu dài và rối, cần dọn lại cho chuẩn và tinh gọn.
 - [Tối ưu menu / combo / giá GrabFood](https://www.dangngochieu.vn/giai-phap/toi-uu-menu-combo-gia/): 9 triệu. Quán đang bán trên GrabFood, muốn tối ưu lại menu, combo và giá riêng cho GrabFood.
 - [GrabFood tăng cường + đồng bộ 4 FoodApp](https://www.dangngochieu.vn/giai-phap/trien-khai-van-hanh-foodapp/): 13 triệu. Người mới mở quán hoặc không có thời gian tự làm, muốn có mặt cùng lúc trên GrabFood, ShopeeFood, beFood, Xanh SM Ngon.
 - [Đồng hành 1:1](https://www.dangngochieu.vn/giai-phap/dong-hanh-1-1/): Theo từng quán. Chủ quán muốn có người đồng hành sâu sát, giải quyết bài toán riêng theo quy mô và hiện trạng cụ thể của quán.
