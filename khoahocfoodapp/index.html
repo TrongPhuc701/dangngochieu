@@ -644,21 +644,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       const original = button.innerHTML;
       isSubmitting = true; button.disabled = true; button.textContent = 'ĐANG GỬI...';
       const data = new FormData(form); data.delete('bot_check'); data.append('Thời gian', new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' }));
-      try {
-        const response = await fetch(GOOGLE_SCRIPT_URL, { method:'POST', headers:{ 'Content-Type':'application/x-www-form-urlencoded' }, body:new URLSearchParams(data).toString() });
-        const result = await response.json();
-        const isDuplicate = result?.duplicate === true || result?.status === 'duplicate' || result?.code === 'PHONE_EXISTS';
-        if (isDuplicate) {
-          showZaloJoinPrompt('duplicate');
-          return;
-        }
-        if (!response.ok || !result?.ok) throw new Error('Không thể xác nhận đăng ký.');
+      // Google Script có lúc trả lời rất chậm (đo 28/11: 59 giây). Không bắt khách chờ:
+      // sau 6 giây vẫn hiện nút vào nhóm Zalo, dữ liệu tiếp tục gửi ở nền (Zalo mở tab mới nên trang không đóng).
+      let leadTracked = false, promptShown = false;
+      const trackLead = () => {
+        if (leadTracked) return; leadTracked = true;
         if (typeof fbq !== 'undefined') fbq('track', 'Lead');
         if (typeof gtag !== 'undefined') gtag('event', 'generate_lead', { event_category:'lead', event_label:'consultation_form' });
         if (typeof ttq !== 'undefined') ttq.track('SubmitForm', { content_name:'consultation_form' });
-        form.reset(); showZaloJoinPrompt();
-      } catch (error) { alert('Hệ thống đang bận, bạn vui lòng thử lại sau ít phút.'); }
-      finally { button.innerHTML = original; button.disabled = false; isSubmitting = false; }
+      };
+      const showPrompt = (type) => { if (promptShown) return; promptShown = true; form.reset(); showZaloJoinPrompt(type); };
+      const restoreButton = () => { button.innerHTML = original; button.disabled = false; isSubmitting = false; };
+      const slowTimer = setTimeout(() => { trackLead(); showPrompt(); restoreButton(); }, 6000);
+      try {
+        const response = await fetch(GOOGLE_SCRIPT_URL, { method:'POST', keepalive:true, headers:{ 'Content-Type':'application/x-www-form-urlencoded' }, body:new URLSearchParams(data).toString() });
+        const result = await response.json();
+        const isDuplicate = result?.duplicate === true || result?.status === 'duplicate' || result?.code === 'PHONE_EXISTS';
+        if (isDuplicate) { clearTimeout(slowTimer); showPrompt('duplicate'); return; }
+        if (!response.ok || !result?.ok) throw new Error('Không thể xác nhận đăng ký.');
+        clearTimeout(slowTimer); trackLead(); showPrompt();
+      } catch (error) {
+        clearTimeout(slowTimer);
+        if (!promptShown) alert('Hệ thống đang bận, bạn vui lòng thử lại sau ít phút.');
+      }
+      finally { if (!promptShown || isSubmitting) restoreButton(); }
     });
   </script>
 <script src="salepage-offer.js"></script>
