@@ -7,6 +7,6 @@ Từ 25/11/2026 repo này chứa hai phần, đẩy lên `main` là Vercel (proj
 
 `vercel.json`:
 - `/profile.html` chuyển sang `/khoahocfoodapp/profile.html`.
-- Khách bấm quảng cáo vào trang chủ (link có `fbclid`, `ttclid`, `gclid`, `gbraid`, `wbraid`) được chuyển sang `/khoahocfoodapp/`, giữ nguyên tham số đo. Khi đã đổi link quảng cáo sang `/khoahocfoodapp/` thì có thể bỏ các dòng này.
+- Khách bấm quảng cáo vào trang chủ (link có `ttclid`, `gclid`, `gbraid`, `wbraid`; riêng Facebook phải có cả `fbclid` lẫn `utm_source`, vì Facebook gắn `fbclid` vào mọi link bấm ra ngoài, kể cả link trên trang cá nhân) được chuyển sang `/khoahocfoodapp/`, giữ nguyên tham số đo. Khi đã đổi link quảng cáo sang `/khoahocfoodapp/` thì có thể bỏ các dòng này.
 
 Quay lại bản cũ: `git revert` commit chuyển đổi rồi đẩy `main`.

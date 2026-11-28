@@ -22,6 +22,10 @@
         {
           "type": "query",
           "key": "fbclid"
+        },
+        {
+          "type": "query",
+          "key": "utm_source"
         }
       ],
       "destination": "/khoahocfoodapp/",
